@@ -130,7 +130,7 @@ pushd target/linux/ramips
 patch -p1 < 0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
 popd
 # rtl8812au-ac：更新无线5.8
-svn co https://github.com/project-openwrt/openwrt/branches/master/package/kernel/rtl8812au-ac package/kernel/rtl8812au-ac
+# svn co https://github.com/project-openwrt/openwrt/branches/master/package/kernel/rtl8812au-ac package/kernel/rtl8812au-ac
 # 修改transmission依赖
 wget -P ./feeds/packages/net/transmission-web-control/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/transmission-web-control/patches/001-transmission-web-control-dbengine.patch
 pushd feeds/packages/net/transmission-web-control
