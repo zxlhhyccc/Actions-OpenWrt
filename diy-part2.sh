@@ -11,10 +11,10 @@
 #
 
 # rc.common兼容新旧格式插件
-wget -P ./package/base-files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/001-fix-rc.common.patch
-pushd package/base-files
-patch -p1 < 001-fix-rc.common.patch
-popd
+# wget -P ./package/base-files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/001-fix-rc.common.patch
+# pushd package/base-files
+# patch -p1 < 001-fix-rc.common.patch
+# popd
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
