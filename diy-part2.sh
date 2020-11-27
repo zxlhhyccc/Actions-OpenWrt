@@ -15,12 +15,23 @@
 # pushd package/base-files
 # patch -p1 < 001-fix-rc.common.patch
 # popd
+wget -P ./package/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/001-Makefile-force-overwrite.patch
+pushd package
+patch -p1 < 001-Makefile-force-overwrite.patch
+popd
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
 rm -f ./include/netfilter.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/netfilter.mk
 # kernel支持及修改连接数
+rm -f ./package/kernel/linux/modules/crypto.mk
+wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/crypto.mk
+rm -f ./package/kernel/linux/modules/lib.mk
+wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/lib.mk
+rm -f ./package/kernel/linux/modules/other.mk
+wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/other.mk
+
 rm -f ./package/kernel/linux/modules/netdevices.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netdevices.mk
 rm -f ./package/kernel/linux/modules/netfilter.mk
@@ -37,6 +48,14 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/uti
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/shellsync package/network/services/shellsync
+
+rm -f ./package/network/services/ppp/patches/600-Revert-pppd-Use-openssl-for-the-DES-instead-of-the-l.patch
+wget -P ./package/network/services/ppp/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/ppp/patches/600-Revert-pppd-Use-openssl-for-the-DES-instead-of-the-l.patch
+wget -P ./package/network/services/ppp/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/ppp/patches/512-syncppp.patch
+wget -P ./package/network/services/ppp/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/ppp/001-Makefile-syncdial.patch
+pushd package/network/services/ppp
+patch -p1 < 001-Makefile-syncdial.patch
+popd
 # MWAN3回退到2.8.12版本以适配多拨
 # rm -rf ./feeds/packages/net/mwan3
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/mwan3 feeds/packages/net/mwan3
@@ -129,6 +148,10 @@ wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-i
 pushd target/linux/ramips
 patch -p1 < 0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
 popd
+wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/patches/overclock-mt7621.patch
+pushd target/linux/ramips
+patch -p1 < overclock-mt7621.patch
+popd
 # rtl8812au-ac：更新无线5.8
 # svn co https://github.com/project-openwrt/openwrt/branches/master/package/kernel/rtl8812au-ac package/kernel/rtl8812au-ac
 # 修改transmission依赖
@@ -171,11 +194,20 @@ wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhy
 pushd feeds/packages/admin/netdata
 patch -p1 < 000-netdata-delete-config.patch
 popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/005-netdata.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 005-netdata.patch
+popd
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # luci-lib-jsoncs使用int64
 wget -P ./feeds/luci/libs/luci-lib-jsonc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/libs/luci-lib-jsonc/patches/0001-use_json_object_new_int64.patch
 pushd feeds/luci/libs/luci-lib-jsonc
 patch -p1 < 0001-use_json_object_new_int64.patch
+popd
+# 修正adblock.init
+wget -P ./feeds/packages/net/adblock/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/adblock/patches/001-adblock.patch
+pushd feeds/packages/net/adblock
+patch -p1 < 001-adblock.patch
 popd
 # 屏蔽socat/openvpn的与luci冲突的config、init以编译luci
 wget -P ./feeds/packages/net/socat/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/socat/patches/001-shield-socat-config-init.patch
