@@ -59,9 +59,9 @@ wget -P ./package/network/services/ppp/ https://raw.githubusercontent.com/zxlhhy
 pushd package/network/services/ppp
 patch -p1 < 001-Makefile-syncdial.patch
 popd
-# MWAN3回退到2.8.12版本以适配多拨
-# rm -rf ./feeds/packages/net/mwan3
-# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/mwan3 feeds/packages/net/mwan3
+# MWAN3回退到2.8.14版本以适配多拨
+rm -rf ./feeds/packages/net/mwan3
+svn co https://github.com/openwrt/packages/branches/openwrt-19.07/net/mwan3 feeds/packages/net/mwan3
 # 关闭https-dns-proxy自启动
 sed -i 's/'*'/''/g' feeds/packages/net/https-dns-proxy/files/https-dns-proxy.config
 sed -i 's/'*'/''/g' feeds/packages/net/https-dns-proxy/files/https-dns-proxy.init
