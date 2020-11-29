@@ -15,8 +15,8 @@
 # pushd package/base-files
 # patch -p1 < 001-fix-rc.common.patch
 # popd
-rm -f ./feeds/packages/lang/python/python3/files/python3-package-ctypes.mk
-wget -P ./feeds/packages/lang/python/python3/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python3/files/python3-package-ctypes.mk
+# rm -f ./feeds/packages/lang/python/python3/files/python3-package-ctypes.mk
+# wget -P ./feeds/packages/lang/python/python3/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python3/files/python3-package-ctypes.mk
 
 wget -P ./package/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/001-Makefile-force-overwrite.patch
 pushd package
