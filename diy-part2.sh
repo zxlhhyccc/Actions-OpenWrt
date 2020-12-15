@@ -27,6 +27,13 @@ wget -P ./package/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/maste
 pushd package
 patch -p1 < 001-Makefile-force-overwrite.patch
 popd
+
+# 添加、修复iwinfo适配K2P闭源驱动补丁
+wget -P ./package/network/utils/iwinfo/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/utils/iwinfo/patches/001-ralink-k2p.patch
+pushd package/network/utils/iwinfo
+patch -p1 < 001-ralink-k2p.patch
+popd
+
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
@@ -222,8 +229,8 @@ wget -P ./feeds/packages/net/socat/ https://raw.githubusercontent.com/zxlhhyccc/
 pushd feeds/packages/net/socat
 patch -p1 < 001-shield-socat-config-init.patch
 popd
-wget -P ./package/network/services/openvpn/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/openvpn/patches/001-shield-config.patch
-pushd package/network/services/openvpn
+wget -P ./feeds/packages/net/openvpn/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/openvpn/patches/001-shield-config.patch
+pushd feeds/packages/net/openvpn
 patch -p1 < 001-shield-config.patch
 popd
 # 添加samba36
@@ -244,6 +251,7 @@ rm -rf ./feeds/packages/net/kcptun
 rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/packages/utils/coremark
+rm -rf ./feeds/packages/libs/libtorrent-rasterbar
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
 rm -rf ./feeds/luci/applications/luci-app-smartdns
