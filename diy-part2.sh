@@ -74,8 +74,10 @@ popd
 rm -rf ./feeds/packages/net/mwan3
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/net/mwan3 feeds/packages/net/mwan3
 # 关闭https-dns-proxy自启动
-sed -i 's/'*'/''/g' feeds/packages/net/https-dns-proxy/files/https-dns-proxy.config
-sed -i 's/'*'/''/g' feeds/packages/net/https-dns-proxy/files/https-dns-proxy.init
+wget -P ./feeds/packages/net/https-dns-proxy/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/https-dns-proxy/patches/0001-not-started.patch
+pushd feeds/packages/net/https-dns-proxy
+patch -p1 < 0001-not-started.patch
+popd
 # 修改feeds里的luci-app-firewall加速开关等源码包
 wget -P ./feeds/luci/applications/luci-app-firewall/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-firewall/patches/001-luci-app-firewall-Enable-FullCone-NAT.patch
 pushd feeds/luci/applications/luci-app-firewall
@@ -276,9 +278,7 @@ wget -P ./package/kernel/mac80211/patches/ath/ https://raw.githubusercontent.com
 # svn co https://github.com/zxlhhyccc/openwrt-master/trunk/target/linux/rockchip/patches-5.4 target/linux/rockchip/patches-5.4
 # busybox：为docker top命令添加ps -ef选项的补丁
 wget -P ./package/utils/busybox/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
-# golang更新到1.15.3
-# sed -i 's/GO_VERSION_PATCH:=2/GO_VERSION_PATCH:=3/g' feeds/packages/lang/golang/golang/Makefile
-# sed -i 's/28bf9d0bcde251011caae230a4a05d917b172ea203f2a62f2c2f9533589d4b4d/896a602570e54c8cdfc2c1348abd4ffd1016758d0bd086ccd9787dbfc9b64888/g' feeds/packages/lang/golang/golang/Makefile
+
 # mvebu 添加cpu显示
 rm -rf target/linux/mvebu/Makefile
 wget -P ./target/linux/mvebu/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/mvebu/Makefile
