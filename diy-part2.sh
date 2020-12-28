@@ -265,6 +265,9 @@ rm -rf ./feeds/luci/applications/luci-app-smartdns
 # rm -rf ./feeds/luci/applications/luci-app-ksmbd
 rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
 rm -rf ./package/openwrt-package/lean/nft-qos
+# ramips: mt7621 OC 1000 MHz
+rm -f ./target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
+wget -P ./target/linux/ramips/patches-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
 # 替换acc
 # rm -rf ./package/openwrt-package/lean/luci-app-flowoffload-master
 # pushd package/openwrt-package/lean
