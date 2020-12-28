@@ -83,6 +83,7 @@ wget -P ./feeds/packages/net/wget/ https://raw.githubusercontent.com/zxlhhyccc/a
 pushd feeds/packages/net/wget
 patch -p1 < 001-soft-link-binary-file-to-usr-bin.patch
 popd
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/wget/wget/patches feeds/packages/net/wget/patches
 # 修改feeds里的luci-app-firewall加速开关等源码包
 wget -P ./feeds/luci/applications/luci-app-firewall/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-firewall/patches/001-luci-app-firewall-Enable-FullCone-NAT.patch
 pushd feeds/luci/applications/luci-app-firewall
