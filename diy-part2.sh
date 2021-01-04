@@ -63,12 +63,9 @@ rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/shellsync package/network/services/shellsync
 
-rm -f ./package/network/services/ppp/patches/600-Revert-pppd-Use-openssl-for-the-DES-instead-of-the-l.patch
-wget -P ./package/network/services/ppp/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/ppp/patches/600-Revert-pppd-Use-openssl-for-the-DES-instead-of-the-l.patch
-wget -P ./package/network/services/ppp/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/ppp/patches/512-syncppp.patch
-wget -P ./package/network/services/ppp/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/ppp/001-Makefile-syncdial.patch
+wget -P ./package/network/services/ppp/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/ppp/patches/001-ppp-add-shellsync-support.patch
 pushd package/network/services/ppp
-patch -p1 < 001-Makefile-syncdial.patch
+patch -p1 < 001-ppp-add-shellsync-support.patch
 popd
 # MWAN3回退到2.8.14版本以适配多拨
 rm -rf ./feeds/packages/net/mwan3
