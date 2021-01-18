@@ -96,7 +96,7 @@ rm -rf ./feeds/packages/admin/htop
 svn co https://github.com/project-openwrt/packages/trunk/admin/htop feeds/packages/admin/htop
 # rm -rf ./feeds/packages/libs/libyaml-cpp
 # svn co https://github.com/project-openwrt/packages/trunk/libs/libyaml-cpp feeds/packages/libs/libyaml-cpp
-# 添加5.4内核ACC、shortcut-fe补丁
+# 添加5.4内核ACC、shortcut-fe、bbrplus补丁
 rm -f ./target/linux/generic/hack-5.4/250-netfilter_depends.patch
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/250-netfilter_depends.patch
 rm -f ./target/linux/generic/hack-5.4/650-netfilter-add-xt_OFFLOAD-target.patch
@@ -111,6 +111,7 @@ wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyc
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/998-add-ndo-do-ioctl.patch
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/999-thermal-tristate.patch
+wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/9999-convert_official_linux-5.4.x_src_to_bbrplus.patch
 # 修复pending-5.4部分补丁及添加imq模块补丁
 wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/601-add-kernel-imq-support.patch
 rm -f ./target/linux/generic/pending-5.4/655-increase_skb_pad.patch
@@ -138,6 +139,7 @@ sed -i 's#boardinfo.hostname or "?"#""#g' feeds/luci/themes/luci-theme-material/
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 添加feeds里的依赖包
+svn co https://github.com/project-openwrt/packages/trunk/lang/node-yarn feeds/packages/lang/node-yarn
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 svn co https://github.com/project-openwrt/packages/trunk/libs/opencv feeds/packages/libs/opencv
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/fcgi feeds/packages/libs/fcgi
