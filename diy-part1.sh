@@ -16,3 +16,7 @@ sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_genera
 sed -i 's/processors 1/processors $(shell nproc)/g' include/image.mk
 # openssl：通过以下方式，使ARMv8设备适配ChaCha20-Poly1305而不是AES-GCM
 sed -i 's/default y if !x86_64 && !aarch64/default y if !x86_64/g' package/libs/openssl/Config.in
+# K3默认驱动替换
+sed -i 's/brcmfmac-firmware-4366c0-pcie/brcmfmac-firmware-4366c0-pcie-vendor/g' target/linux/bcm53xx/image/Makefile
+# autocore-arm：添加目标sunxi支持
+sed -i 's/uboot-envtools/autocore-arm uboot-envtools/g' target/linux/sunxi/Makefile
