@@ -20,3 +20,7 @@ sed -i 's/default y if !x86_64 && !aarch64/default y if !x86_64/g' package/libs/
 sed -i 's/brcmfmac-firmware-4366c0-pcie/brcmfmac-firmware-4366c0-pcie-vendor/g' target/linux/bcm53xx/image/Makefile
 # autocore-arm：添加目标sunxi支持
 sed -i 's/uboot-envtools/autocore-arm uboot-envtools/g' target/linux/sunxi/Makefile
+# ncurses：修改缺失libncursesw6
+sed -i 's/ABI_VERSION:=6/ABI_VERSION:=$(PKG_ABI_VERSION)/g' package/libs/ncurses/Makefile
+# readline：修改架构错误
+sed -i 's/ABI_VERSION:=8/ABI_VERSION:=$(PKG_ABI_VERSION)/g' package/libs/readline/Makefile
