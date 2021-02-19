@@ -71,9 +71,9 @@ popd
 rm -rf ./feeds/packages/net/mwan3
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/net/mwan3 feeds/packages/net/mwan3
 # 关闭https-dns-proxy自启动
-wget -P ./feeds/packages/net/https-dns-proxy/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/https-dns-proxy/patches/0001-not-started.patch
+wget -P ./feeds/packages/net/https-dns-proxy/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/https-dns-proxy/patches/001-not-started.patch
 pushd feeds/packages/net/https-dns-proxy
-patch -p1 < 0001-not-started.patch
+patch -p1 < 001-not-started.patch
 popd
 # wget软链接到/usr/bin的二进制文件，以便与其他文件兼容
 wget -P ./feeds/packages/net/wget/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/wget/patches/001-soft-link-binary-file-to-usr-bin.patch

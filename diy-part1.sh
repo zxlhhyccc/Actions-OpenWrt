@@ -21,6 +21,6 @@ sed -i 's/brcmfmac-firmware-4366c0-pcie/brcmfmac-firmware-4366c0-pcie-vendor/g' 
 # autocore-arm：添加目标sunxi支持
 sed -i 's/uboot-envtools/autocore-arm uboot-envtools/g' target/linux/sunxi/Makefile
 # ncurses：修改缺失libncursesw6
-sed -i 's/ABI_VERSION:=6/ABI_VERSION:=$(PKG_ABI_VERSION)/g' package/libs/ncurses/Makefile
+# sed -i 's/ABI_VERSION:=6/ABI_VERSION:=$(PKG_ABI_VERSION)/g' package/libs/ncurses/Makefile
 # readline：修改架构错误
-sed -i 's/ABI_VERSION:=8/ABI_VERSION:=$(PKG_ABI_VERSION)/g' package/libs/readline/Makefile
+# sed -i 's/ABI_VERSION:=8/ABI_VERSION:=$(PKG_ABI_VERSION)/g' package/libs/readline/Makefile
