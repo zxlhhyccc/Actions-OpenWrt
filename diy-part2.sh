@@ -32,7 +32,8 @@ wget -P ./package/network/utils/iwinfo/ https://raw.githubusercontent.com/zxlhhy
 pushd package/network/utils/iwinfo
 patch -p1 < 001-ralink-k2p.patch
 popd
-
+# 添加mbedtls补丁
+wget -P ./package/libs/mbedtls/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
@@ -67,7 +68,7 @@ wget -P ./package/network/services/ppp/ https://raw.githubusercontent.com/zxlhhy
 pushd package/network/services/ppp
 patch -p1 < 001-ppp-add-shellsync-support.patch
 popd
-# MWAN3回退到2.8.14版本以适配多拨
+# MWAN3回退到2.8.16版本以适配多拨
 rm -rf ./feeds/packages/net/mwan3
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/net/mwan3 feeds/packages/net/mwan3
 # 关闭https-dns-proxy自启动
