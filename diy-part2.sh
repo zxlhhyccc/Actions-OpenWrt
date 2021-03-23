@@ -290,9 +290,11 @@ wget -P ./package/kernel/mac80211/patches/subsys/ https://raw.githubusercontent.
 wget -P ./package/kernel/mac80211/patches/ath/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/ath/983-ath10k-allow-vht-on-2g.patch
 # 修正友善补丁(R2S/R4S)
 rm -rf package/boot/uboot-rockchip
-svn co https://github.com/project-openwrt/openwrt/branches/master/package/boot/uboot-rockchip package/boot/uboot-rockchip
+svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/uboot-rockchip package/boot/uboot-rockchip
 rm -rf target/linux/rockchip
-svn co https://github.com/project-openwrt/openwrt/branches/master/target/linux/rockchip target/linux/rockchip
+svn co https://github.com/immortalwrt/immortalwrt/branches/master/target/linux/rockchip target/linux/rockchip
+svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/arm-trusted-firmware-rk3328 package/boot/arm-trusted-firmware-rk3328
+
 # busybox：为docker top命令添加ps -ef选项的补丁
 wget -P ./package/utils/busybox/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
 
