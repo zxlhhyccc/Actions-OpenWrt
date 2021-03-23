@@ -144,7 +144,7 @@ sed -i 's#boardinfo.hostname or "?"#""#g' feeds/luci/themes/luci-theme-material/
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 添加feeds里的依赖包
-svn co https://github.com/project-openwrt/packages/trunk/lang/node-yarn feeds/packages/lang/node-yarn
+# svn co https://github.com/project-openwrt/packages/trunk/lang/node-yarn feeds/packages/lang/node-yarn
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 svn co https://github.com/project-openwrt/packages/trunk/libs/opencv feeds/packages/libs/opencv
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/fcgi feeds/packages/libs/fcgi
@@ -255,10 +255,7 @@ popd
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-version.mk
 # 添加aria2补丁
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/aria2/patches feeds/packages/net/aria2/patches
-wget -P ./feeds/packages/net/aria2/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/aria2/patches/001-fix-linking-with-full-language-support-enabled.patch
-pushd feeds/packages/net/aria2
-patch -p1 < 001-fix-linking-with-full-language-support-enabled.patch
-popd
+
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/adguardhome
 rm -rf ./feeds/packages/net/frp
@@ -274,6 +271,7 @@ rm -rf ./feeds/luci/applications/luci-app-smartdns
 # rm -rf ./feeds/luci/applications/luci-app-ksmbd
 rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
 rm -rf ./package/openwrt-package/lean/nft-qos
+rm -rf ./feeds/packages/net/xray-core
 # ramips: mt7621 OC 1000 MHz
 rm -f ./target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
 wget -P ./target/linux/ramips/patches-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
