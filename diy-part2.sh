@@ -54,12 +54,18 @@ wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhy
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 sed -i 's/7440/7200/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 # 修改network中防火墙等源码包
-rm -rf ./package/network/config/firewall
-svn co https://github.com/project-openwrt/openwrt/branches/master/package/network/config/firewall package/network/config/firewall
-rm -rf ./package/network/utils/iptables
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
-rm -rf ./package/network/utils/iproute2
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iproute2 package/network/utils/iproute2
+wget -P ./package/network/config/firewall/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/config/firewall/001-add-fullconenat.patch
+pushd package/network/config/firewall
+patch -p1 < 001-add-fullconenat.patch
+popd
+wget -P ./package/network/utils/iptables/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/utils/iptables/001-IMQ-gargoyle-netfilter-match-modules.patch
+pushd package/network/utils/iptables
+patch -p1 < 001-IMQ-gargoyle-netfilter-match-modules.patch
+popd
+wget -P ./package/network/utils/iproute2/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/utils/iproute2/001-add-qos-gargoyle.patch
+pushd package/network/utils/iproute2
+patch -p1 < 001-add-qos-gargoyle.patch
+popd
 
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/shellsync package/network/services/shellsync
 
