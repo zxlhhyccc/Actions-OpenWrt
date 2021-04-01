@@ -21,5 +21,11 @@ sed -i 's/$(VERSION_DIST_SANITIZED)/$(BUILD_DATE_PREFIX)-$(VERSION_DIST_SANITIZE
 sed -i 's/default y if !x86_64 && !aarch64/default y if !x86_64/g' package/libs/openssl/Config.in
 # K3默认驱动替换
 sed -i 's/brcmfmac-firmware-4366c0-pcie/brcmfmac-firmware-4366c0-pcie-vendor/g' target/linux/bcm53xx/image/Makefile
+# K3默认驱动还原
+# sed -i 's/brcmfmac-firmware-4366c0-pcie-vendor/brcmfmac-firmware-4366c0-pcie/g' target/linux/bcm53xx/image/Makefile
+# 只编译K3固件
+sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES += phicomm_k3|' target/linux/bcm53xx/image/Makefile
+# 还原编译k3的同架构所有固件
+# sed -i 's|^# TARGET_|TARGET_|g' target/linux/bcm53xx/image/Makefile
 # autocore-arm：添加目标sunxi支持
 sed -i 's/uboot-envtools/autocore-arm uboot-envtools/g' target/linux/sunxi/Makefile
