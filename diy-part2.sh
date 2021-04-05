@@ -41,6 +41,12 @@ pushd feeds/packages/libs/libsodium
 patch -p1 < 001-latest.patch
 rm -f 001-latest.patch
 popd
+# luci-app-nft-qos: simple
+wget -P ./feeds/luci/applications/luci-app-nft-qos/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-nft-qos/001-luci-app-nft-qos-simple.patch
+pushd feeds/luci/applications/luci-app-nft-qos
+patch -p1 < 001-luci-app-nft-qos-simple.patch
+rm -f 001-luci-app-nft-qos-simple.patch
+popd
 # luci-app-mwan3接口系列双堆栈（ipv4 + ipv6）支持
 wget -P ./feeds/luci/applications/luci-app-mwan3/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-mwan3/001-interface-family-dual-stack-ipv4oripv6-support.patch
 pushd feeds/luci/applications/luci-app-mwan3
