@@ -27,6 +27,11 @@ wget -P ./package/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/maste
 pushd package
 patch -p1 < 001-Makefile-force-overwrite.patch
 popd
+
+wget -P ./feeds/packages/net/ocserv/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/ocserv/patches/001-disable-arc.patch
+pushd feeds/packages/net/ocserv
+patch -p1 < 001-disable-arc.patch
+popd
 # 添加、修复iwinfo适配K2P闭源驱动补丁
 wget -P ./package/network/utils/iwinfo/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/utils/iwinfo/patches/001-ralink-k2p.patch
 pushd package/network/utils/iwinfo
