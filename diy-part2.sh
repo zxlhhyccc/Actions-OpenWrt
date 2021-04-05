@@ -48,11 +48,11 @@ patch -p1 < 001-luci-app-nft-qos-simple.patch
 rm -f 001-luci-app-nft-qos-simple.patch
 popd
 # luci-app-mwan3接口系列双堆栈（ipv4 + ipv6）支持
-wget -P ./feeds/luci/applications/luci-app-mwan3/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-mwan3/001-interface-family-dual-stack-ipv4oripv6-support.patch
-pushd feeds/luci/applications/luci-app-mwan3
-patch -p1 < 001-interface-family-dual-stack-ipv4oripv6-support.patch
-rm -f 001-interface-family-dual-stack-ipv4oripv6-support.patch
-popd
+# wget -P ./feeds/luci/applications/luci-app-mwan3/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-mwan3/001-interface-family-dual-stack-ipv4oripv6-support.patch
+# pushd feeds/luci/applications/luci-app-mwan3
+# patch -p1 < 001-interface-family-dual-stack-ipv4oripv6-support.patch
+# rm -f 001-interface-family-dual-stack-ipv4oripv6-support.patch
+# popd
 # 添加、修复iwinfo适配K2P闭源驱动补丁
 wget -P ./package/network/utils/iwinfo/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/utils/iwinfo/patches/001-ralink-k2p.patch
 pushd package/network/utils/iwinfo
