@@ -10,10 +10,10 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
-# rc.common兼容新旧格式插件
-# wget -P ./package/base-files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/001-fix-rc.common.patch
-# pushd package/base-files
-# patch -p1 < 001-fix-rc.common.patch
+# 替换luci-theme-openwrt-2020包适配插件
+rm -rf ./feeds/luci/themes/luci-theme-openwrt-2020
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/luci/themes/luci-theme-openwrt-2020 feeds/luci/themes/luci-theme-openwrt-2020
+rm -rf ./feeds/luci/themes/luci-theme-openwrt-2020/.svn
 # popd
 # rm -f ./feeds/packages/lang/python/python3/files/python3-package-ctypes.mk
 # wget -P ./feeds/packages/lang/python/python3/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python3/files/python3-package-ctypes.mk
