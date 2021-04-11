@@ -144,7 +144,7 @@ popd
 # 更新htop、libyaml-cpp
 rm -rf ./feeds/packages/admin/htop
 svn co https://github.com/immortalwrt/packages/trunk/admin/htop feeds/packages/admin/htop
-rm rf ./feeds/packages/admin/htop/.svn
+rm -rf ./feeds/packages/admin/htop/.svn
 # rm -rf ./feeds/packages/libs/libyaml-cpp
 # svn co https://github.com/project-openwrt/packages/trunk/libs/libyaml-cpp feeds/packages/libs/libyaml-cpp
 # 添加5.4内核ACC、shortcut-fe、bbrplus补丁
