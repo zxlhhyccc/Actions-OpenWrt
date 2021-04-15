@@ -22,11 +22,11 @@ patch -p1 < 001-Makefile-force-overwrite.patch
 rm -f 001-Makefile-force-overwrite.patch
 popd
 
-wget -P ./feeds/packages/net/ocserv/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/ocserv/patches/001-disable-arc.patch
-pushd feeds/packages/net/ocserv
-patch -p1 < 001-disable-arc.patch
-rm -f 001-disable-arc.patch
-popd
+# wget -P ./feeds/packages/net/ocserv/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/ocserv/patches/001-disable-arc.patch
+# pushd feeds/packages/net/ocserv
+# patch -p1 < 001-disable-arc.patch
+# rm -f 001-disable-arc.patch
+# popd
 
 wget -P ./feeds/packages/libs/libsodium/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/libs/libsodium/001-latest.patch
 pushd feeds/packages/libs/libsodium
