@@ -212,6 +212,11 @@ pushd feeds/luci/modules/luci-mod-network
 patch -p1 < 0001-luci-add-filter-aaaa-option.patch
 rm -f 0001-luci-add-filter-aaaa-option.patc
 popd
+wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/0001-dnsmasq-conf.patch
+pushd package/network/services/dnsmasq
+patch -p1 < 0001-dnsmasq-conf.patch
+rm -f 0001-dnsmasq-conf.patch
+popd
 wget -P ./package/network/services/dnsmasq/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/910-mini-ttl.patch
 wget -P ./package/network/services/dnsmasq/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/911-add-filter-aaaa-option.patch
 # 添加dnamasq的多核心dns负载均衡解析
