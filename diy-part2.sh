@@ -16,11 +16,11 @@ patch -p1 < 001-boot.patch
 rm -f 001-boot.patch
 popd
 
-wget -P ./package/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/001-Makefile-force-overwrite.patch
-pushd package
-patch -p1 < 001-Makefile-force-overwrite.patch
-rm -f 001-Makefile-force-overwrite.patch
-popd
+# wget -P ./package/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/001-Makefile-force-overwrite.patch
+# pushd package
+# patch -p1 < 001-Makefile-force-overwrite.patch
+# rm -f 001-Makefile-force-overwrite.patch
+# popd
 
 wget -P ./feeds/packages/libs/libsodium/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/libs/libsodium/001-latest.patch
 pushd feeds/packages/libs/libsodium
