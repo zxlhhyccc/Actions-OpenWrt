@@ -29,3 +29,5 @@ sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES 
 # sed -i 's|^# TARGET_|TARGET_|g' target/linux/bcm53xx/image/Makefile
 # autocore-arm：添加目标sunxi支持
 sed -i 's/uboot-envtools/autocore-arm uboot-envtools/g' target/linux/sunxi/Makefile
+# 调整luci-app-nlbwmon显示菜单
+sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
