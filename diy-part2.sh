@@ -283,15 +283,20 @@ popd
 # pushd feeds/packages/admin/netdata
 # patch -p1 < 004-netdata-with-config.patch
 # popd
-wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/000-netdata-delete-config.patch
+# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/000-netdata-delete-config.patch
+# pushd feeds/packages/admin/netdata
+# patch -p1 < 000-netdata-delete-config.patch
+# rm -f 000-netdata-delete-config.patch
+# popd
+# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/005-netdata.patch
+# pushd feeds/packages/admin/netdata
+# patch -p1 < 005-netdata.patch
+# rm -f 005-netdata.patch
+# popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/006-netdata.patch
 pushd feeds/packages/admin/netdata
-patch -p1 < 000-netdata-delete-config.patch
-rm -f 000-netdata-delete-config.patch
-popd
-wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/005-netdata.patch
-pushd feeds/packages/admin/netdata
-patch -p1 < 005-netdata.patch
-rm -f 005-netdata.patch
+patch -p1 < 006-netdata.patch
+rm -f 006-netdata.patch
 popd
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # luci-lib-jsoncs使用int64
