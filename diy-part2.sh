@@ -66,10 +66,10 @@ patch -p1 < 001-netdevices.mk-netfilter.mk.patch
 rm -f 001-netdevices.mk-netfilter.mk.patch
 popd
 # 3.给kernel的video.mk添加模块
-wget -P ./package/kernel/linux/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/001-video-add-multimedia-input.ptch
+wget -P ./package/kernel/linux/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/001-video-add-multimedia-input.patch
 pushd package/kernel/linux
-patch -p1 < 001-video-add-multimedia-input.ptch
-rm -f 001-video-add-multimedia-input.ptch
+patch -p1 < 001-video-add-multimedia-input.patch
+rm -f 001-video-add-multimedia-input.patch
 popd
 # 4、kernel修改连接数
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
