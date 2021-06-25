@@ -45,8 +45,12 @@ pushd package/network/utils/iwinfo
 patch -p1 < 001-ralink-k2p.patch
 rm -f 001-ralink-k2p.patch
 popd
-# 添加mbedtls补丁
-wget -P ./package/libs/mbedtls/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+# 添加mbedtls:AES-and-GCM-with-ARMv8-Crypto-Extensions.patch补丁
+wget -P ./package/libs/mbedtls/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/libs/mbedtls/001-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+pushd package/network/utils/iwinfo
+patch -p1 < 001-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+rm -f 001-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+popd
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
