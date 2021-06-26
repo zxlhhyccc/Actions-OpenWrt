@@ -222,7 +222,7 @@ patch -p1 < 0001-dnsmasq-conf.patch
 rm -f 0001-dnsmasq-conf.patch
 popd
 wget -P ./package/network/services/dnsmasq/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/910-mini-ttl.patch
-wget -P ./package/network/services/dnsmasq/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/911-add-filter-aaaa-option.patch
+wget -P ./package/network/services/dnsmasq/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/911-dnsmasq-filter-aaaa.patch
 # 添加dnamasq的多核心dns负载均衡解析
 wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/001-auto-multiple-service-instances.patch
 pushd package/network/services/dnsmasq
