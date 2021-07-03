@@ -40,10 +40,10 @@ popd
 # rm -f 001-interface-family-dual-stack-ipv4oripv6-support.patch
 # popd
 # 添加、修复iwinfo适配K2P闭源驱动补丁
-wget -P ./package/network/utils/iwinfo/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/utils/iwinfo/patches/001-ralink-k2p.patch
+wget -P ./package/network/utils/iwinfo/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/utils/iwinfo/patches/101-ralink-k2p.patch
 pushd package/network/utils/iwinfo
-patch -p1 < 001-ralink-k2p.patch
-rm -f 001-ralink-k2p.patch
+patch -p1 < 101-ralink-k2p.patch
+rm -f 101-ralink-k2p.patch
 popd
 # 添加mbedtls:AES-and-GCM-with-ARMv8-Crypto-Extensions.patch补丁
 wget -P ./package/libs/mbedtls/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/libs/mbedtls/001-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
