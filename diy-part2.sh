@@ -47,7 +47,7 @@ rm -f 101-ralink-k2p.patch
 popd
 # 添加mbedtls:AES-and-GCM-with-ARMv8-Crypto-Extensions.patch补丁
 wget -P ./package/libs/mbedtls/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/libs/mbedtls/001-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
-pushd package/network/utils/iwinfo
+pushd package/libs/mbedtls
 patch -p1 < 001-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
 rm -f 001-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
 popd
