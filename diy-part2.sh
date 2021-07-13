@@ -104,9 +104,9 @@ patch -p1 < 001-ppp-add-shellsync-support.patch
 rm -f 001-ppp-add-shellsync-support.patch
 popd
 # MWAN3回退到2.8.16版本以适配多拨
-rm -rf ./feeds/packages/net/mwan3
-svn co https://github.com/openwrt/packages/branches/openwrt-19.07/net/mwan3 feeds/packages/net/mwan3
-rm -rf ./feeds/packages/net/mwan3/.svn
+# rm -rf ./feeds/packages/net/mwan3
+# svn co https://github.com/openwrt/packages/branches/openwrt-19.07/net/mwan3 feeds/packages/net/mwan3
+# rm -rf ./feeds/packages/net/mwan3/.svn
 # luci-app-aria2开放路径修复
 wget -P ./feeds/luci/applications/luci-app-aria2/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-aria2/001-luci-app-aria2-fix-open-path.patch
 pushd feeds/luci/applications/luci-app-aria2
@@ -140,9 +140,9 @@ patch -p1 < 001-wifi-add-MU-MIMO-option.patch
 rm -f 001-wifi-add-MU-MIMO-option.patch
 popd
 # 更新htop、libyaml-cpp
-rm -rf ./feeds/packages/admin/htop
-svn co https://github.com/immortalwrt/packages/trunk/admin/htop feeds/packages/admin/htop
-rm -rf ./feeds/packages/admin/htop/.svn
+# rm -rf ./feeds/packages/admin/htop
+# svn co https://github.com/immortalwrt/packages/trunk/admin/htop feeds/packages/admin/htop
+# rm -rf ./feeds/packages/admin/htop/.svn
 # rm -rf ./feeds/packages/libs/libyaml-cpp
 # svn co https://github.com/project-openwrt/packages/trunk/libs/libyaml-cpp feeds/packages/libs/libyaml-cpp
 # 添加5.4内核ACC、shortcut-fe、bbrplus补丁
