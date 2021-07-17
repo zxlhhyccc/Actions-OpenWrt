@@ -81,7 +81,16 @@ pushd package/kernel/linux
 patch -p1 < 001-video-add-multimedia-input.patch
 rm -f 001-video-add-multimedia-input.patch
 popd
-# 4、kernel修改连接数
+# 4.给kernel的netsupport.mk 添加bbrplus模块
+wget -P ./package/kernel/linux/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/001-netsupport.mk-add-bbrplus.patch
+pushd package/kernel/linux
+patch -p1 < 001-netsupport.mk-add-bbrplus.patch
+rm -f 001-netsupport.mk-add-bbrplus.patch
+popd
+wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-tcp-bbrplus.conf
+wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-add-bbrplus.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-add-bbrplus.patch
+# 5、kernel修改连接数
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 sed -i 's/7440/7200/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 # 修改network中防火墙等源码包
