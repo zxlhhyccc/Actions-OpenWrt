@@ -171,6 +171,10 @@ rm -f ./target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
 rm -f ./target/linux/generic/hack-5.4/683-NET-add-mac-address-property.patch
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/683-NET-add-mac-address-property.patch
+rm -f ./target/linux/generic/hack-5.4/780-drivers-net-mediatek-register-of_platform-for-every-.patch
+wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/780-drivers-net-mediatek-register-of_platform-for-every-.patch
+rm -f ./target/linux/generic/hack-5.4/6781-dsa-register-every-port-with-of_platform.patch
+wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/781-dsa-register-every-port-with-of_platform.patch
 rm -f ./target/linux/generic/hack-5.4/721-phy_packets.patch
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/721-phy_packets.patch
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
