@@ -189,6 +189,10 @@ rm -f ./target/linux/generic/pending-5.4/655-increase_skb_pad.patch
 wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/655-increase_skb_pad.patch
 rm -f ./target/linux/generic/pending-5.4/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
 wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
+rm -f ./target/linux/generic/pending-5.4/681-NET-add-mtd-mac-address-support-to-of_get_mac_addres.patch
+wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/681-NET-add-mtd-mac-address-support-to-of_get_mac_addres.patch
+rm -f ./target/linux/generic/pending-5.4/682-of_net-add-mac-address-increment-support.patch
+wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/682-of_net-add-mac-address-increment-support.patch
 rm -f ./target/linux/generic/pending-5.4/690-net-add-support-for-threaded-NAPI-polling.patch
 wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/690-net-add-support-for-threaded-NAPI-polling.patch
 rm -f ./target/linux/generic/config-5.4
