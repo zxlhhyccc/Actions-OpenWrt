@@ -81,18 +81,25 @@ pushd package/kernel/linux
 patch -p1 < 001-video-add-multimedia-input.patch
 rm -f 001-video-add-multimedia-input.patch
 popd
-# 4.给kernel的netsupport.mk 添加bbrplus模块
+# 4.给netsupport.mk 添加bbrplus、nanqinlang等模块
 wget -P ./package/kernel/linux/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/001-netsupport.mk-add-bbrplus.patch
 pushd package/kernel/linux
 patch -p1 < 001-netsupport.mk-add-bbrplus.patch
 rm -f 001-netsupport.mk-add-bbrplus.patch
 popd
-wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-add-bbrplus.patch
-wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-add-bbrplus.patch
-# 5、kernel修改连接数
+# 5.给kernel(5.4)添加bbrplus、nanqinlang等模块补丁
+wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-bbrplus.patch
+wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-nanqinlang.patch
+wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-tsunami.patch
+wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-tsunamio.patch
+# 6.给kernel(5.10)添加bbrplus、nanqinlang等模块补丁
+wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-bbrplus.patch
+wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-nanqinlang.patch
+wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-tsunami.patch
+# 7、kernel修改连接数
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 sed -i 's/7440/7200/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
-# 修改network中防火墙等源码包
+# 8、修改network中防火墙等源码包
 wget -P ./package/network/config/firewall/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/config/firewall/001-add-fullconenat.patch
 pushd package/network/config/firewall
 patch -p1 < 001-add-fullconenat.patch
@@ -121,19 +128,19 @@ popd
 # rm -rf ./feeds/packages/net/mwan3
 # svn co https://github.com/openwrt/packages/branches/openwrt-19.07/net/mwan3 feeds/packages/net/mwan3
 # rm -rf ./feeds/packages/net/mwan3/.svn
-# luci-app-aria2开放路径修复
+# 9、luci-app-aria2开放路径修复
 wget -P ./feeds/luci/applications/luci-app-aria2/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-aria2/001-luci-app-aria2-fix-open-path.patch
 pushd feeds/luci/applications/luci-app-aria2
 patch -p1 < 001-luci-app-aria2-fix-open-path.patch
 rm -f 001-luci-app-aria2-fix-open-path.patch
 popd
-# 关闭https-dns-proxy自启动
+# 10、关闭https-dns-proxy自启动
 wget -P ./feeds/packages/net/https-dns-proxy/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/https-dns-proxy/patches/001-not-started.patch
 pushd feeds/packages/net/https-dns-proxy
 patch -p1 < 001-not-started.patch
 rm -f 001-not-started.patch
 popd
-# wget软链接到/usr/bin的二进制文件，以便与其他文件兼容
+# 11、wget软链接到/usr/bin的二进制文件，以便与其他文件兼容
 wget -P ./feeds/packages/net/wget/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/wget/patches/001-soft-link-binary-file-to-usr-bin.patch
 pushd feeds/packages/net/wget
 patch -p1 < 001-soft-link-binary-file-to-usr-bin.patch
@@ -141,13 +148,13 @@ rm -f 001-soft-link-binary-file-to-usr-bin.patch
 popd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/wget/wget/patches feeds/packages/net/wget/patches
 rm -rf ./feeds/packages/net/wget/patches/.svn
-# 修改feeds里的luci-app-firewall加速开关等源码包
+# 12、修改feeds里的luci-app-firewall加速开关等源码包
 wget -P ./feeds/luci/applications/luci-app-firewall/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-firewall/patches/001-luci-app-firewall-Enable-FullCone-NAT.patch
 pushd feeds/luci/applications/luci-app-firewall
 patch -p1 < 001-luci-app-firewall-Enable-FullCone-NAT.patch
 rm -f 001-luci-app-firewall-Enable-FullCone-NAT.patch
 popd
-# 添加wifi的MU-MIMO功能
+# 13、添加wifi的MU-MIMO功能
 wget -P ./feeds/luci/modules/luci-mod-network/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-mod-network/patches/001-wifi-add-MU-MIMO-option.patch
 pushd feeds/luci/modules/luci-mod-network
 patch -p1 < 001-wifi-add-MU-MIMO-option.patch
@@ -159,7 +166,7 @@ popd
 # rm -rf ./feeds/packages/admin/htop/.svn
 # rm -rf ./feeds/packages/libs/libyaml-cpp
 # svn co https://github.com/project-openwrt/packages/trunk/libs/libyaml-cpp feeds/packages/libs/libyaml-cpp
-# 添加5.4内核ACC、shortcut-fe、bbrplus补丁
+# 14、添加5.4内核ACC、shortcut-fe、bbrplus补丁
 rm -f ./target/linux/generic/hack-5.4/250-netfilter_depends.patch
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/250-netfilter_depends.patch
 rm -f ./target/linux/generic/hack-5.4/650-netfilter-add-xt_OFFLOAD-target.patch
@@ -178,8 +185,20 @@ wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyc
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/998-add-ndo-do-ioctl.patch
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/999-thermal-tristate.patch
+# 15、修复及添加5.10内核ACC、shortcut-fe、bbrplus补丁
+rm -f ./target/linux/generic/hack-5.10/250-netfilter_depends.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/250-netfilter_depends.patch
+rm -f ./target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
+rm -f ./target/linux/generic/hack-5.10/661-use_fq_codel_by_default.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/661-use_fq_codel_by_default.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/952-net-conntrack-events-support-multiple-registrant.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/993-usb-serial-option-add-u9300.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/998-add-ndo-do-ioctl.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/999-thermal-tristate.patch
 # wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/9999-convert_official_linux-5.4.x_src_to_bbrplus.patch
-# 修复pending-5.4部分补丁及添加imq模块补丁
+# 16、修复及添加pending-5.4部分补丁及添加imq模块补丁
 wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/601-add-kernel-imq-support.patch
 rm -f ./target/linux/generic/pending-5.4/655-increase_skb_pad.patch
@@ -196,30 +215,38 @@ rm -f ./target/linux/generic/pending-5.4/690-net-add-support-for-threaded-NAPI-p
 wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/690-net-add-support-for-threaded-NAPI-polling.patch
 rm -f ./target/linux/generic/config-5.4
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.4
-# mwlwifi添加disable-amsdu补丁
+# 17、修复及添加pending-5.10部分补丁及添加imq模块补丁
+wget -P target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/601-add-kernel-imq-support.patch
+rm -f ./target/linux/generic/pending-5.10/655-increase_skb_pad.patch
+wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/655-increase_skb_pad.patch
+rm -f ./target/linux/generic/pending-5.10/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
+wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
+rm -f ./target/linux/generic/config-5.10
+wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.10
+# 18、mwlwifi添加disable-amsdu补丁
 wget -P package/kernel/mwlwifi/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mwlwifi/patches/002-disable-AMSDU.patch
-# 给luci-base添加无线图标及使用busybox设置passwd
+# 19、给luci-base添加无线图标及使用busybox设置passwd
 wget -P feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/wifi_big.png
 wget -P ./feeds/luci/modules/luci-base/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-base/patches/001-let-passwd-using-busybox.patch
 pushd feeds/luci/modules/luci-base
 patch -p1 < 001-let-passwd-using-busybox.patch
 rm -f 001-let-passwd-using-busybox.patch
 popd
-# wireless-regdb：自定义更改txpower和dfs的补丁
+# 20、wireless-regdb：自定义更改txpower和dfs的补丁
 wget -P package/firmware/wireless-regdb/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/firmware/wireless-regdb/patches/600-custom-change-txpower-and-dfs.patch
-# 添加upx压缩源码
+# 21、添加upx压缩源码
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/ucl tools/ucl
 rm -rf ./tools/ucl/.svn
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/upx tools/upx
 rm -rf ./tools/upx/.svn
 rm -f ./tools/Makefile
 wget -P ./tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/tools/Makefile
-# 去除feeds中的material主题多余openwrt名
+# 22、去除feeds中的material主题多余openwrt名
 sed -i 's#boardinfo.hostname or "?"#""#g' feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
-# 将tty、ksmd所在服务目录改到系统、网络存储目录
+# 23、将tty、ksmd所在服务目录改到系统、网络存储目录
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
-# 添加feeds里的依赖包
+# 24、添加feeds里的依赖包
 # svn co https://github.com/project-openwrt/packages/trunk/lang/node-yarn feeds/packages/lang/node-yarn
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 rm -rf ./feeds/packages/lang/python/Flask-RESTful/.svn
@@ -229,7 +256,7 @@ svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/fcgi feed
 rm -rf ./feeds/packages/libs/fcgi/.svn
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libdouble-conversion feeds/packages/libs/libdouble-conversion
 rm -rf ./feeds/packages/libs/libdouble-conversion/.svn
-# 添加dnamasq的IPV6展示
+# 25、添加dnamasq的IPV6展示
 wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/0001-dnsmasq-add-filter-aaaa-option.patch
 pushd package/network/services/dnsmasq
 patch -p1 < 0001-dnsmasq-add-filter-aaaa-option.patch
@@ -247,13 +274,13 @@ rm -f 0001-dnsmasq-conf.patch
 popd
 wget -P ./package/network/services/dnsmasq/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/910-mini-ttl.patch
 wget -P ./package/network/services/dnsmasq/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/911-dnsmasq-filter-aaaa.patch
-# 添加dnamasq的多核心dns负载均衡解析
+# 26、添加dnamasq的多核心dns负载均衡解析
 wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/001-auto-multiple-service-instances.patch
 pushd package/network/services/dnsmasq
 patch -p1 < 001-auto-multiple-service-instances.patch
 rm -f 001-auto-multiple-service-instances.patch
 popd
-# 添加k2p的lan/wan
+# 27、添加k2p的lan/wan
 wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/patches/000-k2p-network.patch
 pushd target/linux/ramips
 patch -p1 < 000-k2p-network.patch
@@ -271,7 +298,7 @@ rm -f overclock-mt7621.patch
 popd
 # rtl8812au-ac：更新无线5.8
 # svn co https://github.com/project-openwrt/openwrt/branches/master/package/kernel/rtl8812au-ac package/kernel/rtl8812au-ac
-# 修改transmission依赖
+# 28、修改transmission依赖
 wget -P ./feeds/packages/net/transmission-web-control/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/transmission-web-control/patches/001-transmission-web-control-dbengine.patch
 pushd feeds/packages/net/transmission-web-control
 patch -p1 < 001-transmission-web-control-dbengine.patch
@@ -282,10 +309,10 @@ pushd feeds/luci/applications/luci-app-transmission
 patch -p1 < 001-luci-app-transmission-with-dbengine.patch
 rm -f 001-luci-app-transmission-with-dbengine.patch
 popd
-# 修改sqm-scripts汉化help
+# 29、修改sqm-scripts汉化help
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/sqm-scripts/patches feeds/packages/net/sqm-scripts/patches
 rm -rf ./feeds/packages/net/sqm-scripts/patches/.svn
-# 修复新版luci的cpu等寄存器显示
+# 30、修复新版luci的cpu等寄存器显示
 wget -P ./feeds/luci/modules/luci-mod-status/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-mod-status/patches/001-luci-mod-status-fix-register-functions.patch
 pushd feeds/luci/modules/luci-mod-status
 patch -p1 < 001-luci-mod-status-fix-register-functions.patch
@@ -296,7 +323,7 @@ pushd feeds/luci/modules/luci-mod-status
 patch -p1 < 002-luci-mod-status-drop-lluci.ver-display.patch
 rm -f 002-luci-mod-status-drop-lluci.ver-display.patch
 popd
-# 添加netdata显示中文日期补丁及升级到1.22.1
+# 31、添加netdata显示中文日期补丁及升级到1.22.1
 # sed -i 's/1.20.0/1.22.1/g' feeds/packages/admin/netdata/Makefile
 # sed -i 's/c739e0fa8d6d7f433c0c7c8016b763e8f70519d67f0b5e7eca9ee5318f210d90/6efd785eab82f98892b4b4017cadfa4ce1688985915499bc75f2f888765a3446/g' feeds/packages/admin/netdata/Makefile
 # wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/002-netdata-with-dbengine.patch
@@ -327,19 +354,19 @@ patch -p1 < 006-netdata.patch
 rm -f 006-netdata.patch
 popd
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
-# luci-lib-jsoncs使用int64
+# 32、luci-lib-jsoncs使用int64
 wget -P ./feeds/luci/libs/luci-lib-jsonc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/libs/luci-lib-jsonc/patches/0001-use_json_object_new_int64.patch
 pushd feeds/luci/libs/luci-lib-jsonc
 patch -p1 < 0001-use_json_object_new_int64.patch
 rm -f 0001-use_json_object_new_int64.patch
 popd
-# 修正adblock.init
+# 33、修正adblock.init
 wget -P ./feeds/packages/net/adblock/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/adblock/patches/001-adblock.patch
 pushd feeds/packages/net/adblock
 patch -p1 < 001-adblock.patch
 rm -f 001-adblock.patch
 popd
-# 屏蔽socat/openvpn的与luci冲突的config、init以编译luci
+# 34、屏蔽socat/openvpn的与luci冲突的config、init以编译luci
 wget -P ./feeds/packages/net/socat/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/socat/patches/001-shield-socat-config-init.patch
 pushd feeds/packages/net/socat
 patch -p1 < 001-shield-socat-config-init.patch
@@ -359,11 +386,11 @@ popd
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-package-install.sh
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-package.mk
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-version.mk
-# 添加aria2补丁
+# 35、添加aria2补丁
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/aria2/patches feeds/packages/net/aria2/patches
 rm -rf ./feeds/packages/net/aria2/patches/.svn
 
-# 删除feeds里的与自有包冲突插件
+# 36、删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/adguardhome
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
@@ -379,7 +406,7 @@ rm -rf ./feeds/luci/applications/luci-app-smartdns
 rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
 rm -rf ./package/openwrt-package/lean/nft-qos
 rm -rf ./feeds/packages/net/xray-core
-# ramips: mt7621 OC 1000 MHz
+# 37、ramips: mt7621 OC 1000 MHz
 rm -f ./target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
 wget -P ./target/linux/ramips/patches-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
 # 替换acc
@@ -387,16 +414,16 @@ wget -P ./target/linux/ramips/patches-5.4/ https://raw.githubusercontent.com/pro
 # pushd package/openwrt-package/lean
 # unzip luci-app-flowoffload-master-NAT.zip
 # popd
-# 打开wifi并设置区域为US
+# 38、打开wifi并设置区域为US
 wget -P ./package/kernel/mac80211/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/001-wifi-auto.patch
 pushd package/kernel/mac80211
 patch -p1 < 001-wifi-auto.patch
 rm -f 001-wifi-auto.patch
 popd
-# mac80211：为ath / subsys：在2g上允许vht添加补丁
+# 39、mac80211：为ath / subsys：在2g上允许vht添加补丁
 wget -P ./package/kernel/mac80211/patches/subsys/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/subsys/600-mac80211-allow-vht-on-2g.patch
 wget -P ./package/kernel/mac80211/patches/ath/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/ath/983-ath10k-allow-vht-on-2g.patch
-# 修正友善补丁(R2S/R4S)
+# 40、修正友善补丁(R2S/R4S)
 rm -rf package/boot/uboot-rockchip
 svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/uboot-rockchip package/boot/uboot-rockchip
 rm -rf ./package/boot/uboot-rockchip/.svn
@@ -406,14 +433,14 @@ rm -rf ./target/linux/rockchip/.svn
 svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/arm-trusted-firmware-rk3328 package/boot/arm-trusted-firmware-rk3328
 rm -rf ./package/boot/arm-trusted-firmware-rk3328/.svn
 
-# busybox：为docker top命令添加ps -ef选项的补丁
+# 41、busybox：为docker top命令添加ps -ef选项的补丁
 wget -P ./package/utils/busybox/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
 
-# mvebu 添加cpu显示
+# 42、mvebu 添加cpu显示
 rm -rf target/linux/mvebu/Makefile
 wget -P ./target/linux/mvebu/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/mvebu/Makefile
 
-# sqlite3：添加对qt5的列元数据支持
+# 44、sqlite3：添加对qt5的列元数据支持
 wget -P ./feeds/packages/libs/sqlite3/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/libs/sqlite3/patches/001-add-column-metadata-support-for-qt5.patch
 pushd feeds/packages/libs/sqlite3
 patch -p1 < 001-add-column-metadata-support-for-qt5.patch
