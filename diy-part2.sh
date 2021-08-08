@@ -434,8 +434,8 @@ rm -rf ./package/boot/uboot-rockchip/.svn
 rm -rf target/linux/rockchip
 svn co https://github.com/immortalwrt/immortalwrt/branches/master/target/linux/rockchip target/linux/rockchip
 rm -rf ./target/linux/rockchip/.svn
-svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/arm-trusted-firmware-rk3328 package/boot/arm-trusted-firmware-rk3328
-rm -rf ./package/boot/arm-trusted-firmware-rk3328/.svn
+svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/arm-trusted-firmware-rockchip-vendor package/boot/arm-trusted-firmware-rockchip-vendor
+rm -rf ./package/boot/arm-trusted-firmware-rockchip-vendor/.svn
 
 # 41、busybox：为docker top命令添加ps -ef选项的补丁
 wget -P ./package/utils/busybox/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
