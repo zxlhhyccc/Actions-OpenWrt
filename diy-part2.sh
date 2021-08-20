@@ -11,19 +11,19 @@
 #
 
 # shadowsocks-libev更新源码
-wget -P ./fees/packages/net/shadowsocks-libev/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/shadowsocks-libev/001-update-makefile.patch
+wget -P fees/packages/net/shadowsocks-libev/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/shadowsocks-libev/001-update-makefile.patch
 pushd fees/packages/net/shadowsocks-libev
 patch -p1 < 001-update-makefile.patch
 rm -f 001-update-makefile.patch
 popd
 
-wget -P ./package/base-files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/etc/init.d/patches/001-boot.patch
+wget -P package/base-files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/base-files/files/etc/init.d/patches/001-boot.patch
 pushd package/base-files
 patch -p1 < 001-boot.patch
 rm -f 001-boot.patch
 popd
 
-wget -P ./package/base-files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/bin/001-tweak-default-ntp-servers.patch
+wget -P package/base-files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/base-files/files/bin/001-tweak-default-ntp-servers.patch
 pushd package/base-files
 patch -p1 < 001-tweak-default-ntp-servers.patch
 rm -f 001-tweak-default-ntp-servers.patch
