@@ -54,3 +54,7 @@ wget -P package/kernel/linux/modules/ https://github.com/zxlhhyccc/acc-imq-bbr/r
 rm -rf package/kernel/mac80211
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca/package/kernel/mac80211 package/kernel/mac80211
 rm -rf ./package/kernel/mac80211/.svn
+
+# 添加NSS
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/nss_packages package/
+rm -rf ./package/nss_packages/.svn
