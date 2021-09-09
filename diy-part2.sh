@@ -450,8 +450,8 @@ rm -rf ./package/boot/arm-trusted-firmware-rockchip-vendor/.svn
 wget -P ./package/utils/busybox/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
 
 # 42、mvebu 添加cpu显示
-rm -rf target/linux/mvebu/Makefile
-wget -P ./target/linux/mvebu/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/mvebu/Makefile
+# rm -rf target/linux/mvebu/Makefile
+# wget -P ./target/linux/mvebu/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/mvebu/Makefile
 
 # 44、sqlite3：添加对qt5的列元数据支持
 wget -P ./feeds/packages/libs/sqlite3/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/libs/sqlite3/patches/001-add-column-metadata-support-for-qt5.patch
