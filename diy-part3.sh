@@ -56,5 +56,5 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca/package/kernel/
 rm -rf ./package/kernel/mac80211/.svn
 
 # 添加NSS
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/nss_packages package/
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/nss_packages package/nss_packages
 rm -rf ./package/nss_packages/.svn
