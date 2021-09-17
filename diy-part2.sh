@@ -12,7 +12,7 @@
 
 # shadowsocks-libev更新源码
 wget -P ./feeds/packages/net/shadowsocks-libev/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/shadowsocks-libev/001-update-makefile.patch
-pushd fees/packages/net/shadowsocks-libev
+pushd feeds/packages/net/shadowsocks-libev
 patch -p1 < 001-update-makefile.patch
 rm -f 001-update-makefile.patch
 popd
