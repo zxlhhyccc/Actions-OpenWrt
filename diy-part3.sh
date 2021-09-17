@@ -11,7 +11,7 @@
 #
 
 # 添加5.10内核的QCA支持
-rm -rf target/linux/ipq807x
+rm -rf ./target/linux/ipq807x
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca/target/linux/ipq807x target/linux/ipq807x
 rm -rf ./target/linux/ipq807x/.svn
 rm -f ./target/linux/ipq807x/patches-5.10/601-netfilter-export-udp_get_timeouts-function.patch
