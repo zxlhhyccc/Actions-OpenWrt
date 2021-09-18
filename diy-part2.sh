@@ -107,10 +107,15 @@ wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 sed -i 's/7440/7200/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 # 8、修改network中防火墙等源码包
-wget -P ./package/network/config/firewall/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/config/firewall/001-add-fullconenat.patch
+wget -P ./package/network/config/firewall/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/firewall/001-add-fullconenat.patch
 pushd package/network/config/firewall
 patch -p1 < 001-add-fullconenat.patch
 rm -f 001-add-fullconenat.patch
+popd
+wget -P ./package/network/config/firewall/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/firewall/001-fix-firewall-flock.patch
+pushd package/network/config/firewall
+patch -p1 < 001-fix-firewall-flock.patch
+rm -f 001-fix-firewall-flock.patch
 popd
 wget -P ./package/network/utils/iptables/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/utils/iptables/001-IMQ-gargoyle-netfilter-match-modules.patch
 pushd package/network/utils/iptables
