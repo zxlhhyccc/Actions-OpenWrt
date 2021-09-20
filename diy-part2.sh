@@ -10,6 +10,11 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# 添加gcc7.5、gcc9.3编译支持
+wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/toolchain/001-add-gcc7-gcc9.3-support.patch
+patch -p1 < 001-add-gcc7-gcc9.3-support.patch
+rm -f 001-add-gcc7-gcc9.3-support.patch
+
 # shadowsocks-libev更新源码
 wget -P ./feeds/packages/net/shadowsocks-libev/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/shadowsocks-libev/001-update-makefile.patch
 pushd feeds/packages/net/shadowsocks-libev
