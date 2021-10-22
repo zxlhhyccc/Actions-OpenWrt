@@ -448,7 +448,7 @@ rm -f 001-wifi-auto.patch
 popd
 # 39、mac80211：为ath / subsys：在2g上允许vht添加补丁
 wget -P ./package/kernel/mac80211/patches/subsys/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/subsys/600-mac80211-allow-vht-on-2g.patch
-wget -P ./package/kernel/mac80211/patches/ath/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/ath/983-ath10k-allow-vht-on-2g.patch
+wget -P ./package/kernel/mac80211/patches/ath10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/ath10/983-ath10k-allow-vht-on-2g.patch
 # 40、修正友善补丁(R2S/R4S)
 rm -rf package/boot/uboot-rockchip
 svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/uboot-rockchip package/boot/uboot-rockchip
