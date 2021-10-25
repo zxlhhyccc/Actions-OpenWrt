@@ -10,6 +10,11 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# 添加uclibc++支持
+wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/001-add-uclibc%2B%2B.patch
+patch -p1 < 001-add-uclibc++.patch
+rm -f 001-add-uclibc++.patch
+
 # 添加gcc7.5、gcc9.3编译支持
 wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/001-rules.patch
 patch -p1 < 001-rules.patch
