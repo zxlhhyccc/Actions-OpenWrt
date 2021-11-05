@@ -227,6 +227,8 @@ rm -f ./target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.p
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
 rm -f ./target/linux/generic/hack-5.10/661-use_fq_codel_by_default.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/661-use_fq_codel_by_default.patch
+rm -f ./target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/952-net-conntrack-events-support-multiple-registrant.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/993-usb-serial-option-add-u9300.patch
