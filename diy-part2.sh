@@ -9,7 +9,8 @@
 # File name: diy-part1.sh
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
-
+# 修复 nodejs 的编译问题
+wget -P ./toolchain/binutils/patches/2.37/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/toolchain/binutils/patches/2.37/010-bfd-Close-the-file-descriptor-if-there-is-no-archive-fd.patch
 # hostpad添加vendor_vht模块支持
 wget -P ./package/network/services/hostapd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/001-add-vendor_vht.patch
 pushd package/network/services/hostapd
