@@ -20,6 +20,9 @@ rm -f ./target/linux/ipq807x/patches-5.10/601-netfilter-export-udp_get_timeouts-
 wget -P package/boot/uboot-envtools/files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/boot/uboot-envtools/files/ipq807x
 
 # firmware添加ax6等文件
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca/package/firmware/ath11k-board package/firmware/ath11k-board
+rm -rf ./package/firmware/ath11k-board/.svn
+
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca/package/firmware/ath11k-firmware package/firmware/ath11k-firmware
 rm -rf ./package/firmware/ath11k-firmware/.svn
 
@@ -31,6 +34,8 @@ wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/
 wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-netgear_sxr80.ipq8074
 
 wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-p2w_r619ac.qca4019
+
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-qnap_301w.ipq8074
 
 wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-redmi_ax6.ipq8074
 
