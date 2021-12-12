@@ -333,11 +333,11 @@ popd
 wget -P ./package/network/services/dnsmasq/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/910-mini-ttl.patch
 wget -P ./package/network/services/dnsmasq/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/911-dnsmasq-filter-aaaa.patch
 # 26、添加dnamasq的多核心dns负载均衡解析
-wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/001-auto-multiple-service-instances.patch
-pushd package/network/services/dnsmasq
-patch -p1 < 001-auto-multiple-service-instances.patch
-rm -f 001-auto-multiple-service-instances.patch
-popd
+# wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/001-auto-multiple-service-instances.patch
+# pushd package/network/services/dnsmasq
+# patch -p1 < 001-auto-multiple-service-instances.patch
+# rm -f 001-auto-multiple-service-instances.patch
+# popd
 # 27、添加k2p的lan/wan
 wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/patches/000-k2p-network.patch
 pushd target/linux/ramips
