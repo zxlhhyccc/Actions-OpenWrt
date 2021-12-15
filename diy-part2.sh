@@ -220,6 +220,7 @@ wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhh
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 rm -f ./target/linux/generic/hack-5.4/650-netfilter-add-xt_OFFLOAD-target.patch
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/650-netfilter-add-xt_OFFLOAD-target.patch
+wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/652-netfilter-flow_offload-add-check-ifindex.patch
 rm -f ./target/linux/generic/hack-5.4/661-use_fq_codel_by_default.patch
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/661-use_fq_codel_by_default.patch
 rm -f ./target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
@@ -237,6 +238,7 @@ wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlh
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 rm -f ./target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
+wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/652-netfilter-flow_offload-add-check-ifindex.patch
 rm -f ./target/linux/generic/hack-5.10/661-use_fq_codel_by_default.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/661-use_fq_codel_by_default.patch
 rm -f ./target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
