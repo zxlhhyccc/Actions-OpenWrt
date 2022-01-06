@@ -133,6 +133,7 @@ wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/z
 wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-tsunami.patch
 wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-tsunamio.patch
 # 6.给kernel(5.10)添加bbrplus、nanqinlang等模块补丁
+wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/610-v5.13-54-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
 wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-bbrplus.patch
 wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-nanqinlang.patch
 wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-tsunami.patch
