@@ -278,8 +278,7 @@ wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/z
 rm -f ./target/linux/generic/pending-5.10/682-of_net-add-mac-address-increment-support.patch
 wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/682-of_net-add-mac-address-increment-support.patch
 rm -f ./target/linux/generic/pending-5.10/683-of_net-add-mac-address-to-of-tree.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/682-of_net-add-mac-address-increment-support.patch
-rm -f ./target/linux/generic/pending-5.10/683-of_net-add-mac-address-to-of-tree.patch
+wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/683-of_net-add-mac-address-to-of-tree.patch
 rm -f ./target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-creating-duplicate-of.patch
 wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-creating-duplicate-of.patch
 rm -f ./target/linux/generic/config-5.10
