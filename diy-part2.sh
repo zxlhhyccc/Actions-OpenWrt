@@ -356,11 +356,11 @@ pushd target/linux/ramips
 patch -p1 < 0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
 rm -f 0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
 popd
-wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/patches/overclock-mt7621.patch
-pushd target/linux/ramips
-patch -p1 < overclock-mt7621.patch
-rm -f overclock-mt7621.patch
-popd
+# wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/patches/overclock-mt7621.patch
+# pushd target/linux/ramips
+# patch -p1 < overclock-mt7621.patch
+# rm -f overclock-mt7621.patch
+# popd
 # rtl8812au-ac：更新无线5.8
 # svn co https://github.com/project-openwrt/openwrt/branches/master/package/kernel/rtl8812au-ac package/kernel/rtl8812au-ac
 # 28、修改transmission依赖
