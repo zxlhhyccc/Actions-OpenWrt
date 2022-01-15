@@ -14,8 +14,6 @@
 wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/900-x86-Enable-fast-strings-on-Intel-if-BIOS-hasn-t-already.patch
 wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
 
-# 修复 nodejs 的编译问题
-wget -P ./toolchain/binutils/patches/2.37/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/toolchain/binutils/patches/2.37/010-bfd-Close-the-file-descriptor-if-there-is-no-archive-fd.patch
 # hostpad添加vendor_vht模块支持
 wget -P ./package/network/services/hostapd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/001-add-vendor_vht.patch
 pushd package/network/services/hostapd
