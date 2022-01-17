@@ -280,17 +280,6 @@ wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zx
 rm -f ./target/linux/generic/config-5.4
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.4
 # 17、修复及添加pending-5.10部分补丁及添加imq模块补丁
-rm -f ./target/linux/generic/pending-5.10/402-mtd-spi-nor-write-support-for-minor-aligned-partitions.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/402-mtd-spi-nor-write-support-for-minor-aligned-partitions.patch
-rm -f ./target/linux/generic/pending-5.10/470-mtd-spi-nor-support-limiting-4K-sectors-support-base.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/470-mtd-spi-nor-support-limiting-4K-sectors-support-base.patch
-rm -f ./target/linux/generic/pending-5.10/479-mtd-spi-nor-add-xtx-xt25f128b.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/479-mtd-spi-nor-add-xtx-xt25f128b.patch
-rm -f ./target/linux/generic/pending-5.10/481-mtd-spi-nor-rework-broken-flash-reset-support.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/481-mtd-spi-nor-rework-broken-flash-reset-support.patch
-rm -f ./target/linux/generic/pending-5.10/495-mtd-core-add-get_mtd_device_by_node.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/495-mtd-core-add-get_mtd_device_by_node.patch
-
 wget -P target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/601-add-kernel-imq-support.patch
 rm -f ./target/linux/generic/pending-5.10/655-increase_skb_pad.patch
 wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/655-increase_skb_pad.patch
