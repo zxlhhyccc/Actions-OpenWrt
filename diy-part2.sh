@@ -257,8 +257,6 @@ wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlh
 rm -f ./target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/652-netfilter-flow_offload-add-check-ifindex.patch
-rm -f ./target/linux/generic/hack-5.10/661-use_fq_codel_by_default.patch
-wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/661-use_fq_codel_by_default.patch
 rm -f ./target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/952-net-conntrack-events-support-multiple-registrant.patch
