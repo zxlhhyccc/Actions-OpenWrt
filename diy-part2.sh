@@ -10,6 +10,13 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# openssl：支持NSS-AES-GCM加速
+wget -P ./package/libs/openssl/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/openssl/001-NSS-Supports-AES-GCM-acceleration.patch
+pushd package/libs/openssl
+patch -p1 < 001-NSS-Supports-AES-GCM-acceleration.patch
+rm -f 001-NSS-Supports-AES-GCM-acceleration.patch
+popd
+
 # k3screenctrl：修复 PHICOMM K3 屏幕显示关闭
 wget -P ./target/linux/bcm53xx/patches-5.4/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.4/906-BCM5301x-uart1.patch
 wget -P ./target/linux/bcm53xx/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.10/906-BCM5301x-uart1.patch
