@@ -10,6 +10,17 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# openssl：支持NSS-AES-GCM加速
+wget -P ./package/libs/openssl/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/openssl/001-NSS-Supports-AES-GCM-acceleration.patch
+pushd package/libs/openssl
+patch -p1 < 001-NSS-Supports-AES-GCM-acceleration.patch
+rm -f 001-NSS-Supports-AES-GCM-acceleration.patch
+popd
+
+# k3screenctrl：修复 PHICOMM K3 屏幕显示关闭
+wget -P ./target/linux/bcm53xx/patches-5.4/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.4/906-BCM5301x-uart1.patch
+wget -P ./target/linux/bcm53xx/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.10/906-BCM5301x-uart1.patch
+
 # x86使用 BCM578xx绕过 HH3K 高达 2.5Gbps
 wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/900-x86-Enable-fast-strings-on-Intel-if-BIOS-hasn-t-already.patch
 wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
@@ -253,8 +264,6 @@ wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlh
 rm -f ./target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/652-netfilter-flow_offload-add-check-ifindex.patch
-rm -f ./target/linux/generic/hack-5.10/661-use_fq_codel_by_default.patch
-wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/661-use_fq_codel_by_default.patch
 rm -f ./target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
 wget -P ./target/linux/generic/hack-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.10/952-net-conntrack-events-support-multiple-registrant.patch
@@ -280,17 +289,6 @@ wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zx
 rm -f ./target/linux/generic/config-5.4
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.4
 # 17、修复及添加pending-5.10部分补丁及添加imq模块补丁
-rm -f ./target/linux/generic/pending-5.10/402-mtd-spi-nor-write-support-for-minor-aligned-partitions.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/402-mtd-spi-nor-write-support-for-minor-aligned-partitions.patch
-rm -f ./target/linux/generic/pending-5.10/470-mtd-spi-nor-support-limiting-4K-sectors-support-base.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/470-mtd-spi-nor-support-limiting-4K-sectors-support-base.patch
-rm -f ./target/linux/generic/pending-5.10/479-mtd-spi-nor-add-xtx-xt25f128b.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/479-mtd-spi-nor-add-xtx-xt25f128b.patch
-rm -f ./target/linux/generic/pending-5.10/481-mtd-spi-nor-rework-broken-flash-reset-support.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/481-mtd-spi-nor-rework-broken-flash-reset-support.patch
-rm -f ./target/linux/generic/pending-5.10/495-mtd-core-add-get_mtd_device_by_node.patch
-wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/495-mtd-core-add-get_mtd_device_by_node.patch
-
 wget -P target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/601-add-kernel-imq-support.patch
 rm -f ./target/linux/generic/pending-5.10/655-increase_skb_pad.patch
 wget -P ./target/linux/generic/pending-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.10/655-increase_skb_pad.patch
