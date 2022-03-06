@@ -472,8 +472,13 @@ popd
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-package-install.sh
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-package.mk
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-version.mk
-# 35、添加aria2补丁
+# 35、添加aria2补丁和修复 ujail mount
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/aria2/patches feeds/packages/net/aria2/patches
+wget -P ./feeds/packages/net/aria2/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/aria2/001-fix-ujail-mount.patch
+pushd feeds/packages/net/aria2
+patch -p1 < 001-fix-ujail-mount.patch
+rm -f 001-fix-ujail-mount.patch
+popd
 
 # 36、删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/adguardhome
