@@ -480,6 +480,13 @@ patch -p1 < 001-fix-ujail-mount.patch
 rm -f 001-fix-ujail-mount.patch
 popd
 
+# ntfs-3g: fix automount
+wget -P ./feeds/packages/utils/ntfs-3g/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/utils/ntfs-3g/001-fix-automount.patch
+pushd feeds/packages/utils/ntfs-3g
+patch -p1 < 001-fix-automount.patch
+rm -f 001-fix-automount.patch
+popd
+
 # 36、删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/adguardhome
 rm -rf ./feeds/packages/net/frp
