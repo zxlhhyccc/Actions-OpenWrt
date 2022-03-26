@@ -433,15 +433,20 @@ popd
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/sqm-scripts/patches feeds/packages/net/sqm-scripts/patches
 
 # 30、修复新版luci的cpu等寄存器显示
-wget -P ./feeds/luci/modules/luci-mod-status/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-mod-status/patches/001-luci-mod-status-fix-register-functions.patch
+wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/001-luci-mod-status-fix-register-functions.patch
 pushd feeds/luci/modules/luci-mod-status
 patch -p1 < 001-luci-mod-status-fix-register-functions.patch
 rm -f 001-luci-mod-status-fix-register-functions.patch
 popd
-wget -P ./feeds/luci/modules/luci-mod-status/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-mod-status/patches/002-luci-mod-status-drop-lluci.ver-display.patch
+wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/002-luci-mod-status-drop-lluci.ver-display.patch
 pushd feeds/luci/modules/luci-mod-status
 patch -p1 < 002-luci-mod-status-drop-lluci.ver-display.patch
 rm -f 002-luci-mod-status-drop-lluci.ver-display.patch
+popd
+wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/003-luci-mod-status-fix-align-of-OnlineUsers.patch
+pushd feeds/luci/modules/luci-mod-status
+patch -p1 < 003-luci-mod-status-fix-align-of-OnlineUsers.patch
+rm -f 003-luci-mod-status-fix-align-of-OnlineUsers.patch
 popd
 # 31、添加netdata显示中文日期补丁及升级到1.22.1
 # sed -i 's/1.20.0/1.22.1/g' feeds/packages/admin/netdata/Makefile
