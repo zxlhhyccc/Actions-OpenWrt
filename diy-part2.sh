@@ -336,6 +336,8 @@ rm -f ./target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-cre
 wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-creating-duplicate-of.patch
 rm -f ./target/linux/generic/pending-5.10/701-03-net-ethernet-mtk_eth_soc-implement-flow-offloading-t.patch
 wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/701-03-net-ethernet-mtk_eth_soc-implement-flow-offloading-t.patch
+rm -f ./target/linux/generic/pending-5.10/702-net-ethernet-mtk_eth_soc-enable-threaded-NAPI.patch
+wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/702-net-ethernet-mtk_eth_soc-enable-threaded-NAPI.patch
 rm -f ./target/linux/generic/config-5.10
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.10
 rm -f ./target/linux/x86/Makefile
