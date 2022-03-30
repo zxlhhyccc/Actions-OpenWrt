@@ -152,38 +152,6 @@ wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/z
 # wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
 # wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
 # wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/610-v5.13-54-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
-rm -f ./target/linux/generic/backport-5.10/780-v5.11-net-usb-r8152-Provide-missing-documentation-for-some.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/780-v5.11-net-usb-r8152-Provide-missing-documentation-for-some.patch
-rm -f ./target/linux/generic/backport-5.10/781-v5.11-net-usb-r8152-Fix-a-couple-of-spelling-errors-in-fw_.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/781-v5.11-net-usb-r8152-Fix-a-couple-of-spelling-errors-in-fw_.patch
-rm -f ./target/linux/generic/backport-5.10/782-v5.11-net-usb-r8153_ecm-support-ECM-mode-for-RTL8153.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/782-v5.11-net-usb-r8153_ecm-support-ECM-mode-for-RTL8153.patch
-rm -f ./target/linux/generic/backport-5.10/783-v5.12-net-usb-r8152-use-new-tasklet-API.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/783-v5.12-net-usb-r8152-use-new-tasklet-API.patch
-rm -f ./target/linux/generic/backport-5.10/784-v5.12-r8152-replace-several-functions-about-phy-patch-requ.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/784-v5.12-r8152-replace-several-functions-about-phy-patch-requ.patch
-rm -f ./target/linux/generic/backport-5.10/785-v5.12-r8152-adjust-the-flow-of-power-cut-for-RTL8153B.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/785-v5.12-r8152-adjust-the-flow-of-power-cut-for-RTL8153B.patch
-rm -f ./target/linux/generic/backport-5.10/786-v5.12-r8152-enable-U1-U2-for-USB_SPEED_SUPER.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/786-v5.12-r8152-enable-U1-U2-for-USB_SPEED_SUPER.patch
-rm -f ./target/linux/generic/backport-5.10/787-v5.12-r8152-check-if-the-pointer-of-the-function-exists.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/787-v5.12-r8152-check-if-the-pointer-of-the-function-exists.patch
-rm -f ./target/linux/generic/backport-5.10/788-v5.12-r8152-replace-netif_err-with-dev_err.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/788-v5.12-r8152-replace-netif_err-with-dev_err.patch
-rm -f ./target/linux/generic/backport-5.10/789-v5.12-r8152-spilt-rtl_set_eee_plus-and-r8153b_green_en.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/789-v5.12-r8152-spilt-rtl_set_eee_plus-and-r8153b_green_en.patch
-rm -f ./target/linux/generic/backport-5.10/790-v5.13-r8152-set-inter-fram-gap-time-depending-on-speed.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/790-v5.13-r8152-set-inter-fram-gap-time-depending-on-speed.patch
-rm -f ./target/linux/generic/backport-5.10/791-v5.13-r8152-adjust-rtl8152_check_firmware-function.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/791-v5.13-r8152-adjust-rtl8152_check_firmware-function.patch
-rm -f ./target/linux/generic/backport-5.10/792-v5.13-r8152-add-help-function-to-change-mtu.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/792-v5.13-r8152-add-help-function-to-change-mtu.patch
-rm -f ./target/linux/generic/backport-5.10/793-v5.13-r8152-support-new-chips.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/793-v5.13-r8152-support-new-chips.patch
-rm -f ./target/linux/generic/backport-5.10/794-v5.13-r8152-support-PHY-firmware-for-RTL8156-series.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/794-v5.13-r8152-support-PHY-firmware-for-RTL8156-series.patch
-rm -f ./target/linux/generic/backport-5.10/795-v5.13-r8152-search-the-configuration-of-vendor-mode.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/795-v5.13-r8152-search-the-configuration-of-vendor-mode.patch
 
 wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-bbrplus.patch
 wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-nanqinlang.patch
@@ -298,8 +266,7 @@ wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-b
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/652-netfilter-flow_offload-add-check-ifindex.patch
 rm -f ./target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
-rm -f ./target/linux/generic/hack-5.10/760-net-usb-r8152-add-LED-configuration-from-OF.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/760-net-usb-r8152-add-LED-configuration-from-OF.patch
+
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/952-net-conntrack-events-support-multiple-registrant.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/993-usb-serial-option-add-u9300.patch
@@ -336,8 +303,7 @@ rm -f ./target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-cre
 wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-creating-duplicate-of.patch
 rm -f ./target/linux/generic/pending-5.10/701-03-net-ethernet-mtk_eth_soc-implement-flow-offloading-t.patch
 wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/701-03-net-ethernet-mtk_eth_soc-implement-flow-offloading-t.patch
-rm -f ./target/linux/generic/pending-5.10/702-net-ethernet-mtk_eth_soc-enable-threaded-NAPI.patch
-wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/702-net-ethernet-mtk_eth_soc-enable-threaded-NAPI.patch
+
 rm -f ./target/linux/generic/config-5.10
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.10
 rm -f ./target/linux/x86/Makefile
