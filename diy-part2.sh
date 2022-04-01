@@ -157,7 +157,7 @@ wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/
 wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-nanqinlang.patch
 wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-tsunami.patch
 # 7、kernel修改连接数
-sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+# sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 sed -i 's/7440/7200/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 # 8、修改network中防火墙等源码包
 wget -P ./package/network/config/firewall/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/firewall/001-add-fullconenat.patch
