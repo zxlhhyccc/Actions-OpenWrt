@@ -10,6 +10,13 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# 修复nlbwmon内存不足
+wget -P ./feeds/packages/net/nlbwmon/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/nlbwmon/001-fix-out-of-memory.patch
+pushd feeds/packages/net/nlbwmon
+patch -p1 < 001-fix-out-of-memory.patch
+rm -f 001-fix-out-of-memory.patch
+popd
+
 # openssl：支持NSS-AES-GCM加速
 wget -P ./package/libs/openssl/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/openssl/001-NSS-Supports-AES-GCM-acceleration.patch
 pushd package/libs/openssl
