@@ -457,11 +457,11 @@ rm -f 006-netdata.patch
 popd
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # 32、luci-lib-jsoncs使用int64
-wget -P ./feeds/luci/libs/luci-lib-jsonc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/libs/luci-lib-jsonc/patches/0001-use_json_object_new_int64.patch
-pushd feeds/luci/libs/luci-lib-jsonc
-patch -p1 < 0001-use_json_object_new_int64.patch
-rm -f 0001-use_json_object_new_int64.patch
-popd
+# wget -P ./feeds/luci/libs/luci-lib-jsonc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/libs/luci-lib-jsonc/patches/0001-use_json_object_new_int64.patch
+# pushd feeds/luci/libs/luci-lib-jsonc
+# patch -p1 < 0001-use_json_object_new_int64.patch
+# rm -f 0001-use_json_object_new_int64.patch
+# popd
 # 33、修正adblock.init
 wget -P ./feeds/packages/net/adblock/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/adblock/patches/001-adblock.patch
 pushd feeds/packages/net/adblock
