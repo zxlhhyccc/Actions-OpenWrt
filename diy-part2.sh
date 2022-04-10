@@ -276,7 +276,10 @@ wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-b
 
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/952-net-conntrack-events-support-multiple-registrant.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
+wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/993-export-dev-set-dev-symbol.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/993-usb-serial-option-add-u9300.patch
+wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/994-mhi-use-irq-flags.patch
+wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/995-add-support-for-forced-PM-resume.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/998-add-ndo-do-ioctl.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/999-thermal-tristate.patch
 # wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/9999-convert_official_linux-5.4.x_src_to_bbrplus.patch
