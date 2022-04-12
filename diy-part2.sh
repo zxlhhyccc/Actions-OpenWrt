@@ -10,6 +10,9 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# softethervpn添加150-disable-restriction.patch
+wget -P ./feeds/packages/net/softethervpn/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/softethervpn/patches/150-disable-restriction.patch
+
 # 修复nlbwmon内存不足
 wget -P ./feeds/packages/net/nlbwmon/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/nlbwmon/001-fix-out-of-memory.patch
 pushd feeds/packages/net/nlbwmon
