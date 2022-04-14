@@ -153,14 +153,20 @@ pushd package/kernel/linux
 patch -p1 < 001-netsupport.mk-add-bbrplus.patch
 rm -f 001-netsupport.mk-add-bbrplus.patch
 popd
+# 4.给fs.mk 添加 NFSv4_2 SSC helper等模块
+wget -P ./package/kernel/linux/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/001-fs.mk-add-NFSv4_2 SSC-helper.patch
+pushd package/kernel/linux
+patch -p1 < 001-fs.mk-add-NFSv4_2 SSC-helper.patch
+rm -f 001-fs.mk-add-NFSv4_2 SSC-helper.patch
+popd
 # 5.给kernel(5.4)添加bbrplus、nanqinlang等模块补丁
 wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-bbrplus.patch
 wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-nanqinlang.patch
 wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-tsunami.patch
 wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-tsunamio.patch
 # 6.给kernel(5.10)添加bbrplus、nanqinlang等模块补丁
-wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
-wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
+# wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
+# wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
 # wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/610-v5.13-54-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
 
 wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-bbrplus.patch
