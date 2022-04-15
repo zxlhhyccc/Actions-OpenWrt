@@ -11,8 +11,7 @@
 #
 
 # wolfssl 添加400-fix-devcrypto-ret.patch修复/dev/crytpo:build failed
-wget -P ./package/libs/wolfssl/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/wolfssl/patches/400-fix-devcrypto-ret.patch
-
+wget -P ./package/libs/wolfssl/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/wolfssl/patches/400-devcrypto-remove-duplicate-definition-of-ret
 # softethervpn添加150-disable-restriction.patch
 wget -P ./feeds/packages/net/softethervpn/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/softethervpn/patches/150-disable-restriction.patch
 
