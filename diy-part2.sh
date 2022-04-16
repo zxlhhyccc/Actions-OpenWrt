@@ -23,10 +23,10 @@ rm -f 001-fix-out-of-memory.patch
 popd
 
 # openssl：支持NSS-AES-GCM加速
-wget -P ./package/libs/openssl/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/openssl/001-NSS-Supports-AES-GCM-acceleration.patch
+wget -P ./package/libs/openssl/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/openssl/001-nss-aes-gcm-supports.patch
 pushd package/libs/openssl
-patch -p1 < 001-NSS-Supports-AES-GCM-acceleration.patch
-rm -f 001-NSS-Supports-AES-GCM-acceleration.patch
+patch -p1 < 001-nss-aes-gcm-supports.patch
+rm -f 001-nss-aes-gcm-supports.patch
 popd
 
 # k3screenctrl：修复 PHICOMM K3 屏幕显示关闭
@@ -156,10 +156,10 @@ patch -p1 < 001-netsupport.mk-add-bbrplus.patch
 rm -f 001-netsupport.mk-add-bbrplus.patch
 popd
 # 4.给fs.mk 添加 NFSv4_2 SSC helper等模块
-wget -P ./package/kernel/linux/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/001-fs.mk-add-NFSv4_2 SSC-helper.patch
+wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-fs.mk-add-nfsv4-2-ssc-helper.patch
 pushd package/kernel/linux
-patch -p1 < 001-fs.mk-add-NFSv4_2 SSC-helper.patch
-rm -f 001-fs.mk-add-NFSv4_2 SSC-helper.patch
+patch -p1 < 001-fs.mk-add-nfsv4-2-ssc-helper.patch
+rm -f 001-fs.mk-add-nfsv4-2-ssc-helper.patch
 popd
 # 5.给kernel(5.4)添加bbrplus、nanqinlang等模块补丁
 wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-bbrplus.patch
