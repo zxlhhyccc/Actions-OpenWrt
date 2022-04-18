@@ -44,6 +44,11 @@ patch -p1 < 001-add-vendor_vht.patch
 rm -f 001-add-vendor_vht.patch
 popd
 
+wget -P ./package/network/services/hostapd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/001-add-BSS-CCA-support.patch
+pushd package/network/services/hostapd
+patch -p1 < 001-add-BSS-CCA-support.patch
+rm -f 001-add-BSS-CCA-support.patch
+popd
 # nginx添加njs模块支持
 wget -P ./feeds/packages/net/nginx/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/nginx/001-nginx-add-njs-module.patch
 pushd feeds/packages/net/nginx
