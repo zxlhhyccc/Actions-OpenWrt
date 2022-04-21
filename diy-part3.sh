@@ -10,58 +10,56 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
-# 添加5.10内核的QCA支持
-rm -rf ./target/linux/ipq807x
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca/target/linux/ipq807x target/linux/ipq807x
-rm -rf ./target/linux/ipq807x/.svn
-rm -f ./target/linux/ipq807x/patches-5.10/601-netfilter-export-udp_get_timeouts-function.patch
+# 添加5.10/5.15内核的QCA支持
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/target/linux/ipq807x target/linux/ipq807x
+
 wget -P target/linux/ipq40xx/files/arch/arm/boot/dts/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-c526a.dts
 
 # boot-envtools添加ipq807x
-wget -P package/boot/uboot-envtools/files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/boot/uboot-envtools/files/ipq807x
+wget -P package/boot/uboot-envtools/files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/boot/uboot-envtools/files/ipq807x
 
 # firmware添加ax6等文件
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca/package/firmware/ath11k-board package/firmware/ath11k-board
-rm -rf ./package/firmware/ath11k-board/.svn
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/firmware/ath11k-board package/firmware/ath11k-board
 
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca/package/firmware/ath11k-firmware package/firmware/ath11k-firmware
-rm -rf ./package/firmware/ath11k-firmware/.svn
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/firmware/ath11k-firmware package/firmware/ath11k-firmware
 
 rm -f ./package/firmware/ipq-wifi/Makefile
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/Makefile
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/Makefile
 
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-hiwifi_c526a.qca4019
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-edgecore_eap102.ipq8074
 
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-netgear_sxr80.ipq8074
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-edimax_cax1800.ipq8074
 
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-p2w_r619ac.qca4019
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-hiwifi_c526a.qca4019
 
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-qnap_301w.ipq8074
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-netgear_sxr80.ipq8074
 
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-redmi_ax6.ipq8074
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-qnap_301w.ipq8074
 
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-xiaomi_ax3600.ipq8074
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-redmi_ax6.ipq8074
 
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-xiaomi_ax3600.qca9889
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-xiaomi_ax3600.ipq8074
 
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-xiaomi_ax9000.ipq8074
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-xiaomi_ax3600.qca9889
 
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-xiaomi_ax9000.qca9889
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-xiaomi_ax9000.ipq8074
 
-wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/firmware/ipq-wifi/board-zte_mf269.ipq8074
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-xiaomi_ax9000.qca9889
+
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-zte_mf269.ipq8074
+
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-tplink_xtr10890.ipq8074
 
 # kernel/linux替换修改后hwmon.mk、usb.mk
 rm -f ./package/kernel/linux/modules/hwmon.mk
-wget -P package/kernel/linux/modules/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/kernel/linux/modules/hwmon.mk
+wget -P package/kernel/linux/modules/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/kernel/linux/modules/hwmon.mk
 
 rm -f ./package/kernel/linux/modules/usb.mk
-wget -P package/kernel/linux/modules/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/package/kernel/linux/modules/usb.mk
+wget -P package/kernel/linux/modules/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/kernel/linux/modules/usb.mk
 
 # MAC80211添加ipq807x支持
 rm -rf package/kernel/mac80211
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca/package/kernel/mac80211 package/kernel/mac80211
-rm -rf ./package/kernel/mac80211/.svn
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/kernel/mac80211 package/kernel/mac80211
 
 # 添加NSS
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/nss-packages package/nss-packages
-rm -rf ./package/nss_packages/.svn
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/nss-packages package/nss-packages

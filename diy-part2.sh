@@ -16,7 +16,6 @@ pushd package/libs/wolfssl
 patch -p1 < 001-enable-CPU-crypto-on-rmv8-and-x86-64-exclude-bcm27xx.patch
 rm -f 001-enable-CPU-crypto-on-rmv8-and-x86-64-exclude-bcm27xx.patch
 popd
-
 # softethervpn添加150-disable-restriction.patch
 wget -P ./feeds/packages/net/softethervpn/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/softethervpn/patches/150-disable-restriction.patch
 
@@ -171,19 +170,21 @@ pushd package/kernel/linux
 patch -p1 < 001-fs.mk-add-nfsv4-2-ssc-helper.patch
 rm -f 001-fs.mk-add-nfsv4-2-ssc-helper.patch
 popd
-# 5.给kernel(5.4)添加bbrplus、nanqinlang等模块补丁
-wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-bbrplus.patch
-wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-nanqinlang.patch
-wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-tsunami.patch
-wget -P ./target/linux/generic/backport-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.4/999-net-tcp-add-tsunamio.patch
+# 5.给kernel(5.15)添加bbrplus、nanqinlang等模块补丁
+wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-bbrplus.patch
+wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-nanqinlang.patch
+wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-tsunami.patch
+wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-tsunamio.patch
 # 6.给kernel(5.10)添加bbrplus、nanqinlang等模块补丁
 wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
 wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
 # wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/610-v5.13-54-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
 
-wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-bbrplus.patch
-wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-nanqinlang.patch
-wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-tsunami.patch
+wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-bbrplus.patch
+wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-nanqinlang.patch
+wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-tsunami.patch
+wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-tsunamio.patch
+
 # 7、kernel修改连接数
 # sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 sed -i 's/7440/7200/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
@@ -264,26 +265,12 @@ popd
 # rm -rf ./feeds/packages/admin/htop/.svn
 # rm -rf ./feeds/packages/libs/libyaml-cpp
 # svn co https://github.com/project-openwrt/packages/trunk/libs/libyaml-cpp feeds/packages/libs/libyaml-cpp
-# 14、添加5.4内核ACC、shortcut-fe、bbrplus补丁
-rm -f ./target/linux/generic/hack-5.4/204-module_strip.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/204-module_strip.patch
-rm -f ./target/linux/generic/hack-5.4/250-netfilter_depends.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/250-netfilter_depends.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/601-netfilter-export-udp_get_timeouts-function.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
-rm -f ./target/linux/generic/hack-5.4/650-netfilter-add-xt_OFFLOAD-target.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/650-netfilter-add-xt_OFFLOAD-target.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/652-netfilter-flow_offload-add-check-ifindex.patch
-rm -f ./target/linux/generic/hack-5.4/661-use_fq_codel_by_default.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/661-use_fq_codel_by_default.patch
-rm -f ./target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
-rm -f ./target/linux/generic/hack-5.4/721-phy_packets.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/721-phy_packets.patch
-wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
-wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
-wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/998-add-ndo-do-ioctl.patch
-wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/999-thermal-tristate.patch
+# 14、添加5.15内核ACC、shortcut-fe补丁
+wget -P ./target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
+wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
+wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
+wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/992-add-ndo-do-ioctl.patch
+
 # 15、修复及添加5.10内核ACC、shortcut-fe、bbrplus补丁
 rm -f ./target/linux/generic/hack-5.10/250-netfilter_depends.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/250-netfilter_depends.patch
@@ -304,22 +291,12 @@ wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-b
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/998-add-ndo-do-ioctl.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/999-thermal-tristate.patch
 # wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/9999-convert_official_linux-5.4.x_src_to_bbrplus.patch
-# 16、修复及添加pending-5.4部分补丁及添加imq模块补丁
-# wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
-wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/601-add-kernel-imq-support.patch
-rm -f ./target/linux/generic/pending-5.4/655-increase_skb_pad.patch
-wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/655-increase_skb_pad.patch
-rm -f ./target/linux/generic/pending-5.4/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
-wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
-# rm -f ./target/linux/generic/pending-5.4/681-NET-add-mtd-mac-address-support-to-of_get_mac_addres.patch
-# wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/681-NET-add-mtd-mac-address-support-to-of_get_mac_addres.patch
-rm -f ./target/linux/generic/pending-5.4/682-of_net-add-mac-address-increment-support.patch
-wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/682-of_net-add-mac-address-increment-support.patch
-rm -f ./target/linux/generic/pending-5.4/683-of_net-add-mac-address-to-of-tree.patch
-wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/683-of_net-add-mac-address-to-of-tree.patch
+# 16、修复及添加pending-5.15部分补丁及添加Qualcomm QMI Helpers模块补丁
+wget -P target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/920-mangle_bootargs.patch
+wget -P ./target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/blob/master/master/target/linux/generic/pending-5.15/930-qcom-qmi-helpers.patch
+rm -f ./target/linux/generic/config-5.15
+wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.15
 
-rm -f ./target/linux/generic/config-5.4
-wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.4
 # 17、修复及添加pending-5.10部分补丁及添加imq模块补丁
 wget -P target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/601-add-kernel-imq-support.patch
 rm -f ./target/linux/generic/pending-5.10/655-increase_skb_pad.patch
@@ -368,7 +345,6 @@ sed -i '66 s#boardinfo.hostname or "?"#""#g' feeds/luci/themes/luci-theme-materi
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 24、添加feeds里的依赖包
-# svn co https://github.com/project-openwrt/packages/trunk/lang/node-yarn feeds/packages/lang/node-yarn
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 
 svn export https://github.com/project-openwrt/packages/trunk/libs/opencv feeds/packages/libs/opencv
@@ -453,30 +429,6 @@ patch -p1 < 003-luci-mod-status-fix-align-of-OnlineUsers.patch
 rm -f 003-luci-mod-status-fix-align-of-OnlineUsers.patch
 popd
 # 31、添加netdata显示中文日期补丁及升级到1.22.1
-# sed -i 's/1.20.0/1.22.1/g' feeds/packages/admin/netdata/Makefile
-# sed -i 's/c739e0fa8d6d7f433c0c7c8016b763e8f70519d67f0b5e7eca9ee5318f210d90/6efd785eab82f98892b4b4017cadfa4ce1688985915499bc75f2f888765a3446/g' feeds/packages/admin/netdata/Makefile
-# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/002-netdata-with-dbengine.patch
-# pushd feeds/packages/admin/netdata
-# patch -p1 < 002-netdata-with-dbengine.patch
-# popd
-# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
-# pushd feeds/packages/admin/netdata
-# patch -p1 < 003-netdata-init-with-TZ.patch
-# popd
-# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/004-netdata-with-config.patch
-# pushd feeds/packages/admin/netdata
-# patch -p1 < 004-netdata-with-config.patch
-# popd
-# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/000-netdata-delete-config.patch
-# pushd feeds/packages/admin/netdata
-# patch -p1 < 000-netdata-delete-config.patch
-# rm -f 000-netdata-delete-config.patch
-# popd
-# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/005-netdata.patch
-# pushd feeds/packages/admin/netdata
-# patch -p1 < 005-netdata.patch
-# rm -f 005-netdata.patch
-# popd
 wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/006-netdata.patch
 pushd feeds/packages/admin/netdata
 patch -p1 < 006-netdata.patch
@@ -555,11 +507,11 @@ wget -P ./target/linux/ramips/patches-5.4/ https://raw.githubusercontent.com/pro
 # unzip luci-app-flowoffload-master-NAT.zip
 # popd
 # 38、打开wifi并设置区域为US
-wget -P ./package/kernel/mac80211/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/001-wifi-auto.patch
-pushd package/kernel/mac80211
-patch -p1 < 001-wifi-auto.patch
-rm -f 001-wifi-auto.patch
-popd
+# wget -P ./package/kernel/mac80211/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/001-wifi-auto.patch
+# pushd package/kernel/mac80211
+# patch -p1 < 001-wifi-auto.patch
+# rm -f 001-wifi-auto.patch
+# popd
 # 39、mac80211：为ath / subsys：在2g上允许vht添加补丁
 wget -P ./package/kernel/mac80211/patches/subsys/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/subsys/600-mac80211-allow-vht-on-2g.patch
 wget -P ./package/kernel/mac80211/patches/ath10k/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/ath10k/983-ath10k-allow-vht-on-2g.patch
