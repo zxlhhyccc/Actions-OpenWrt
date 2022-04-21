@@ -10,6 +10,13 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# wolfssl在 ARMv8（不包括 bcm27xx）和 x86-64 上启用 CPU 加密
+wget -P ./package/libs/wolfssl/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/wolfssl/patches/001-enable-CPU-crypto-on-rmv8-and-x86-64-exclude-bcm27xx.patch
+pushd package/libs/wolfssl
+patch -p1 < 001-enable-CPU-crypto-on-rmv8-and-x86-64-exclude-bcm27xx.patch
+rm -f 001-enable-CPU-crypto-on-rmv8-and-x86-64-exclude-bcm27xx.patch
+popd
+
 # softethervpn添加150-disable-restriction.patch
 wget -P ./feeds/packages/net/softethervpn/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/softethervpn/patches/150-disable-restriction.patch
 
