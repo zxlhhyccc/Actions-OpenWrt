@@ -33,9 +33,9 @@ sed -i 's/kmod-input-core/kmod-multimedia-input/g' target/linux/sunxi/modules.mk
 # 调整luci-app-nlbwmon显示菜单
 sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
 # 开启无线及添加区域和禁用iw_qos_map_set
-sed -i 's/disabled=1/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-sed -i '179i set wireless.radio${devidx}.country=US' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-sed -i '/set wireless.radio${devidx}.country=US/c\                        set wireless.radio${devidx}.country=US' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-sed -i '180i set wireless.default_radio${devidx}.iw_qos_map_set=none' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-sed -i '/set wireless.default_radio${devidx}.iw_qos_map_set=none/c\                        set wireless.default_radio${devidx}.iw_qos_map_set=none' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# sed -i 's/disabled=1/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# sed -i '179i set wireless.radio${devidx}.country=US' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# sed -i '/set wireless.radio${devidx}.country=US/c\                        set wireless.radio${devidx}.country=US' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# sed -i '180i set wireless.default_radio${devidx}.iw_qos_map_set=none' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# sed -i '/set wireless.default_radio${devidx}.iw_qos_map_set=none/c\                        set wireless.default_radio${devidx}.iw_qos_map_set=none' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
