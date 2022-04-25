@@ -388,6 +388,8 @@ pushd target/linux/ramips
 patch -p1 < 0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
 rm -f 0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
 popd
+
+# mtk-eip93：使用内核修复构建
 wget -P ./target/linux/ramips/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches-5.10/999-crypto-eip93-fix.patch
 wget -P ./target/linux/ramips/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches-5.10/999-fix-hwnat.patch
 
@@ -396,6 +398,7 @@ wget -P ./target/linux/ramips/patches-5.10/ https://github.com/zxlhhyccc/acc-imq
 # patch -p1 < overclock-mt7621.patch
 # rm -f overclock-mt7621.patch
 # popd
+wget -P ./target/linux/ramips/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches-5.15/999-crypto-eip93-fix.patch
 # rtl8812au-ac：更新无线5.8
 # svn co https://github.com/project-openwrt/openwrt/branches/master/package/kernel/rtl8812au-ac package/kernel/rtl8812au-ac
 # 28、修改transmission依赖
