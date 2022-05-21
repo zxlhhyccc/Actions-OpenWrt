@@ -20,7 +20,11 @@ sed -i 's/$(VERSION_DIST_SANITIZED)/$(BUILD_DATE_PREFIX)-$(VERSION_DIST_SANITIZE
 # openssl：通过以下方式，使ARMv8设备适配ChaCha20-Poly1305而不是AES-GCM
 sed -i 's/default y if !x86_64 && !aarch64/default y if !x86_64/g' package/libs/openssl/Config.in
 # K3默认驱动替换
-sed -i 's/brcmfmac-firmware-4366c0-pcie/brcmfmac-firmware-4366c0-pcie-vendor/g' target/linux/bcm53xx/image/Makefile
+wget -P ./target/linux/bcm53xx/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/001-fix-dependency.patch
+pushd target/linux/bcm53xx
+patch -p1 < 001-fix-dependency.patch
+rm -f 001-fix-dependency.patch
+popd
 # K3默认驱动还原
 # sed -i 's/brcmfmac-firmware-4366c0-pcie-vendor/brcmfmac-firmware-4366c0-pcie/g' target/linux/bcm53xx/image/Makefile
 # 只编译K3固件
