@@ -127,6 +127,11 @@ popd
 # patch -p1 < 001-interface-family-dual-stack-ipv4oripv6-support.patch
 # rm -f 001-interface-family-dual-stack-ipv4oripv6-support.patch
 # popd
+wget -P ./feeds/luci/applications/luci-app-mwan3/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-mwan3/001-fix-luci-mwan3.patch
+pushd feeds/luci/applications/luci-app-mwan3
+patch -p1 < 001-fix-luci-mwan3.patch
+rm -f 001-fix-luci-mwan3.patch
+popd
 # 添加、修复iwinfo适配K2P闭源驱动补丁
 wget -P ./package/network/utils/iwinfo/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/utils/iwinfo/patches/101-ralink-k2p.patch
 pushd package/network/utils/iwinfo
@@ -297,7 +302,7 @@ wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-b
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/999-thermal-tristate.patch
 # wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/9999-convert_official_linux-5.4.x_src_to_bbrplus.patch
 # 16、修复及添加pending-5.15部分补丁及添加Qualcomm QMI Helpers模块补丁
-wget -P target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/920-mangle_bootargs.patch
+# wget -P target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/920-mangle_bootargs.patch
 wget -P ./target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/blob/master/master/target/linux/generic/pending-5.15/930-qcom-qmi-helpers.patch
 rm -f ./target/linux/generic/config-5.15
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.15
