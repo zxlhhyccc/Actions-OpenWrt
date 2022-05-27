@@ -322,6 +322,8 @@ rm -f ./target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-cre
 wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-creating-duplicate-of.patch
 rm -f ./target/linux/generic/pending-5.10/701-03-net-ethernet-mtk_eth_soc-implement-flow-offloading-t.patch
 wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/701-03-net-ethernet-mtk_eth_soc-implement-flow-offloading-t.patch
+rm -f ./target/linux/generic/pending-5.10/704-02-net-fix-dev_fill_forward_path-with-pppoe-bridge.patch
+wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/704-02-net-fix-dev_fill_forward_path-with-pppoe-bridge.patch
 
 rm -f ./target/linux/generic/config-5.10
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.10
