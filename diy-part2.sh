@@ -10,11 +10,11 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
-# wolfssl在 ARMv8（不包括 bcm27xx）和 x86-64 上启用 CPU 加密
-wget -P ./package/libs/wolfssl/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/wolfssl/patches/001-enable-CPU-crypto-on-rmv8-and-x86-64-exclude-bcm27xx.patch
-pushd package/libs/wolfssl
-patch -p1 < 001-enable-CPU-crypto-on-rmv8-and-x86-64-exclude-bcm27xx.patch
-rm -f 001-enable-CPU-crypto-on-rmv8-and-x86-64-exclude-bcm27xx.patch
+# firewall4：在 ipv6 上禁用 fullcone nat
+wget -P ./package/network/config/firewall4/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/firewall4/patches/001-firewall4-add-support-for-fullcone-nat.patch
+pushd package/network/config/firewall4
+patch -p1 < 001-firewall4-add-support-for-fullcone-nat.patch
+rm -f 001-firewall4-add-support-for-fullcone-nat.patch
 popd
 # softethervpn添加150-disable-restriction.patch
 wget -P ./feeds/packages/net/softethervpn/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/softethervpn/patches/150-disable-restriction.patch
@@ -37,11 +37,14 @@ popd
 wget -P ./target/linux/bcm53xx/patches-5.4/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.4/906-BCM5301x-uart1.patch
 wget -P ./target/linux/bcm53xx/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.10/906-BCM5301x-uart1.patch
 
-# x86使用 BCM578xx绕过 HH3K 高达 2.5Gbps
+# x86使用 BCM578xx绕过 HH3K 高达 2.5Gbps、kernle-5.15启用Straight-Line-Speculation（SLS）
 wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/900-x86-Enable-fast-strings-on-Intel-if-BIOS-hasn-t-already.patch
 wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
 
 wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
+
+rm -rf ./target/linux/x86/config-5.15
+wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/config-5.15
 
 # hostpad添加vendor_vht模块支持
 wget -P ./package/network/services/hostapd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/001-add-vendor_vht.patch
@@ -50,11 +53,11 @@ patch -p1 < 001-add-vendor_vht.patch
 rm -f 001-add-vendor_vht.patch
 popd
 
-wget -P ./package/network/services/hostapd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/001-add-BSS-CCA-support.patch
-pushd package/network/services/hostapd
-patch -p1 < 001-add-BSS-CCA-support.patch
-rm -f 001-add-BSS-CCA-support.patch
-popd
+#wget -P ./package/network/services/hostapd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/001-add-BSS-CCA-support.patch
+#pushd package/network/services/hostapd
+#patch -p1 < 001-add-BSS-CCA-support.patch
+#rm -f 001-add-BSS-CCA-support.patch
+#popd
 
 wget -P ./package/network/services/hostapd/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/024-fix-IEEE-802.11-deauthenticated-due-to-local-deauth-.patch
 
