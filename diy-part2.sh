@@ -46,6 +46,12 @@ wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bb
 rm -rf ./target/linux/x86/config-5.15
 wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/config-5.15
 
+# x86：添加支持 I226 的小马 M12 12th J6412/J6413 CPU
+wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/001-add-XiaoMa-M12-12th-J6412-J6413-CPU-with-I226-support.patch
+pushd target/linux/x86
+patch -p1 < 001-add-XiaoMa-M12-12th-J6412-J6413-CPU-with-I226-support.patch
+rm -f 001-add-XiaoMa-M12-12th-J6412-J6413-CPU-with-I226-support.patch
+popd
 # hostpad添加vendor_vht模块支持
 wget -P ./package/network/services/hostapd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/001-add-vendor_vht.patch
 pushd package/network/services/hostapd
@@ -348,6 +354,12 @@ popd
 # popd
 # 20、wireless-regdb：自定义更改txpower和dfs的补丁
 wget -P package/firmware/wireless-regdb/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/firmware/wireless-regdb/patches/600-custom-change-txpower-and-dfs.patch
+# linux-firmware：添加RTL8811/8821CU固件
+wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/patches/001-add-RTL8811-8821CU-firmware.patch
+pushd package/firmware/linux-firmware
+patch -p1 < 001-add-RTL8811-8821CU-firmware.patch
+rm -f 001-add-RTL8811-8821CU-firmware.patch
+popd
 # 21、添加upx压缩源码
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/ucl tools/ucl
 
