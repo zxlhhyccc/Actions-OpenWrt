@@ -28,6 +28,8 @@ wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/
 
 wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-edgecore_eap102.ipq8074
 
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-dynalink_dl-wrx36.ipq8074
+
 wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-edimax_cax1800.ipq8074
 
 wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-hiwifi_c526a.qca4019
@@ -45,6 +47,8 @@ wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/
 wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-xiaomi_ax9000.ipq8074
 
 wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-xiaomi_ax9000.qca9889
+
+wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-xiaomi_ax9000.qcn9074
 
 wget -P package/firmware/ipq-wifi/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ipq-wifi/board-zte_mf269.ipq8074
 
