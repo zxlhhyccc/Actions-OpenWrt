@@ -340,9 +340,9 @@ rm -f ./target/linux/x86/Makefile
 wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/Makefile
 # 18、mwlwifi添加disable-amsdu补丁
 wget -P package/kernel/mwlwifi/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mwlwifi/patches/002-disable-AMSDU.patch
-# 19、给luci-base添加无线图标及使用busybox设置passwd
+# 19、给luci-base添加无线图标及分离 Lua 运行时资源
 wget -P feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/wifi_big.png
-wget -P ./feeds/luci/modules/luci-base/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-base/patches/001-initial-ucode-based-luci-runtime.patch
+wget -P ./feeds/luci/modules/luci-base/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-base/patches/001-initial-ucode-based-luci-runtime.patch
 pushd feeds/luci/modules/luci-base
 patch -p1 < 001-initial-ucode-based-luci-runtime.patch
 rm -f 001-initial-ucode-based-luci-runtime.patch
@@ -352,6 +352,14 @@ popd
 # patch -p1 < 001-use-dev-conntrackinfo-ctl-if-exist.patch
 # rm -f 001-use-dev-conntrackinfo-ctl-if-exist.patch
 # popd
+
+# 19-1、给luci-lua-runtime使用busybox设置passwd
+wget -P ./feeds/luci/modules/luci-lua-runtime/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-lua-runtime/patches/001-let-passwd-using-busybox.patch
+pushd feeds/luci/modules/luci-lua-runtime
+patch -p1 < 001-let-passwd-using-busybox.patch
+rm -f 001-let-passwd-using-busybox.patch
+popd
+
 # 20、wireless-regdb：自定义更改txpower和dfs的补丁
 wget -P package/firmware/wireless-regdb/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/firmware/wireless-regdb/patches/600-custom-change-txpower-and-dfs.patch
 # linux-firmware：添加RTL8811/8821CU固件
