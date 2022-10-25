@@ -342,12 +342,12 @@ wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/
 wget -P package/kernel/mwlwifi/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mwlwifi/patches/002-disable-AMSDU.patch
 # 19、给luci-base添加无线图标及使用busybox设置passwd
 wget -P feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/wifi_big.png
-wget -P ./feeds/luci/modules/luci-base/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-base/patches/001-let-passwd-using-busybox.patch
+wget -P ./feeds/luci/modules/luci-base/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-base/patches/001-initial-ucode-based-luci-runtime.patch
 pushd feeds/luci/modules/luci-base
-patch -p1 < 001-let-passwd-using-busybox.patch
-rm -f 001-let-passwd-using-busybox.patch
+patch -p1 < 001-initial-ucode-based-luci-runtime.patch
+rm -f 001-initial-ucode-based-luci-runtime.patch
 popd
-# wget -P ./feeds/luci/modules/luci-base/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-base/patches/001-use-dev-conntrackinfo-ctl-if-exist.patch
+# wget -P ./feeds/luci/modules/luci-base/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-base/patches/luci-base/patches/001-use-dev-conntrackinfo-ctl-if-exist.patch
 # pushd feeds/luci/modules/luci-base
 # patch -p1 < 001-use-dev-conntrackinfo-ctl-if-exist.patch
 # rm -f 001-use-dev-conntrackinfo-ctl-if-exist.patch
