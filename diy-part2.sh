@@ -361,11 +361,11 @@ rm -f 001-let-passwd-using-busybox.patch
 popd
 
 # 19-2、给luci-lua-runtime添加footer.htm、header.htm
-wget -P ./feeds/luci/modules/luci-lua-runtime/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-lua-runtime/patches/001-footer-header-htm.patch
-pushd feeds/luci/modules/luci-lua-runtime
-patch -p1 < 001-footer-header-htm.patch
-rm -f 001-footer-header-htm.patch
-popd
+# wget -P ./feeds/luci/modules/luci-lua-runtime/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-lua-runtime/patches/001-footer-header-htm.patch
+# pushd feeds/luci/modules/luci-lua-runtime
+# patch -p1 < 001-footer-header-htm.patch
+# rm -f 001-footer-header-htm.patch
+# popd
 
 # 20、wireless-regdb：自定义更改txpower和dfs的补丁
 wget -P package/firmware/wireless-regdb/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/firmware/wireless-regdb/patches/600-custom-change-txpower-and-dfs.patch
