@@ -585,8 +585,8 @@ wget -P ./package/utils/busybox/patches/ https://raw.githubusercontent.com/zxlhh
 # wget -P ./target/linux/mvebu/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/mvebu/Makefile
 
 # 44、sqlite3：添加对qt5的列元数据支持
-wget -P ./feeds/packages/libs/sqlite3/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/libs/sqlite3/patches/001-add-column-metadata-support-for-qt5.patch
-pushd feeds/packages/libs/sqlite3
-patch -p1 < 001-add-column-metadata-support-for-qt5.patch
-rm -f 001-add-column-metadata-support-for-qt5.patch
-popd
+# wget -P ./feeds/packages/libs/sqlite3/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/libs/sqlite3/patches/001-add-column-metadata-support-for-qt5.patch
+# pushd feeds/packages/libs/sqlite3
+# patch -p1 < 001-add-column-metadata-support-for-qt5.patch
+# rm -f 001-add-column-metadata-support-for-qt5.patch
+# popd
