@@ -166,26 +166,33 @@ wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/maste
 rm -f ./include/netfilter.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/netfilter.mk
 # kernel支持及修改连接数
+# kernel：sysctl：更新 fullcone nat 的 nf_ct 设置
+wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-sysctl-nf-conntrack-fullconenat-mode2.patch
+pushd package/kernel/linux
+patch -p1 < 001-sysctl-nf-conntrack-fullconenat-mode2.patch
+rm -f 001-sysctl-nf-conntrack-fullconenat-mode2.patch
+popd
+
 # 1.给kernel的crypto.mk、lib.mk、other.mk添加模块
-wget -P ./package/kernel/linux/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/001-compressed-memory.patch
+wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-compressed-memory.patch
 pushd package/kernel/linux
 patch -p1 < 001-compressed-memory.patch
 rm -f 001-compressed-memory.patch
 popd
 # 2.给kernel的netdevices.mk、netfilter.mk添加模块
-wget -P ./package/kernel/linux/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/001-netdevices.mk-netfilter.mk.patch
+wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-netdevices.mk-netfilter.mk.patch
 pushd package/kernel/linux
 patch -p1 < 001-netdevices.mk-netfilter.mk.patch
 rm -f 001-netdevices.mk-netfilter.mk.patch
 popd
 # 3.给kernel的video.mk添加模块
-wget -P ./package/kernel/linux/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/001-video-add-multimedia-input.patch
+wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-video-add-multimedia-input.patch
 pushd package/kernel/linux
 patch -p1 < 001-video-add-multimedia-input.patch
 rm -f 001-video-add-multimedia-input.patch
 popd
 # 4.给netsupport.mk 添加bbrplus、nanqinlang等模块
-wget -P ./package/kernel/linux/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/001-netsupport.mk-add-bbrplus.patch
+wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-netsupport.mk-add-bbrplus.patch
 pushd package/kernel/linux
 patch -p1 < 001-netsupport.mk-add-bbrplus.patch
 rm -f 001-netsupport.mk-add-bbrplus.patch
@@ -196,11 +203,19 @@ pushd package/kernel/linux
 patch -p1 < 001-fs.mk-add-nfsv4-2-ssc-helper.patch
 rm -f 001-fs.mk-add-nfsv4-2-ssc-helper.patch
 popd
+
+# 给kernel(5.15)添加 bcm fullconenat补丁
+wget -P ./target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/940-add-bcm-fullconenat-support.patch
+
 # 5.给kernel(5.15)添加bbrplus、nanqinlang等模块补丁
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-bbrplus.patch
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-nanqinlang.patch
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-tsunami.patch
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-tsunamio.patch
+
+# 给kernel(5.10)添加 bcm fullconenat补丁
+wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/940-add-bcm-fullconenat-support.patch
+
 # 6.给kernel(5.10)添加bbrplus、nanqinlang等模块补丁
 wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
 wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
