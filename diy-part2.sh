@@ -205,7 +205,7 @@ rm -f 001-fs.mk-add-nfsv4-2-ssc-helper.patch
 popd
 
 # 给kernel(5.15)添加 bcm fullconenat补丁
-wget -P ./target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/940-add-bcm-fullconenat-support.patch
+wget -P ./target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/982-add-bcm-fullconenat-support.patch
 
 # 5.给kernel(5.15)添加bbrplus、nanqinlang等模块补丁
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-bbrplus.patch
@@ -214,7 +214,7 @@ wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-i
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-tsunamio.patch
 
 # 给kernel(5.10)添加 bcm fullconenat补丁
-wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/940-add-bcm-fullconenat-support.patch
+wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/982-add-bcm-fullconenat-support.patch
 
 # 6.给kernel(5.10)添加bbrplus、nanqinlang等模块补丁
 wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
