@@ -40,8 +40,14 @@ sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES 
 sed -i 's/uboot-envtools/autocore-arm uboot-envtools/g' target/linux/sunxi/Makefile
 sed -i 's/kmod-input-core/kmod-multimedia-input/g' target/linux/sunxi/modules.mk
 # 调整luci-app-nlbwmon显示菜单
-sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
-sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/htdocs/luci-static/resources/view/nlbw/config.js
+wget -P ./feeds/luci/applications/luci-app-nlbwmon/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-nlbwmon/patches/001-change-to-separate-menu.patch
+pushd feeds/luci/applications/luci-app-nlbwmon
+patch -p1 < 001-change-to-separate-menu.patch
+rm -f 001-change-to-separate-menu.patch
+popd
+
+# sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
+# sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/htdocs/luci-static/resources/view/nlbw/config.js
 # 开启无线及添加区域和禁用iw_qos_map_set
 # sed -i 's/disabled=1/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 # sed -i '179i set wireless.radio${devidx}.country=US' package/kernel/mac80211/files/lib/wifi/mac80211.sh
