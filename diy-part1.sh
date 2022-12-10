@@ -41,6 +41,7 @@ sed -i 's/uboot-envtools/autocore-arm uboot-envtools/g' target/linux/sunxi/Makef
 sed -i 's/kmod-input-core/kmod-multimedia-input/g' target/linux/sunxi/modules.mk
 # 调整luci-app-nlbwmon显示菜单
 sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
+sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/htdocs/luci-static/resources/view/nlbw/config.js
 # 开启无线及添加区域和禁用iw_qos_map_set
 # sed -i 's/disabled=1/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 # sed -i '179i set wireless.radio${devidx}.country=US' package/kernel/mac80211/files/lib/wifi/mac80211.sh
