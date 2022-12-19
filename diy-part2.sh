@@ -11,8 +11,8 @@
 #
 
 # procd 修复服务参数处理
-wget -P ./package/system/procd/files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/procd/patches/001-fix-service-arguments-processing.patch
-pushd package/system/procd/files
+wget -P ./package/system/procd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/procd/patches/001-fix-service-arguments-processing.patch
+pushd package/system/procd
 patch -p1 < 001-fix-service-arguments-processing.patch
 rm -f 001-fix-service-arguments-processing.patch
 popd
