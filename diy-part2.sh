@@ -392,10 +392,10 @@ popd
 # 20、wireless-regdb：自定义更改txpower和dfs的补丁
 wget -P package/firmware/wireless-regdb/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/firmware/wireless-regdb/patches/600-custom-change-txpower-and-dfs.patch
 # linux-firmware：添加RTL8811/8821CU固件
-wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/patches/001-add-RTL8811-8821CU-firmware.patch
+wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/patches/001-add-RTL8811-8821CE-firmware.patch
 pushd package/firmware/linux-firmware
-patch -p1 < 001-add-RTL8811-8821CU-firmware.patch
-rm -f 001-add-RTL8811-8821CU-firmware.patch
+patch -p1 < 001-add-RTL8811-8821CE-firmware.patch
+rm -f 001-add-RTL8811-8821CE-firmware.patch
 popd
 # 21、添加upx压缩源码
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/ucl tools/ucl
