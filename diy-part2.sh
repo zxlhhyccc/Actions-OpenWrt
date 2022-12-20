@@ -120,6 +120,12 @@ patch -p1 < 001-tweak-default-ntp-servers.patch
 rm -f 001-tweak-default-ntp-servers.patch
 popd
 
+wget -P ./package/base-files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/base-files/001-fix-functions-jshn-sh-fond.patch
+pushd package/base-files
+patch -p1 < 001-fix-functions-jshn-sh-fond.patch
+rm -f 001-fix-functions-jshn-sh-fond.patch
+popd
+
 # wget -P ./package/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/001-Makefile-force-overwrite.patch
 # pushd package
 # patch -p1 < 001-Makefile-force-overwrite.patch
