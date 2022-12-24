@@ -339,6 +339,7 @@ wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-b
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/999-thermal-tristate.patch
 # wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/9999-convert_official_linux-5.4.x_src_to_bbrplus.patch
 # 16、修复及添加pending-5.15部分补丁及添加Qualcomm QMI Helpers模块补丁
+wget -P ./target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/790-bus-mhi-core-add-SBL-state-callback.patch
 rm -f ./target/linux/generic/pending-5.15/920-mangle_bootargs.patch
 wget -P target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/920-mangle_bootargs.patch
 wget -P ./target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/930-qcom-qmi-helpers.patch
