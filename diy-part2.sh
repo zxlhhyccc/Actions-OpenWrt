@@ -409,8 +409,6 @@ svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/ucl tools
 
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/upx tools/upx
 
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/libdeflate tools/libdeflate
-
 rm -f ./tools/Makefile
 wget -P ./tools/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/tools/Makefile
 # 22、去除feeds中的material主题多余openwrt名
