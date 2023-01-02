@@ -14,6 +14,8 @@
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 # fix bios boot partition is under 1 MiB
 sed -i 's/256/1024/g' target/linux/x86/image/Makefile
+rm -f ./include/image-commands.mk
+wget -P ./include/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/include/image-commands.mk
 # squashfs：使mkfs具有多CPU加速和添加固件日期形式的编号
 # sed -i 's/processors 1/processors $(shell nproc)/g' include/image.mk
 # sed -i中特殊符号‘单引号的处理，sed中’'之间的’单引号特殊处理需要'"'"' (两个单引号中两个双引号再最里面是目标一个单引号)
@@ -23,7 +25,7 @@ sed -i '35i BUILD_DATE_PREFIX := $(shell TZ=UTC-8 date +'"'"'%Y%m%d%H%M'"'"')' i
 # sed -i "s/%Y%m%d%H%M/\'%Y%m%d%H%M\'/g" include/image.mk
 sed -i 's/$(VERSION_DIST_SANITIZED)/$(BUILD_DATE_PREFIX)-$(VERSION_DIST_SANITIZED)/g' include/image.mk
 # openssl：通过以下方式，使ARMv8设备适配ChaCha20-Poly1305而不是AES-GCM
-sed -i 's/default y if !x86_64 && !aarch64/default y if !x86_64/g' package/libs/openssl/Config.in
+# sed -i 's/default y if !x86_64 && !aarch64/default y if !x86_64/g' package/libs/openssl/Config.in
 # K3默认驱动替换
 wget -P ./target/linux/bcm53xx/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/001-fix-dependency.patch
 pushd target/linux/bcm53xx

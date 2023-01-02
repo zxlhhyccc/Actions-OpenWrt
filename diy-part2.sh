@@ -409,8 +409,10 @@ svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/ucl tools
 
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/upx tools/upx
 
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/libdeflate tools/libdeflate
+
 rm -f ./tools/Makefile
-wget -P ./tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/tools/Makefile
+wget -P ./tools/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/tools/Makefile
 # 22、去除feeds中的material主题多余openwrt名
 sed -i '66 s#boardinfo.hostname or "?"#""#g' feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 # 23、将tty、ksmd所在服务目录改到系统、网络存储目录
