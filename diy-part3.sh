@@ -10,6 +10,10 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# ipq807x: add Qualcomm Atheros IPQ807x target
+rm -f ./config/Config-images.in
+wget -P ./config/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/config/Config-images.in
+
 # 添加5.10/5.15内核的QCA支持
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/target/linux/ipq807x target/linux/ipq807x
 
