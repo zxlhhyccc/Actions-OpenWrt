@@ -47,4 +47,7 @@ rm -rf package/kernel/mac80211
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/kernel/mac80211 package/kernel/mac80211
 
 # 添加NSS
+rm -rf package/kernel/qca-nss-dp
+rm -rf package/kernel/qca-ssdk
+
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/nss-packages package/nss-packages
