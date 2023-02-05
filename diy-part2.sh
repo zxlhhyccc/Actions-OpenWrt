@@ -17,6 +17,13 @@ patch -p1 < 001-fix-service-arguments-processing.patch
 rm -f 001-fix-service-arguments-processing.patch
 popd
 
+# opkg 修复包冲突
+wget -P ./package/system/opkg/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/opkg/patches/001-fix-package-conflicts.patch
+pushd package/system/opkg
+patch -p1 < 001-fix-package-conflicts.patch
+rm -f 001-fix-package-conflicts.patch
+popd
+
 # firewall4：在 ipv6 上禁用 fullcone nat
 wget -P ./package/network/config/firewall4/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/firewall4/patches/001-firewall4-add-support-for-fullcone-nat.patch
 pushd package/network/config/firewall4
