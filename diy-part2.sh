@@ -10,6 +10,10 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# nat46：QCA NSS ECM 补丁
+rm -rf package/kernel/nat46
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/kernel/nat46 package/kernel/nat46
+
 # procd 修复服务参数处理
 wget -P ./package/system/procd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/procd/patches/001-fix-service-arguments-processing.patch
 pushd package/system/procd
