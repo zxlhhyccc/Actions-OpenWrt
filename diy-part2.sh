@@ -273,6 +273,11 @@ pushd package/network/utils/iproute2
 patch -p1 < 001-add-qos-gargoyle.patch
 rm -f 001-add-qos-gargoyle.patch
 popd
+wget -P ./package/network/utils/iproute2/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/utils/iproute2/001-add-NSS-QDISC-support.patch
+pushd package/network/utils/iproute2
+patch -p1 < 001-add-NSS-QDISC-support.patch
+rm -f 001-add-NSS-QDISC-support.patch
+popd
 
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/shellsync package/network/services/shellsync
 
