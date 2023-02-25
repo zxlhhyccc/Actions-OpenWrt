@@ -22,11 +22,11 @@ rm -rf package/kernel/nat46
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/kernel/nat46 package/kernel/nat46
 
 # procd 修复服务参数处理
-wget -P ./package/system/procd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/procd/patches/001-fix-service-arguments-processing.patch
-pushd package/system/procd
-patch -p1 < 001-fix-service-arguments-processing.patch
-rm -f 001-fix-service-arguments-processing.patch
-popd
+# wget -P ./package/system/procd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/procd/patches/001-fix-service-arguments-processing.patch
+# pushd package/system/procd
+# patch -p1 < 001-fix-service-arguments-processing.patch
+# rm -f 001-fix-service-arguments-processing.patch
+# popd
 
 # opkg 修复包冲突
 wget -P ./package/system/opkg/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/opkg/patches/001-fix-package-conflicts.patch
