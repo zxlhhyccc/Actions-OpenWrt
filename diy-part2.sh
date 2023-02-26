@@ -614,12 +614,13 @@ wget -P ./package/kernel/mac80211/patches/subsys/ https://github.com/zxlhhyccc/a
 wget -P ./package/kernel/mac80211/patches/ath10k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath10k/983-ath10k-allow-vht-on-2g.patch
 # 40、修正友善补丁(R2S/R4S)
 rm -rf package/boot/uboot-rockchip
-svn export https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/uboot-rockchip package/boot/uboot-rockchip
+svn export https://github.com/immortalwrt/immortalwrt/trunk/package/boot/uboot-rockchip package/boot/uboot-rockchip
 
 rm -rf target/linux/rockchip
-svn export https://github.com/immortalwrt/immortalwrt/branches/master/target/linux/rockchip target/linux/rockchip
+svn export https://github.com/immortalwrt/immortalwrt/trunk/target/linux/rockchip target/linux/rockchip
 
-svn export https://github.com/immortalwrt/immortalwrt/branches/master/package/boot/arm-trusted-firmware-rockchip-vendor package/boot/arm-trusted-firmware-rockchip-vendor
+rm -rf package/boot/arm-trusted-firmware-rockchip
+svn export https://github.com/immortalwrt/immortalwrt/trunk/package/boot/arm-trusted-firmware-rockchip package/boot/arm-trusted-firmware-rockchip
 
 # 41、busybox：为docker top命令添加ps -ef选项的补丁
 wget -P ./package/utils/busybox/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
