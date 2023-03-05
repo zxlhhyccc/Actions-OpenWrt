@@ -445,7 +445,7 @@ svn export https://github.com/project-openwrt/packages/trunk/libs/opencv feeds/p
 
 svn export https://github.com/openwrt/packages/branches/openwrt-19.07/libs/fcgi feeds/packages/libs/fcgi
 
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libdouble-conversion feeds/packages/libs/libdouble-conversion
+# svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libdouble-conversion feeds/packages/libs/libdouble-conversion
 
 # 25、添加dnamasq的IPV6展示
 wget -P ./package/network/services/dnsmasq/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/dnsmasq/patches/0001-dnsmasq-add-filteraaaa-https-unknown-option.patch
