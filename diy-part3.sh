@@ -21,8 +21,8 @@ wget -P package/boot/uboot-envtools/files/ https://github.com/zxlhhyccc/acc-imq-
 # firmware添加ax6等文件
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/firmware/ath11k-board package/firmware/ath11k-board
 
-rm -f ./package/firmware/ath11k-firmware/Makefile
-wget -P package/firmware/ath11k-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ath11k-firmware/Makefile
+# rm -f ./package/firmware/ath11k-firmware/Makefile
+# wget -P package/firmware/ath11k-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ath11k-firmware/Makefile
 
 rm -rf ./package/firmware/ipq-wifi
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/firmware/ipq-wifi package/firmware/ipq-wifi
