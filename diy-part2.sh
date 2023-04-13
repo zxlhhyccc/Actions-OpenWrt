@@ -10,6 +10,13 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# fstools：启用任何具有非 MTD rootfs_data 卷的设备
+wget -P ./package/system/fstools/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/fstools/001-enable-any-device-with-non-MTD-rootfs_data-volume.patch
+pushd package/system/fstools
+patch -p1 < 001-enable-any-device-with-non-MTD-rootfs_data-volume.patch
+rm -f 001-enable-any-device-with-non-MTD-rootfs_data-volume.patch
+popd
+
 # mt76允许2.4GHz的VHT速率
 wget -P ./package/kernel/mt76/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mt76/patches/0001-mt76-allow-VHT-rate-on-2.4GHz.patch
 pushd package/kernel/mt76
