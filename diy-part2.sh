@@ -70,10 +70,45 @@ wget -P ./target/linux/bcm53xx/patches-5.4/ https://github.com/zxlhhyccc/acc-imq
 wget -P ./target/linux/bcm53xx/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.10/906-BCM5301x-uart1.patch
 
 # x86使用 BCM578xx绕过 HH3K 高达 2.5Gbps、kernle-5.15启用Straight-Line-Speculation（SLS）
+# x86：从 Cloudflare 和 CRYPTO_XTS_AES_SYNC 添加 net.ipv4.tcp_collapse_max_bytes 选项
+# x86：改进英特尔第 11/12 代 GPU i915 和 GVT-g 功能
+wget -P ./package/firmware/intel-microcode/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/intel-microcode/001-intel-microcode-update-3.20230214.1.patch
+pushd package/firmware/intel-microcode
+patch -p1 < 001-intel-microcode-update-3.20230214.1.patch
+rm -f 001-intel-microcode-update-3.20230214.1.patch
+popd
+
+wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
+pushd package/firmware/linux-firmware
+patch -p1 < 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
+rm -f 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
+popd
+
+wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/011-tune_lzma_options.patch
+
 wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/900-x86-Enable-fast-strings-on-Intel-if-BIOS-hasn-t-already.patch
+
 wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
 
+wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/996-intel-igc-i225-i226-disable-eee.patch
+
+wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/800-add-rts5139.patch
+
+wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/992-enable-intel-guc.patch
+
 wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
+
+wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/996-intel-igc-i225-i226-disable-eee.patch
+
+wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/998-add-a-sysctl-to-enable-disable-tcp_collapse-logic.patch
+
+wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/999-Add-xtsproxy-Crypto-API-module.patch
+
+rm -rf ./target/linux/x86/64/config-5.10
+wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/64/config-5.10
+
+rm -rf ./target/linux/x86/64/config-5.15
+wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/64/config-5.15
 
 rm -rf ./target/linux/x86/config-5.15
 wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/config-5.15
@@ -216,11 +251,11 @@ pushd package/kernel/linux
 patch -p1 < 001-netdevices.mk-netfilter.mk.patch
 rm -f 001-netdevices.mk-netfilter.mk.patch
 popd
-# 3.给kernel的video.mk添加模块
-wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-video-add-multimedia-input.patch
+# 3.给kernel的video.mk、virt.mk添加模块
+wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-video-add-multimedia-input-and-virt-add-i915.patch
 pushd package/kernel/linux
-patch -p1 < 001-video-add-multimedia-input.patch
-rm -f 001-video-add-multimedia-input.patch
+patch -p1 < 001-video-add-multimedia-input-and-virt-add-i915.patch
+rm -f 001-video-add-multimedia-input-and-virt-add-i915.patch
 popd
 # 4.给netsupport.mk 添加bbrplus、nanqinlang等模块
 wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-netsupport.mk-add-bbrplus.patch
