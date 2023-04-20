@@ -382,6 +382,7 @@ wget -P ./target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-b
 wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
 wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
 wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/992-add-ndo-do-ioctl.patch
+wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/999-add-fibocom-id-and-zeropacket.patch
 
 # 15、修复及添加5.10内核ACC、shortcut-fe、bbrplus补丁
 rm -f ./target/linux/generic/hack-5.10/250-netfilter_depends.patch
@@ -402,6 +403,8 @@ wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-b
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/995-add-support-for-forced-PM-resume.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/998-add-ndo-do-ioctl.patch
 wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/999-thermal-tristate.patch
+wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/999-add-fibocom-id-and-zeropacket.patch
+
 # wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/9999-convert_official_linux-5.4.x_src_to_bbrplus.patch
 # 16、修复及添加pending-5.15部分补丁及添加Qualcomm QMI Helpers模块补丁
 rm -f ./target/linux/generic/pending-5.15/920-mangle_bootargs.patch
