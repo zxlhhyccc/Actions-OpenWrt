@@ -11,6 +11,7 @@
 #
 
 # 添加5.10/5.15内核的QCA支持
+rm -rf target/linux/ipq807x
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/target/linux/ipq807x target/linux/ipq807x
 
 wget -P target/linux/ipq40xx/files/arch/arm/boot/dts/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-c526a.dts
