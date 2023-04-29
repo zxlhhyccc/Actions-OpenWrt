@@ -72,13 +72,15 @@ wget -P ./target/linux/bcm53xx/patches-5.10/ https://github.com/zxlhhyccc/acc-im
 # x86使用 BCM578xx绕过 HH3K 高达 2.5Gbps、kernle-5.15启用Straight-Line-Speculation（SLS）
 # x86：从 Cloudflare 和 CRYPTO_XTS_AES_SYNC 添加 net.ipv4.tcp_collapse_max_bytes 选项
 # x86：改进英特尔第 11/12 代 GPU i915 和 GVT-g 功能
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/target/linux/x86/files target/linux/x86/files
+
 wget -P ./package/firmware/intel-microcode/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/intel-microcode/001-intel-microcode-update-3.20230214.1.patch
 pushd package/firmware/intel-microcode
 patch -p1 < 001-intel-microcode-update-3.20230214.1.patch
 rm -f 001-intel-microcode-update-3.20230214.1.patch
 popd
 
-wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
+wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/patches/001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
 pushd package/firmware/linux-firmware
 patch -p1 < 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
 rm -f 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
