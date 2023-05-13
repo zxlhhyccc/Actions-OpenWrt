@@ -66,8 +66,8 @@ rm -f 001-nss-aes-gcm-supports.patch
 popd
 
 # k3screenctrl：修复 PHICOMM K3 屏幕显示关闭
-wget -P ./target/linux/bcm53xx/patches-5.4/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.4/906-BCM5301x-uart1.patch
-wget -P ./target/linux/bcm53xx/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.10/906-BCM5301x-uart1.patch
+# wget -P ./target/linux/bcm53xx/patches-5.4/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.4/906-BCM5301x-uart1.patch
+# wget -P ./target/linux/bcm53xx/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/bcm53xx/patches-5.10/906-BCM5301x-uart1.patch
 
 # x86使用 BCM578xx绕过 HH3K 高达 2.5Gbps、kernle-5.15启用Straight-Line-Speculation（SLS）
 # x86：从 Cloudflare 和 CRYPTO_XTS_AES_SYNC 添加 net.ipv4.tcp_collapse_max_bytes 选项
@@ -86,13 +86,13 @@ patch -p1 < 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patc
 rm -f 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
 popd
 
-wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/011-tune_lzma_options.patch
+# wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/011-tune_lzma_options.patch
 
-wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/900-x86-Enable-fast-strings-on-Intel-if-BIOS-hasn-t-already.patch
+# wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/900-x86-Enable-fast-strings-on-Intel-if-BIOS-hasn-t-already.patch
 
-wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
+# wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
 
-wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/996-intel-igc-i225-i226-disable-eee.patch
+# wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/996-intel-igc-i225-i226-disable-eee.patch
 
 wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/800-add-rts5139.patch
 
@@ -106,8 +106,8 @@ wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bb
 
 wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/999-Add-xtsproxy-Crypto-API-module.patch
 
-rm -rf ./target/linux/x86/64/config-5.10
-wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/64/config-5.10
+# rm -rf ./target/linux/x86/64/config-5.10
+# wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/64/config-5.10
 
 rm -rf ./target/linux/x86/64/config-5.15
 wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/64/config-5.15
@@ -266,11 +266,11 @@ patch -p1 < 001-netsupport.mk-add-bbrplus.patch
 rm -f 001-netsupport.mk-add-bbrplus.patch
 popd
 # 4.给fs.mk 添加 NFSv4_2 SSC helper等模块
-wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-fs.mk-add-nfsv4-2-ssc-helper.patch
-pushd package/kernel/linux
-patch -p1 < 001-fs.mk-add-nfsv4-2-ssc-helper.patch
-rm -f 001-fs.mk-add-nfsv4-2-ssc-helper.patch
-popd
+# wget -P ./package/kernel/linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/linux/001-fs.mk-add-nfsv4-2-ssc-helper.patch
+# pushd package/kernel/linux
+# patch -p1 < 001-fs.mk-add-nfsv4-2-ssc-helper.patch
+# rm -f 001-fs.mk-add-nfsv4-2-ssc-helper.patch
+# popd
 
 # 给kernel(5.15)添加 bcm fullconenat补丁
 wget -P ./target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/982-add-bcm-fullconenat-support.patch
@@ -282,17 +282,17 @@ wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-i
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-tsunamio.patch
 
 # 给kernel(5.10)添加 bcm fullconenat补丁
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/982-add-bcm-fullconenat-support.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/982-add-bcm-fullconenat-support.patch
 
 # 6.给kernel(5.10)添加bbrplus、nanqinlang等模块补丁
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
-# wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/610-v5.13-54-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
+# wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
+# wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
+# (不需要)wget -P ./target/linux/generic/backport-5.10/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/backport-5.10/610-v5.13-54-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
 
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-bbrplus.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-nanqinlang.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-tsunami.patch
-wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-tsunamio.patch
+# wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-bbrplus.patch
+# wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-nanqinlang.patch
+# wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-tsunami.patch
+# wget -P ./target/linux/generic/backport-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.10/999-net-tcp-add-tsunamio.patch
 
 # 7、kernel修改连接数
 # sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
@@ -387,27 +387,27 @@ wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr
 wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/999-add-fibocom-id-and-zeropacket.patch
 
 # 15、修复及添加5.10内核ACC、shortcut-fe、bbrplus补丁
-rm -f ./target/linux/generic/hack-5.10/250-netfilter_depends.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/250-netfilter_depends.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/601-netfilter-export-udp_get_timeouts-function.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
-rm -f ./target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/652-netfilter-flow_offload-add-check-ifindex.patch
-rm -f ./target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
+# rm -f ./target/linux/generic/hack-5.10/250-netfilter_depends.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/250-netfilter_depends.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/601-netfilter-export-udp_get_timeouts-function.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
+# rm -f ./target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/650-netfilter-add-xt_FLOWOFFLOAD-target.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/652-netfilter-flow_offload-add-check-ifindex.patch
+# rm -f ./target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/721-net-add-packet-mangeling.patch
 
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/952-net-conntrack-events-support-multiple-registrant.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/993-export-dev-set-dev-symbol.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/993-usb-serial-option-add-u9300.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/994-mhi-use-irq-flags.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/995-add-support-for-forced-PM-resume.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/998-add-ndo-do-ioctl.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/999-thermal-tristate.patch
-wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/999-add-fibocom-id-and-zeropacket.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/952-net-conntrack-events-support-multiple-registrant.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/993-export-dev-set-dev-symbol.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/993-usb-serial-option-add-u9300.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/994-mhi-use-irq-flags.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/995-add-support-for-forced-PM-resume.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/998-add-ndo-do-ioctl.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/999-thermal-tristate.patch
+# wget -P ./target/linux/generic/hack-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.10/999-add-fibocom-id-and-zeropacket.patch
 
-# wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/9999-convert_official_linux-5.4.x_src_to_bbrplus.patch
+# (不需要)wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/9999-convert_official_linux-5.4.x_src_to_bbrplus.patch
 # 16、修复及添加pending-5.15部分补丁及添加Qualcomm QMI Helpers模块补丁
 rm -f ./target/linux/generic/pending-5.15/920-mangle_bootargs.patch
 wget -P target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/920-mangle_bootargs.patch
@@ -416,26 +416,26 @@ rm -f ./target/linux/generic/config-5.15
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.15
 
 # 17、修复及添加pending-5.10部分补丁及添加imq模块补丁
-wget -P target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/601-add-kernel-imq-support.patch
-rm -f ./target/linux/generic/pending-5.10/655-increase_skb_pad.patch
-wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/655-increase_skb_pad.patch
-rm -f ./target/linux/generic/pending-5.10/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
-wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
-rm -f ./target/linux/generic/pending-5.10/682-of_net-add-mac-address-increment-support.patch
-wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/682-of_net-add-mac-address-increment-support.patch
-rm -f ./target/linux/generic/pending-5.10/683-of_net-add-mac-address-to-of-tree.patch
-wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/683-of_net-add-mac-address-to-of-tree.patch
-rm -f ./target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-creating-duplicate-of.patch
-wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-creating-duplicate-of.patch
-rm -f ./target/linux/generic/pending-5.10/701-03-net-ethernet-mtk_eth_soc-implement-flow-offloading-t.patch
-wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/701-03-net-ethernet-mtk_eth_soc-implement-flow-offloading-t.patch
-rm -f ./target/linux/generic/pending-5.10/704-02-net-fix-dev_fill_forward_path-with-pppoe-bridge.patch
-wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/704-02-net-fix-dev_fill_forward_path-with-pppoe-bridge.patch
+# wget -P target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/601-add-kernel-imq-support.patch
+# rm -f ./target/linux/generic/pending-5.10/655-increase_skb_pad.patch
+# wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/655-increase_skb_pad.patch
+# rm -f ./target/linux/generic/pending-5.10/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
+# wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
+# rm -f ./target/linux/generic/pending-5.10/682-of_net-add-mac-address-increment-support.patch
+# wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/682-of_net-add-mac-address-increment-support.patch
+# rm -f ./target/linux/generic/pending-5.10/683-of_net-add-mac-address-to-of-tree.patch
+# wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/683-of_net-add-mac-address-to-of-tree.patch
+# rm -f ./target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-creating-duplicate-of.patch
+# wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/700-net-ethernet-mtk_eth_soc-avoid-creating-duplicate-of.patch
+# rm -f ./target/linux/generic/pending-5.10/701-03-net-ethernet-mtk_eth_soc-implement-flow-offloading-t.patch
+# wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/701-03-net-ethernet-mtk_eth_soc-implement-flow-offloading-t.patch
+# rm -f ./target/linux/generic/pending-5.10/704-02-net-fix-dev_fill_forward_path-with-pppoe-bridge.patch
+# wget -P ./target/linux/generic/pending-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.10/704-02-net-fix-dev_fill_forward_path-with-pppoe-bridge.patch
 
-rm -f ./target/linux/generic/config-5.10
-wget -P ./target/linux/generic/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/config-5.10
-rm -f ./target/linux/x86/Makefile
-wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/Makefile
+# rm -f ./target/linux/generic/config-5.10
+# wget -P ./target/linux/generic/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/config-5.10
+# rm -f ./target/linux/x86/Makefile
+# wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/Makefile
 # 18、mwlwifi添加disable-amsdu补丁
 wget -P package/kernel/mwlwifi/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mwlwifi/patches/002-disable-AMSDU.patch
 # 19、给luci-base添加无线图标及分离 Lua 运行时资源
@@ -531,10 +531,10 @@ rm -f 0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
 popd
 
 # mtk-eip93：使用内核修复构建
-wget -P ./target/linux/ramips/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches-5.10/999-crypto-eip93-fix.patch
-wget -P ./target/linux/ramips/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches-5.10/999-fix-hwnat.patch
+# wget -P ./target/linux/ramips/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches-5.10/999-crypto-eip93-fix.patch
+# wget -P ./target/linux/ramips/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches-5.10/999-fix-hwnat.patch
 
-# wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/patches/overclock-mt7621.patch
+# (不需要)wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/patches/overclock-mt7621.patch
 # pushd target/linux/ramips
 # patch -p1 < overclock-mt7621.patch
 # rm -f overclock-mt7621.patch
