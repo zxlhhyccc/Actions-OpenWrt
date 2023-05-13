@@ -434,8 +434,8 @@ wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-
 
 # rm -f ./target/linux/generic/config-5.10
 # wget -P ./target/linux/generic/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/config-5.10
-# rm -f ./target/linux/x86/Makefile
-# wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/Makefile
+rm -f ./target/linux/x86/Makefile
+wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/Makefile
 # 18、mwlwifi添加disable-amsdu补丁
 wget -P package/kernel/mwlwifi/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mwlwifi/patches/002-disable-AMSDU.patch
 # 19、给luci-base添加无线图标及分离 Lua 运行时资源
