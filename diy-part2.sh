@@ -122,11 +122,11 @@ patch -p1 < 001-add-XiaoMa-M12-12th-J6412-J6413-CPU-with-I226-support.patch
 rm -f 001-add-XiaoMa-M12-12th-J6412-J6413-CPU-with-I226-support.patch
 popd
 # hostpad添加vendor_vht模块支持
-wget -P ./package/network/services/hostapd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/001-add-vendor_vht.patch
-pushd package/network/services/hostapd
-patch -p1 < 001-add-vendor_vht.patch
-rm -f 001-add-vendor_vht.patch
-popd
+# wget -P ./package/network/services/hostapd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/001-add-vendor_vht.patch
+# pushd package/network/services/hostapd
+# patch -p1 < 001-add-vendor_vht.patch
+# rm -f 001-add-vendor_vht.patch
+# popd
 
 #wget -P ./package/network/services/hostapd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/001-add-BSS-CCA-support.patch
 #pushd package/network/services/hostapd
