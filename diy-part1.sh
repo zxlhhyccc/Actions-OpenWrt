@@ -47,6 +47,11 @@ patch -p1 < 001-change-to-separate-menu.patch
 rm -f 001-change-to-separate-menu.patch
 popd
 
+# musl：向后兼容 64 位定义
+wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/toolchain/musl/12667-backward-compatibility-with-64-bit-definitions.patch
+patch -p1 < 12667-backward-compatibility-with-64-bit-definitions.patch
+rm -f 12667-backward-compatibility-with-64-bit-definitions.patch
+
 # sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
 # sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/htdocs/luci-static/resources/view/nlbw/config.js
 # 开启无线及添加区域和禁用iw_qos_map_set
