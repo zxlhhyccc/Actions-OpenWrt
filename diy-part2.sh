@@ -137,11 +137,11 @@ popd
 wget -P ./package/network/services/hostapd/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/024-fix-IEEE-802.11-deauthenticated-due-to-local-deauth-.patch
 
 # nginx添加njs模块支持
-wget -P ./feeds/packages/net/nginx/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/nginx/001-nginx-add-njs-module.patch
-pushd feeds/packages/net/nginx
-patch -p1 < 001-nginx-add-njs-module.patch
-rm -f 001-nginx-add-njs-module.patch
-popd
+# wget -P ./feeds/packages/net/nginx/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/nginx/001-nginx-add-njs-module.patch
+# pushd feeds/packages/net/nginx
+# patch -p1 < 001-nginx-add-njs-module.patch
+# rm -f 001-nginx-add-njs-module.patch
+# popd
 
 # 添加uclibc++支持
 wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/001-add-uclibc%2B%2B.patch
