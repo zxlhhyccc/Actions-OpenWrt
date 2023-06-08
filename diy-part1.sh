@@ -48,9 +48,9 @@ rm -f 001-change-to-separate-menu.patch
 popd
 
 # musl：向后兼容 64 位定义
-wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/toolchain/musl/12667-backward-compatibility-with-64-bit-definitions.patch
-patch -p1 < 12667-backward-compatibility-with-64-bit-definitions.patch
-rm -f 12667-backward-compatibility-with-64-bit-definitions.patch
+# wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/toolchain/musl/12667-backward-compatibility-with-64-bit-definitions.patch
+# patch -p1 < 12667-backward-compatibility-with-64-bit-definitions.patch
+# rm -f 12667-backward-compatibility-with-64-bit-definitions.patch
 
 # sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
 # sed -i "s#/services##g" feeds/luci/applications/luci-app-nlbwmon/htdocs/luci-static/resources/view/nlbw/config.js
