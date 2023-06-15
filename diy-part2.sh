@@ -10,6 +10,13 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# ddns 脚本：解决 ddns 启动问题
+wget -P ./feeds/packages/net/ddns-scripts/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/ddns-scripts/001-workaround-ddns-boot-issue.patch
+pushd feeds/packages/net/ddns-scripts
+patch -p1 < 001-workaround-ddns-boot-issue.patch
+rm -f 001-workaround-ddns-boot-issue.patch
+popd
+
 # fstools：启用任何具有非 MTD rootfs_data 卷的设备
 wget -P ./package/system/fstools/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/fstools/001-enable-any-device-with-non-MTD-rootfs_data-volume.patch
 pushd package/system/fstools
