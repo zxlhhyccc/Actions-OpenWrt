@@ -11,13 +11,14 @@
 #
 
 # 添加5.10/5.15内核的QCA支持
-rm -rf target/linux/ipq807x
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/target/linux/ipq807x target/linux/ipq807x
+rm -rf target/linux/qualcommax
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/target/linux/qualcommax target/linux/qualcommax
 
 wget -P target/linux/ipq40xx/files/arch/arm/boot/dts/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-c526a.dts
 
 # boot-envtools添加ipq807x
-wget -P package/boot/uboot-envtools/files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/boot/uboot-envtools/files/ipq807x
+rm -rf package/boot/uboot-envtools/files/qualcommax_ipq807x
+wget -P package/boot/uboot-envtools/files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/boot/uboot-envtools/files/qualcommax_ipq807x
 
 # firmware添加ax6等文件
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/firmware/ath11k-board package/firmware/ath11k-board
@@ -43,4 +44,4 @@ svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/p
 rm -rf package/kernel/qca-nss-dp
 rm -rf package/kernel/qca-ssdk
 
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/nss-packages package/nss-packages
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/nss-packages-12.4r1 package/nss-packages-12.4r1
