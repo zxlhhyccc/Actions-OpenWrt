@@ -636,6 +636,13 @@ svn export https://github.com/immortalwrt/immortalwrt/trunk/package/boot/arm-tru
 # 41、busybox：为docker top命令添加ps -ef选项的补丁
 wget -P ./package/utils/busybox/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
 
+# netifd：修复树外以太网驱动程序的自动协商
+wget -P ./package/network/config/netifd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/netifd/100-Revert-device-add-support-for-configuring-device-link-spe.patch
+pushd package/network/config/netifd
+patch -p1 < 100-Revert-device-add-support-for-configuring-device-link-spe.patch
+rm -f 001-100-Revert-device-add-support-for-configuring-device-link-spe.patch
+popd
+
 # 42、mvebu 添加cpu显示
 # rm -rf target/linux/mvebu/Makefile
 # wget -P ./target/linux/mvebu/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/mvebu/Makefile
