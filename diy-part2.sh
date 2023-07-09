@@ -31,6 +31,11 @@ patch -p1 < 0001-mt76-allow-VHT-rate-on-2.4GHz.patch
 rm -f 0001-mt76-allow-VHT-rate-on-2.4GHz.patch
 popd
 
+wget -P ./package/kernel/mt76/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mt76/patches/0001-enable-wed-wireless-acc-filogic-target.patch
+pushd package/kernel/mt76
+patch -p1 < 0001-enable-wed-wireless-acc-filogic-target.patch
+rm -f 0001-enable-wed-wireless-acc-filogic-target.patch
+popd
 # nat46：QCA NSS ECM 补丁
 rm -rf package/kernel/nat46
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/kernel/nat46 package/kernel/nat46
