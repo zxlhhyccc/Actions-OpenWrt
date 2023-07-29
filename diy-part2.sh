@@ -470,7 +470,7 @@ sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/shar
 # 24、添加feeds里的依赖包
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 
-svn export https://github.com/project-openwrt/packages/trunk/libs/opencv feeds/packages/libs/opencv
+svn export https://github.com/openwrt/packages/branches/openwrt-19.07/libs/opencv feeds/packages/libs/opencv
 
 svn export https://github.com/openwrt/packages/branches/openwrt-19.07/libs/fcgi feeds/packages/libs/fcgi
 
@@ -553,6 +553,11 @@ wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-i
 pushd feeds/luci/modules/luci-mod-status
 patch -p1 < 003-luci-mod-status-fix-align-of-OnlineUsers.patch
 rm -f 003-luci-mod-status-fix-align-of-OnlineUsers.patch
+popd
+wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/001-introduce-ethernet-port-status-view.patch
+pushd feeds/luci/modules/luci-mod-status
+patch -p1 < 001-introduce-ethernet-port-status-view.patch
+rm -f 001-introduce-ethernet-port-status-view.patch
 popd
 # 31、添加netdata显示中文日期补丁
 wget -P ./feeds/packages/admin/netdata/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/admin/netdata/patches/006-netdata.patch
