@@ -10,6 +10,13 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# luci-app-ddns：修复启动/停止服务
+wget -P ./feeds/luci/applications/luci-app-ddns/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-ddns/001-fix-start-stop-service.patch
+pushd feeds/luci/applications/luci-app-ddns
+patch -p1 < 001-fix-start-stop-service.patch
+rm -f 001-fix-start-stop-service.patch
+popd
+
 # Zerotier：修复错误
 # 1. 修复 config_path：创建并持久
 # 2. 修复 Secret：支持identity.secret 
