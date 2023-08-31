@@ -11,7 +11,6 @@
 #
 
 # 1、给luci-base添加无线图标及分离 Lua 运行时资源
-wget -P feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/wifi_big.png
 wget -P ./feeds/luci/modules/luci-base/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-base/patches/001-initial-ucode-based-luci-runtime.patch
 pushd feeds/luci/modules/luci-base
 patch -p1 < 001-initial-ucode-based-luci-runtime.patch
