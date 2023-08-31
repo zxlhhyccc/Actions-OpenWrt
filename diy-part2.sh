@@ -449,15 +449,8 @@ rm -f ./target/linux/x86/Makefile
 wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/Makefile
 # 18、mwlwifi添加disable-amsdu补丁
 wget -P package/kernel/mwlwifi/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mwlwifi/patches/002-disable-AMSDU.patch
-# 19、给luci-base添加无线图标及分离 Lua 运行时资源
-wget -P feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/wifi_big.png
-wget -P ./feeds/luci/modules/luci-base/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-base/patches/001-initial-ucode-based-luci-runtime.patch
-pushd feeds/luci/modules/luci-base
-patch -p1 < 001-initial-ucode-based-luci-runtime.patch
-rm -f 001-initial-ucode-based-luci-runtime.patch
-popd
 
-# 19-1、给luci-lua-runtime使用busybox设置passwd
+# 19、给luci-lua-runtime使用busybox设置passwd
 wget -P ./feeds/luci/modules/luci-lua-runtime/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-lua-runtime/patches/001-let-passwd-using-busybox.patch
 pushd feeds/luci/modules/luci-lua-runtime
 patch -p1 < 001-let-passwd-using-busybox.patch
@@ -555,28 +548,7 @@ popd
 # 29、修改sqm-scripts汉化help
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/sqm-scripts/patches feeds/packages/net/sqm-scripts/patches
 
-# 30、修复新版luci的cpu等寄存器显示
-wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/001-luci-mod-status-fix-register-functions.patch
-pushd feeds/luci/modules/luci-mod-status
-patch -p1 < 001-luci-mod-status-fix-register-functions.patch
-rm -f 001-luci-mod-status-fix-register-functions.patch
-popd
-wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/002-luci-mod-status-drop-lluci.ver-display.patch
-pushd feeds/luci/modules/luci-mod-status
-patch -p1 < 002-luci-mod-status-drop-lluci.ver-display.patch
-rm -f 002-luci-mod-status-drop-lluci.ver-display.patch
-popd
-wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/003-luci-mod-status-fix-align-of-OnlineUsers.patch
-pushd feeds/luci/modules/luci-mod-status
-patch -p1 < 003-luci-mod-status-fix-align-of-OnlineUsers.patch
-rm -f 003-luci-mod-status-fix-align-of-OnlineUsers.patch
-popd
-wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/001-introduce-ethernet-port-status-view.patch
-pushd feeds/luci/modules/luci-mod-status
-patch -p1 < 001-introduce-ethernet-port-status-view.patch
-rm -f 001-introduce-ethernet-port-status-view.patch
-popd
-# 31、添加netdata显示中文日期补丁
+# 30、添加netdata显示中文日期补丁
 wget -P ./feeds/packages/admin/netdata/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/admin/netdata/patches/006-netdata.patch
 pushd feeds/packages/admin/netdata
 patch -p1 < 006-netdata.patch
@@ -589,13 +561,13 @@ popd
 # patch -p1 < 0001-use_json_object_new_int64.patch
 # rm -f 0001-use_json_object_new_int64.patch
 # popd
-# 33、修正adblock.init
+# 32、修正adblock.init
 wget -P ./feeds/packages/net/adblock/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/adblock/patches/001-adblock.patch
 pushd feeds/packages/net/adblock
 patch -p1 < 001-adblock.patch
 rm -f 001-adblock.patch
 popd
-# 34、屏蔽socat/openvpn的与luci冲突的config、init以编译luci
+# 33、屏蔽socat/openvpn的与luci冲突的config、init以编译luci
 wget -P ./feeds/packages/net/socat/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/socat/patches/001-shield-socat-config-init.patch
 pushd feeds/packages/net/socat
 patch -p1 < 001-shield-socat-config-init.patch
@@ -615,7 +587,7 @@ popd
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-package-install.sh
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-package.mk
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-version.mk
-# 35、添加aria2补丁和修复 ujail mount
+# 34、添加aria2补丁和修复 ujail mount
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/aria2/patches feeds/packages/net/aria2/patches
 wget -P ./feeds/packages/net/aria2/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/aria2/001-fix-ujail-mount.patch
 pushd feeds/packages/net/aria2
@@ -630,7 +602,7 @@ patch -p1 < 001-fix-automount.patch
 rm -f 001-fix-automount.patch
 popd
 
-# 36、删除feeds里的与自有包冲突插件
+# 35、删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/adguardhome
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
@@ -642,7 +614,6 @@ rm -rf ./feeds/packages/libs/libtorrent-rasterbar
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
 rm -rf ./feeds/luci/applications/luci-app-smartdns
-# rm -rf ./feeds/luci/applications/luci-app-ksmbd
 rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
 rm -rf ./package/openwrt-package/lean/nft-qos
 rm -rf ./feeds/packages/net/xray-core
@@ -660,10 +631,10 @@ wget -P ./target/linux/ramips/patches-5.4/ https://raw.githubusercontent.com/pro
 # patch -p1 < 001-wifi-auto.patch
 # rm -f 001-wifi-auto.patch
 # popd
-# 39、mac80211：为ath / subsys：在2g上允许vht添加补丁
+# 38、mac80211：为ath / subsys：在2g上允许vht添加补丁
 wget -P ./package/kernel/mac80211/patches/subsys/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/subsys/600-mac80211-allow-vht-on-2g.patch
 wget -P ./package/kernel/mac80211/patches/ath10k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath10k/983-ath10k-allow-vht-on-2g.patch
-# 40、修正友善补丁(R2S/R4S)
+# 39、修正友善补丁(R2S/R4S)
 rm -rf package/boot/uboot-rockchip
 svn export https://github.com/immortalwrt/immortalwrt/trunk/package/boot/uboot-rockchip package/boot/uboot-rockchip
 
@@ -673,7 +644,7 @@ svn export https://github.com/immortalwrt/immortalwrt/trunk/target/linux/rockchi
 rm -rf package/boot/arm-trusted-firmware-rockchip
 svn export https://github.com/immortalwrt/immortalwrt/trunk/package/boot/arm-trusted-firmware-rockchip package/boot/arm-trusted-firmware-rockchip
 
-# 41、busybox：为docker top命令添加ps -ef选项的补丁
+# 40、busybox：为docker top命令添加ps -ef选项的补丁
 wget -P ./package/utils/busybox/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
 
 # netifd：修复树外以太网驱动程序的自动协商
