@@ -45,4 +45,8 @@ wget -P ./target/linux/generic/hack-6.1/ https://github.com/zxlhhyccc/acc-imq-bb
 
 wget -P ./target/linux/generic/hack-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-6.1/999-add-fibocom-id-and-zeropacket.patch
 
+wget -P ./target/linux/generic/pending-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-6.1/901-usb-add-more-modem-support.patch
+
+wget -P ./target/linux/generic/pending-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-6.1/994-add-quectel-rm500u-support.patch
+
 wget -P ./target/linux/generic/pending-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-6.1/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch

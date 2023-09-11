@@ -437,6 +437,8 @@ wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr
 wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/999-add-fibocom-id-and-zeropacket.patch
 
 # 16、修复及添加pending-5.15部分补丁及添加Qualcomm QMI Helpers模块补丁
+wget -P target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/901-usb-add-more-modem-support.patch
+
 rm -f ./target/linux/generic/pending-5.15/920-mangle_bootargs.patch
 wget -P target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/920-mangle_bootargs.patch
 
