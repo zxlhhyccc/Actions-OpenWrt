@@ -518,11 +518,6 @@ pushd target/linux/ramips
 patch -p1 < 000-k2p-network.patch
 rm -f 000-k2p-network.patch
 popd
-wget -P ./target/linux/ramips/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches/0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
-pushd target/linux/ramips
-patch -p1 < 0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
-rm -f 0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
-popd
 
 # mtk-eip93：使用内核修复构建
 # wget -P ./target/linux/ramips/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches-5.10/999-crypto-eip93-fix.patch
