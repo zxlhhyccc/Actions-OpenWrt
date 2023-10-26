@@ -33,8 +33,8 @@ pushd feeds/luci/modules/luci-mod-status
 patch -p1 < 003-luci-mod-status-fix-align-of-OnlineUsers.patch
 rm -f 003-luci-mod-status-fix-align-of-OnlineUsers.patch
 popd
-wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/001-add-ethernet-ports.patch
-pushd feeds/luci/modules/luci-mod-status
-patch -p1 < 001-add-ethernet-ports.patch
-rm -f 001-add-ethernet-ports.patch
-popd
+# wget -P ./feeds/luci/modules/luci-mod-status/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/001-add-ethernet-ports.patch
+# pushd feeds/luci/modules/luci-mod-status
+# patch -p1 < 001-add-ethernet-ports.patch
+# rm -f 001-add-ethernet-ports.patch
+# popd
