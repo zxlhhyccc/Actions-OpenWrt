@@ -10,6 +10,9 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# odhcpd：符合 RFC9096并允许配置首选有效生命周期的上限。
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/odhcpd/patches package/network/services/odhcpd/patches
+
 # luci-app-ddns：修复启动/停止服务
 wget -P ./feeds/luci/applications/luci-app-ddns/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-ddns/001-fix-start-stop-service.patch
 pushd feeds/luci/applications/luci-app-ddns
@@ -461,12 +464,7 @@ popd
 
 # 20、wireless-regdb：自定义更改txpower和dfs的补丁
 wget -P package/firmware/wireless-regdb/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/wireless-regdb/patches/600-custom-change-txpower-and-dfs.patch
-# linux-firmware：添加RTL8811/8821CU固件
-wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/patches/001-add-RTL8811-8821CE-firmware.patch
-pushd package/firmware/linux-firmware
-patch -p1 < 001-add-RTL8811-8821CE-firmware.patch
-rm -f 001-add-RTL8811-8821CE-firmware.patch
-popd
+
 # 21、添加upx压缩源码
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/ucl tools/ucl
 

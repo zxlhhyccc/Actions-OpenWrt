@@ -34,7 +34,7 @@ popd
 # K3默认驱动还原
 # sed -i 's/brcmfmac-firmware-4366c0-pcie-vendor/brcmfmac-firmware-4366c0-pcie/g' target/linux/bcm53xx/image/Makefile
 # 只编译K3固件
-sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES += phicomm_k3|' target/linux/bcm53xx/image/Makefile
+# sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES += phicomm_k3|' target/linux/bcm53xx/image/Makefile
 # 还原编译k3的同架构所有固件
 # sed -i 's|^# TARGET_|TARGET_|g' target/linux/bcm53xx/image/Makefile
 # autocore-arm：添加目标sunxi支持
