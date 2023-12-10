@@ -116,20 +116,21 @@ popd
 
 # x86使用 BCM578xx绕过 HH3K 高达 2.5Gbps、kernle-5.15启用Straight-Line-Speculation（SLS）
 # x86：从 Cloudflare 和 CRYPTO_XTS_AES_SYNC 添加 net.ipv4.tcp_collapse_max_bytes 选项
-# x86：改进英特尔第 11/12 代 GPU i915 和 GVT-g 功能
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/target/linux/x86/files target/linux/x86/files
+# x86(4.14-5.15)：改进英特尔第 11/12 代 GPU i915 和 GVT-g 功能
+wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/patches/001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
+pushd package/firmware/linux-firmware
+patch -p1 < 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
+rm -f 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
+popd
+
+# 以下注释为相关功能优化情况
+# svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/target/linux/x86/files target/linux/x86/files
 
 # wget -P ./package/firmware/intel-microcode/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/intel-microcode/001-intel-microcode-update-3.20230214.1.patch
 # pushd package/firmware/intel-microcode
 # patch -p1 < 001-intel-microcode-update-3.20230214.1.patch
 # rm -f 001-intel-microcode-update-3.20230214.1.patch
 # popd
-
-wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/patches/001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
-pushd package/firmware/linux-firmware
-patch -p1 < 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
-rm -f 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
-popd
 
 # wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/011-tune_lzma_options.patch
 
@@ -139,26 +140,26 @@ popd
 
 # wget -P ./target/linux/x86/patches-5.10/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.10/996-intel-igc-i225-i226-disable-eee.patch
 
-wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/800-add-rts5139.patch
+# wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/800-add-rts5139.patch
 
-wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/992-enable-intel-guc.patch
+# wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/992-enable-intel-guc.patch
 
-wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
+# wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
 
-wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/996-intel-igc-i225-i226-disable-eee.patch
+# wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/996-intel-igc-i225-i226-disable-eee.patch
 
-wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/998-add-a-sysctl-to-enable-disable-tcp_collapse-logic.patch
+# wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/998-add-a-sysctl-to-enable-disable-tcp_collapse-logic.patch
 
-wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/999-Add-xtsproxy-Crypto-API-module.patch
+# wget -P ./target/linux/x86/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-5.15/999-Add-xtsproxy-Crypto-API-module.patch
 
-# rm -rf ./target/linux/x86/64/config-5.10
+# rm -f ./target/linux/x86/64/config-5.10
 # wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/64/config-5.10
 
-rm -rf ./target/linux/x86/64/config-5.15
-wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/64/config-5.15
+# rm -f ./target/linux/x86/64/config-5.15
+# wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/64/config-5.15
 
-rm -rf ./target/linux/x86/config-5.15
-wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/config-5.15
+# rm -f ./target/linux/x86/config-5.15
+# wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/config-5.15
 
 # x86：将默认 swiotlb 大小增加到 64MB
 # 由于 802.11be 可用，默认 swiotlb 大小从32 至 64MB，最多支持 2 个 Qualcomm WiFi 6E/7 网卡。

@@ -10,33 +10,30 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# x86：改进英特尔第 11/12 代 GPU i915 和 GVT-g 功能
-wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/800-add-rts5139.patch
+# x86(5.15-6.1)：改进英特尔第 11/12 代 GPU i915 和 GVT-g 功能
+rm -rf ./target/linux/x86
+svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/target/linux/x86 target/linux/x86
 
-wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/900-dg1-guc-and-huc-support.patch
+# 以下注释为相关功能优化情况
+# wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/800-add-rts5139.patch
 
-wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/992-enable-intel-guc.patch
+# wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/900-dg1-guc-and-huc-support.patch
 
-wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
+# wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/992-enable-intel-guc.patch
 
-wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/996-intel-igc-i225-i226-disable-eee.patch
+# wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/993-bnx2x_warpcore_8727_2_5g_sgmii_txfault.patch
 
-wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/998-add-a-sysctl-to-enable-disable-tcp_collapse-logic.patch
+# wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/996-intel-igc-i225-i226-disable-eee.patch
 
-wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/999-Add-xtsproxy-Crypto-API-module.patch
+# wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/998-add-a-sysctl-to-enable-disable-tcp_collapse-logic.patch
 
-rm -rf ./target/linux/x86/64/config-6.1
-wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/64/config-6.1
+# wget -P ./target/linux/x86/patches-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/patches-6.1/999-Add-xtsproxy-Crypto-API-module.patch
 
-rm -rf ./target/linux/x86/config-6.1
-wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/config-6.1
+# rm -f ./target/linux/x86/64/config-6.1
+# wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/64/config-6.1
 
-# 内核：为 BPF_STREAM_PARSER 和 XDP_SOCKETS_DIAG 添加选项
-wget -P ./config/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/config/001-add-NMODULE_ALLOW_BTF_MISMATCH-and-XDP_SOCKETS_DIAG-option.patch
-pushd config
-patch -p1 < 001-add-NMODULE_ALLOW_BTF_MISMATCH-and-XDP_SOCKETS_DIAG-option.patch
-rm -f 001-add-NMODULE_ALLOW_BTF_MISMATCH-and-XDP_SOCKETS_DIAG-option.patch
-popd
+# rm -f ./target/linux/x86/config-6.1
+# wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/config-6.1
 
 # 给kernel(6.1)添加 bcm fullconenat补丁
 wget -P ./target/linux/generic/hack-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-6.1/982-add-bcm-fullconenat-support.patch
