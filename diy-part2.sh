@@ -160,6 +160,14 @@ wget -P ./target/linux/x86/64/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/mast
 rm -rf ./target/linux/x86/config-5.15
 wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/config-5.15
 
+# x86：将默认 swiotlb 大小增加到 64MB
+# 由于 802.11be 可用，默认 swiotlb 大小从32 至 64MB，最多支持 2 个 Qualcomm WiFi 6E/7 网卡。
+rm -rf ./target/linux/x86/image/grub-efi.cfg
+wget -P ./target/linux/x86/image/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/image/grub-efi.cfg
+
+rm -rf ./target/linux/x86/image/grub-pc.cfg
+wget -P ./target/linux/x86/image/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/image/grub-pc.cfg
+
 # x86：添加支持 I226 的小马 M12 12th J6412/J6413 CPU
 wget -P ./target/linux/x86/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/x86/001-add-XiaoMa-M12-12th-J6412-J6413-CPU-with-I226-support.patch
 pushd target/linux/x86
@@ -435,11 +443,17 @@ wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr
 
 wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
 
+wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/954-net-patch-linux-kernel-to-support-qca-nss-sfe.patch
+
 wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/992-add-ndo-do-ioctl.patch
 
 wget -P target/linux/generic/hack-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-5.15/999-add-fibocom-id-and-zeropacket.patch
 
 # 16、修复及添加pending-5.15部分补丁及添加Qualcomm QMI Helpers模块补丁
+wget -P target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/613-netfilter_optional_tcp_window_check.patch
+
+wget -P target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/709-Revert-net-mlx4_en-Update-reported-link-modes-for-1-.patch
+
 wget -P target/linux/generic/pending-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-5.15/901-usb-add-more-modem-support.patch
 
 rm -f ./target/linux/generic/pending-5.15/920-mangle_bootargs.patch
