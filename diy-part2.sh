@@ -327,6 +327,9 @@ popd
 # popd
 
 # 5.给kernel(5.15)添加bbrplus、nanqinlang等模块补丁
+wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/051-v5.18-bpf-Add-config-to-allow-loading-modules-with-BTF-mismatch.patch
+wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/791-v6.6-11-net-phy-motorcomm-Add-pad-drive-strength-cfg-support.patch
+
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-bbrplus.patch
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-nanqinlang.patch
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-tsunami.patch

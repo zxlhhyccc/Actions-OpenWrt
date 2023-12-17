@@ -42,6 +42,8 @@ wget -P ./target/linux/generic/hack-6.1/ https://github.com/zxlhhyccc/acc-imq-bb
 rm -f ./target/linux/generic/config-6.1
 wget -P ./target/linux/generic/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/config-6.1
 
+wget -P ./target/linux/generic/backport-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-6.1/791-v6.6-11-net-phy-motorcomm-Add-pad-drive-strength-cfg-support.patch
+
 wget -P ./target/linux/generic/backport-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-6.1/999-1-convert_official_linux-6.1.x_src_to_bbrplus.patch
 
 wget -P ./target/linux/generic/backport-6.1/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-6.1/999-2-convert_official_linux-6.1.x_src_to_nanqinlang.patch
