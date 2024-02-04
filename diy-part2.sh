@@ -638,15 +638,17 @@ wget -P ./target/linux/ramips/patches-5.4/ https://raw.githubusercontent.com/pro
 # pushd package/openwrt-package/lean
 # unzip luci-app-flowoffload-master-NAT.zip
 # popd
-# 38、打开wifi并设置区域为US
-# wget -P ./package/kernel/mac80211/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/001-wifi-auto.patch
-# pushd package/kernel/mac80211
-# patch -p1 < 001-wifi-auto.patch
-# rm -f 001-wifi-auto.patch
-# popd
+
 # 38、mac80211：为ath / subsys：在2g上允许vht添加补丁
-wget -P ./package/kernel/mac80211/patches/subsys/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/subsys/600-mac80211-allow-vht-on-2g.patch
+wget -P ./package/kernel/mac80211/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/Makefile
+wget -P ./package/kernel/mac80211/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath.mk
+wget -P ./package/kernel/mac80211/patches/subsys/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/subsys/999-mac80211-allow-vht-on-2g.patch
 wget -P ./package/kernel/mac80211/patches/ath10k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath10k/983-ath10k-allow-vht-on-2g.patch
+wget -P ./package/kernel/mac80211/patches/ath11k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath11k/983-ath11k-Enable-VHT-for-2G.patch
+wget -P ./package/kernel/mac80211/patches/ath11k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath11k/984-ath11k-workaround-for-memory-leak.patch
+
+git clone --depth 1 https://github.com/zxlhhyccc/acc-imq-bbr.git && cp -rf ./acc-imq-bbr/master/package/kernel/mac80211/patches/nss ./package/kernel/mac80211/patches/ && cp -rf ./acc-imq-bbr/master/package/kernel/mac80211/patches/files ./package/kernel/mac80211/ && rm -rf acc-imq-bbr
+
 # 39、修正友善补丁(R2S/R4S)
 rm -rf package/boot/uboot-rockchip
 svn export https://github.com/immortalwrt/immortalwrt/trunk/package/boot/uboot-rockchip package/boot/uboot-rockchip
