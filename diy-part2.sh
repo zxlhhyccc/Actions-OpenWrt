@@ -505,10 +505,10 @@ svn export https://github.com/openwrt/packages/branches/openwrt-19.07/libs/fcgi 
 # svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libdouble-conversion feeds/packages/libs/libdouble-conversion
 
 # 25、添加dnamasq的IPV6展示
-wget -P ./package/network/services/dnsmasq/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/dnsmasq/patches/0001-dnsmasq-add-filteraaaa-https-unknown-option.patch
+wget -P ./package/network/services/dnsmasq/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/dnsmasq/patches/0001-dnsmasq-add-filteraaaa-https-unknown-option-remove-mini-ttl.patch
 pushd package/network/services/dnsmasq
-patch -p1 < 0001-dnsmasq-add-filteraaaa-https-unknown-option.patch
-rm -f 0001-dnsmasq-add-filteraaaa-https-unknown-option.patch
+patch -p1 < 0001-dnsmasq-add-filteraaaa-https-unknown-option-remove-mini-ttl.patch
+rm -f 0001-dnsmasq-add-filteraaaa-https-unknown-option-remove-mini-ttl.patch
 popd
 wget -P ./feeds/luci/modules/luci-mod-network/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/dnsmasq/patches/0001-luci-add-filteraaaa-https-unknown-option.patch
 pushd feeds/luci/modules/luci-mod-network
@@ -663,10 +663,23 @@ svn export https://github.com/immortalwrt/immortalwrt/trunk/package/boot/arm-tru
 wget -P ./package/utils/busybox/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
 
 # netifd：修复树外以太网驱动程序的自动协商
-wget -P ./package/network/config/netifd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/netifd/100-Revert-device-add-support-for-configuring-device-link-spe.patch
+# wget -P ./package/network/config/netifd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/netifd/100-Revert-device-add-support-for-configuring-device-link-spe.patch
+# pushd package/network/config/netifd
+# patch -p1 < 100-Revert-device-add-support-for-configuring-device-link-spe.patch
+# rm -f 100-Revert-device-add-support-for-configuring-device-link-spe.patch
+# popd
+# netifd：抑制 uci 错误日志
+wget -P ./package/network/config/netifd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/netifd/001-suppress-uci-error-log.patch
 pushd package/network/config/netifd
-patch -p1 < 100-Revert-device-add-support-for-configuring-device-link-spe.patch
-rm -f 001-100-Revert-device-add-support-for-configuring-device-link-spe.patch
+patch -p1 < 001-suppress-uci-error-log.patch
+rm -f 001-suppress-uci-error-log.patch
+popd
+
+# odhcp6c：支持dhcpv6热插拔
+wget -P ./package/network/ipv6/odhcp6c/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/ipv6/odhcp6c/001-support-dhcpv6-hotplug.patch
+pushd package/network/config/netifd
+patch -p1 < 001-support-dhcpv6-hotplug.patch
+rm -f 001-support-dhcpv6-hotplug.patch
 popd
 
 # 42、mvebu 添加cpu显示
