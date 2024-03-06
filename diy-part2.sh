@@ -202,6 +202,11 @@ wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/001-add-uc
 patch -p1 < 001-add-uclibc++.patch
 rm -f 001-add-uclibc++.patch
 
+# 添加 immortalwrt 软件包的下载地址
+wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/001-add-immortalwrt-download.patch
+patch -p1 < 001-add-immortalwrt-download.patch
+rm -f 001-add-immortalwrt-download.patch
+
 # 添加gcc7.5、gcc9.3编译支持
 # wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/001-rules.patch
 # patch -p1 < 001-rules.patch
