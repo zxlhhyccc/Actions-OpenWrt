@@ -40,6 +40,13 @@ wget -P package/kernel/linux/modules/ https://github.com/zxlhhyccc/acc-imq-bbr/r
 rm -rf package/kernel/mac80211
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/kernel/mac80211 package/kernel/mac80211
 
+# cryptodev-linux：为 QCA NSS 添加挂钩
+wget -P package/kernel/cryptodev-linux/ https://github.com/zxlhhyccc/acc-imq-bbr/blob/master/master/package/kernel/cryptodev-linux/001-add-hooks-for-QCA-NSS.patch
+pushd package/kernel/cryptodev-linux
+patch -p1 < 001-add-hooks-for-QCA-NSS.patch
+rm -f 001-add-hooks-for-QCA-NSS.patch
+popd
+
 # 添加NSS
 rm -rf package/kernel/qca-nss-dp
 rm -rf package/kernel/qca-ssdk
