@@ -41,3 +41,8 @@ Build OpenWrt using GitHub Actions
 ## License
 
 [MIT](https://github.com/P3TERX/Actions-OpenWrt/blob/main/LICENSE) © P3TERX
+
+要解压tar.zst文件，可以使用7-Zip、zstd命令行工具或tar命令。以下是具体操作：
+使用7-Zip。在电脑上右击tar.zst文件，依次点击“7-Zip”和“提取到当前位置”进行解压。12
+使用zstd命令行工具。在命令行中输入“zstd -d file.zst”，其中file.zst是要解压的文件名。执行此命令后，文件将被解压到当前目录下。1
+使用tar命令。可以使用tar命令配合zstd来解压tar.zst文件，输入“tar -I zstd -xvf file.tar.zst”，其中file.tar.zst是要解压的文件名。3

@@ -29,10 +29,7 @@ svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/p
 rm -rf ./package/firmware/ipq-wifi
 svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/firmware/ipq-wifi package/firmware/ipq-wifi
 
-# kernel/linux替换修改后hwmon.mk、usb.mk
-rm -f ./package/kernel/linux/modules/hwmon.mk
-wget -P package/kernel/linux/modules/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/kernel/linux/modules/hwmon.mk
-
+# kernel/linux替换修改后usb.mk
 rm -f ./package/kernel/linux/modules/usb.mk
 wget -P package/kernel/linux/modules/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/kernel/linux/modules/usb.mk
 
