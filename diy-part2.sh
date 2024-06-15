@@ -71,11 +71,11 @@ cp -rf ./acc-imq-bbr/master/package/kernel/nat46 package/kernel/
 # popd
 
 # opkg 修复包冲突
-wget -P ./package/system/opkg/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/opkg/patches/001-fix-package-conflicts.patch
-pushd package/system/opkg
-patch -p1 < 001-fix-package-conflicts.patch
-rm -f 001-fix-package-conflicts.patch
-popd
+# wget -P ./package/system/opkg/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/opkg/patches/001-fix-package-conflicts.patch
+# pushd package/system/opkg
+# patch -p1 < 001-fix-package-conflicts.patch
+# rm -f 001-fix-package-conflicts.patch
+# popd
 
 # nftables、libnftnl添加fullcone表达式支持
 wget -P ./package/libs/libnftnl/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/libnftnl/patches/001-libnftnl-add-fullcone-expression-support.patch
