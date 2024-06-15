@@ -12,7 +12,7 @@
 
 # 添加5.10/5.15内核的QCA支持
 rm -rf target/linux/qualcommax
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/target/linux/qualcommax target/linux/qualcommax
+cp -rf ./acc-imq-bbr/master/qca-5.10-5.15/target/linux/qualcommax ./target/linux/
 
 wget -P target/linux/ipq40xx/files/arch/arm/boot/dts/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-c526a.dts
 
@@ -21,13 +21,13 @@ rm -rf package/boot/uboot-envtools/files/qualcommax_ipq807x
 wget -P package/boot/uboot-envtools/files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/boot/uboot-envtools/files/qualcommax_ipq807x
 
 # firmware添加ax6等文件
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/firmware/ath11k-board package/firmware/ath11k-board
+cp -rf ./acc-imq-bbr/master/qca-5.10-5.15/package/firmware/ath11k-board ./package/firmware/
 
 # rm -f ./package/firmware/ath11k-firmware/Makefile
 # wget -P package/firmware/ath11k-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/firmware/ath11k-firmware/Makefile
 
 rm -rf ./package/firmware/ipq-wifi
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/firmware/ipq-wifi package/firmware/ipq-wifi
+cp -rf ./acc-imq-bbr/master/qca-5.10-5.15/package/firmware/ipq-wifi ./package/firmware/
 
 # kernel/linux替换修改后usb.mk
 rm -f ./package/kernel/linux/modules/usb.mk
@@ -35,10 +35,10 @@ wget -P package/kernel/linux/modules/ https://github.com/zxlhhyccc/acc-imq-bbr/r
 
 # MAC80211添加ipq807x支持
 rm -rf package/kernel/mac80211
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/qca-5.10-5.15/package/kernel/mac80211 package/kernel/mac80211
+cp -rf ./acc-imq-bbr/master/qca-5.10-5.15/package/kernel/mac80211 ./package/kernel/
 
 # cryptodev-linux：为 QCA NSS 添加挂钩
-wget -P package/kernel/cryptodev-linux/ https://github.com/zxlhhyccc/acc-imq-bbr/blob/master/master/package/kernel/cryptodev-linux/001-add-hooks-for-QCA-NSS.patch
+wget -P package/kernel/cryptodev-linux/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/cryptodev-linux/001-add-hooks-for-QCA-NSS.patch
 pushd package/kernel/cryptodev-linux
 patch -p1 < 001-add-hooks-for-QCA-NSS.patch
 rm -f 001-add-hooks-for-QCA-NSS.patch
@@ -48,4 +48,5 @@ popd
 rm -rf package/kernel/qca-nss-dp
 rm -rf package/kernel/qca-ssdk
 
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/nss-packages-12.4r1 package/nss-packages-12.4r1
+cp -rf ./acc-imq-bbr/master/package/NSS-12.5-K6.x ./package/
+

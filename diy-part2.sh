@@ -11,7 +11,10 @@
 #
 
 # odhcpd：符合 RFC9096并允许配置首选有效生命周期的上限。
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/odhcpd/patches package/network/services/odhcpd/patches
+cp -rf ./acc-imq-bbr/master/package/network/services/odhcpd/patches ./package/network/services/odhcpd/
+
+# add "shellsync" package
+cp -rf ./acc-imq-bbr/master/package/network/services/shellsync ./package/network/services/
 
 # luci-app-ddns：修复启动/停止服务
 wget -P ./feeds/luci/applications/luci-app-ddns/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-ddns/001-fix-start-stop-service.patch
@@ -58,7 +61,7 @@ rm -f 0001-enable-wed-wireless-acc-filogic-target.patch
 popd
 # nat46：QCA NSS ECM 补丁
 rm -rf package/kernel/nat46
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/kernel/nat46 package/kernel/nat46
+cp -rf ./acc-imq-bbr/master/package/kernel/nat46 package/kernel/
 
 # procd 修复服务参数处理
 # wget -P ./package/system/procd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/system/procd/patches/001-fix-service-arguments-processing.patch
@@ -93,6 +96,17 @@ pushd package/network/config/firewall4
 patch -p1 < 001-firewall4-add-support-for-fullcone-nat.patch
 rm -f 001-firewall4-add-support-for-fullcone-nat.patch
 popd
+
+# 添加、修复iwinfo适配K2P闭源驱动补丁
+wget -P ./package/network/utils/iwinfo/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/utils/iwinfo/patches/101-ralink-k2p.patch
+pushd package/network/utils/iwinfo
+patch -p1 < 101-ralink-k2p.patch
+rm -f 101-ralink-k2p.patch
+popd
+wget -P ./package/network/utils/iwinfo/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/utils/iwinfo/patches/0001-nl80211-add-support-for-QAM-256-in-2.4GHz-802.11n.patch
+
+wget -P ./package/kernel/ath10k-ct/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/ath10k-ct/patches/999-003-ath10k-add-nss-support.patch
+
 # softethervpn添加150-disable-restriction.patch
 wget -P ./feeds/packages/net/softethervpn/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/softethervpn/patches/150-disable-restriction.patch
 
@@ -253,11 +267,11 @@ popd
 # rm -f 001-Makefile-force-overwrite.patch
 # popd
 
-wget -P ./feeds/packages/libs/libsodium/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/libs/libsodium/001-latest.patch
-pushd feeds/packages/libs/libsodium
-patch -p1 < 001-latest.patch
-rm -f 001-latest.patch
-popd
+# wget -P ./feeds/packages/libs/libsodium/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/libs/libsodium/001-latest.patch
+# pushd feeds/packages/libs/libsodium
+# patch -p1 < 001-latest.patch
+# rm -f 001-latest.patch
+# popd
 # luci-app-nft-qos: simple
 # wget -P ./feeds/luci/applications/luci-app-nft-qos/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-nft-qos/001-luci-app-nft-qos-simple.patch
 # pushd feeds/luci/applications/luci-app-nft-qos
@@ -270,17 +284,12 @@ popd
 # patch -p1 < 001-interface-family-dual-stack-ipv4oripv6-support.patch
 # rm -f 001-interface-family-dual-stack-ipv4oripv6-support.patch
 # popd
-wget -P ./feeds/luci/applications/luci-app-mwan3/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-mwan3/001-fix-luci-mwan3.patch
-pushd feeds/luci/applications/luci-app-mwan3
-patch -p1 < 001-fix-luci-mwan3.patch
-rm -f 001-fix-luci-mwan3.patch
-popd
-# 添加、修复iwinfo适配K2P闭源驱动补丁
-wget -P ./package/network/utils/iwinfo/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/utils/iwinfo/patches/101-ralink-k2p.patch
-pushd package/network/utils/iwinfo
-patch -p1 < 101-ralink-k2p.patch
-rm -f 101-ralink-k2p.patch
-popd
+# wget -P ./feeds/luci/applications/luci-app-mwan3/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-mwan3/001-fix-luci-mwan3.patch
+# pushd feeds/luci/applications/luci-app-mwan3
+# patch -p1 < 001-fix-luci-mwan3.patch
+# rm -f 001-fix-luci-mwan3.patch
+# popd
+
 # 添加mbedtls:AES-and-GCM-with-ARMv8-Crypto-Extensions.patch补丁
 wget -P ./package/libs/mbedtls/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/libs/mbedtls/001-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
 pushd package/libs/mbedtls
@@ -333,7 +342,7 @@ popd
 
 # 5.给kernel(5.15)添加bbrplus、nanqinlang等模块补丁
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/051-v5.18-bpf-Add-config-to-allow-loading-modules-with-BTF-mismatch.patch
-wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/791-v6.6-11-net-phy-motorcomm-Add-pad-drive-strength-cfg-support.patch
+#wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/791-v6.6-11-net-phy-motorcomm-Add-pad-drive-strength-cfg-support.patch
 
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-bbrplus.patch
 wget -P ./target/linux/generic/backport-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/backport-5.15/999-net-tcp-add-nanqinlang.patch
@@ -388,8 +397,6 @@ pushd package/network/utils/iproute2
 patch -p1 < 001-add-NSS-QDISC-support.patch
 rm -f 001-add-NSS-QDISC-support.patch
 popd
-
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/shellsync package/network/services/shellsync
 
 wget -P ./package/network/services/ppp/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/ppp/patches/001-ppp-add-shellsync-support.patch
 pushd package/network/services/ppp
@@ -494,9 +501,9 @@ popd
 wget -P package/firmware/wireless-regdb/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/wireless-regdb/patches/600-custom-change-txpower-and-dfs.patch
 
 # 21、添加upx压缩源码
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/ucl tools/ucl
+cp -rf ./acc-imq-bbr/master/tools/ucl ./tools/
 
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/upx tools/upx
+cp -rf ./acc-imq-bbr/master/tools/upx ./tools/
 
 rm -f ./tools/Makefile
 wget -P ./tools/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/tools/Makefile
@@ -506,11 +513,13 @@ wget -P ./tools/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/tool
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 24、添加feeds里的依赖包
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
+cp -rf ./acc-imq-bbr/master/feeds/packages/lang/python/Flask-RESTful ./feeds/packages/lang/python/
 
-svn export https://github.com/openwrt/packages/branches/openwrt-19.07/libs/opencv feeds/packages/libs/opencv
-
-svn export https://github.com/openwrt/packages/branches/openwrt-19.07/libs/fcgi feeds/packages/libs/fcgi
+git clone -b openwrt-19.07 --depth 1 https://github.com/openwrt/packages.git 
+cp -rf ./packages/lang/python/Flask-RESTful ./feeds/packages/lang/python/
+cp -rf ./packages/libs/opencv ./feeds/packages/libs/
+cp -rf ./packages/libs/fcgi ./feeds/packages/libs/
+rm -rf packages
 
 # svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libdouble-conversion feeds/packages/libs/libdouble-conversion
 
@@ -525,13 +534,13 @@ pushd feeds/luci/modules/luci-mod-network
 patch -p1 < 0001-luci-add-filteraaaa-https-unknown-option.patch
 rm -f 0001-luci-add-filteraaaa-https-unknown-option.patch
 popd
-wget -P ./package/network/services/dnsmasq/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/dnsmasq/patches/0001-dnsmasq-conf.patch
-pushd package/network/services/dnsmasq
-patch -p1 < 0001-dnsmasq-conf.patch
-rm -f 0001-dnsmasq-conf.patch
-popd
-wget -P ./package/network/services/dnsmasq/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/dnsmasq/patches/910-mini-ttl.patch
-wget -P ./package/network/services/dnsmasq/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/dnsmasq/patches/911-dnsmasq-filteraaaa-https-unknown.patch
+# wget -P ./package/network/services/dnsmasq/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/dnsmasq/patches/0001-dnsmasq-conf.patch
+# pushd package/network/services/dnsmasq
+# patch -p1 < 0001-dnsmasq-conf.patch
+# rm -f 0001-dnsmasq-conf.patch
+# popd
+# wget -P ./package/network/services/dnsmasq/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/dnsmasq/patches/910-mini-ttl.patch
+# wget -P ./package/network/services/dnsmasq/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/dnsmasq/patches/911-dnsmasq-filteraaaa-https-unknown.patch
 # 26、添加dnamasq的多核心dns负载均衡解析
 # wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/001-auto-multiple-service-instances.patch
 # pushd package/network/services/dnsmasq
@@ -554,7 +563,7 @@ popd
 # patch -p1 < overclock-mt7621.patch
 # rm -f overclock-mt7621.patch
 # popd
-wget -P ./target/linux/ramips/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches-5.15/999-crypto-eip93-fix.patch
+# wget -P ./target/linux/ramips/patches-5.15/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/ramips/patches-5.15/999-crypto-eip93-fix.patch
 # rtl8812au-ac：更新无线5.8
 # svn co https://github.com/project-openwrt/openwrt/branches/master/package/kernel/rtl8812au-ac package/kernel/rtl8812au-ac
 # 28、修改transmission依赖
@@ -569,7 +578,7 @@ patch -p1 < 001-luci-app-transmission-with-dbengine.patch
 rm -f 001-luci-app-transmission-with-dbengine.patch
 popd
 # 29、修改sqm-scripts汉化help
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/sqm-scripts/patches feeds/packages/net/sqm-scripts/patches
+cp -rf ./acc-imq-bbr/master/feeds/packages/net/sqm-scripts/patches ./feeds/packages/net/sqm-scripts/
 
 # 30、添加netdata显示中文日期补丁
 wget -P ./feeds/packages/admin/netdata/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/admin/netdata/patches/006-netdata.patch
@@ -611,7 +620,8 @@ popd
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-package.mk
 # wget -P ./feeds/packages/lang/python/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/lang/python/python2-version.mk
 # 34、添加aria2补丁和修复 ujail mount
-svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/aria2/patches feeds/packages/net/aria2/patches
+cp -rf ./acc-imq-bbr/master/feeds/packages/net/aria2/patches ./feeds/packages/net/aria2/
+
 wget -P ./feeds/packages/net/aria2/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/aria2/001-fix-ujail-mount.patch
 pushd feeds/packages/net/aria2
 patch -p1 < 001-fix-ujail-mount.patch
@@ -626,23 +636,41 @@ rm -f 001-fix-automount.patch
 popd
 
 # 35、删除feeds里的与自有包冲突插件
-rm -rf ./feeds/packages/net/adguardhome
-rm -rf ./feeds/packages/net/frp
-rm -rf ./feeds/packages/net/kcptun
-rm -rf ./feeds/packages/net/smartdns
-rm -rf ./feeds/packages/multimedia/tvheadend
-rm -rf ./feeds/packages/utils/syncthing
-rm -rf ./feeds/packages/utils/coremark
-rm -rf ./feeds/packages/libs/libtorrent-rasterbar
-rm -rf ./feeds/luci/applications/luci-app-frpc
-rm -rf ./feeds/luci/applications/luci-app-frps
-rm -rf ./feeds/luci/applications/luci-app-smartdns
-rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
-rm -rf ./package/openwrt-package/lean/nft-qos
-rm -rf ./feeds/packages/net/xray-core
+pushd feeds/packages/net
+rm -rf adguardhome frp kcptun smartdns nft-qos xray-core v2ray-geodata v2raya dnsproxy trojan-go cloudflared cloudreve vsftpd alist dnslookup sing-box port-mirroring proxychains-ng rclone rclone-ng rclone-webui-react speedtest-go tailscale 
+popd
+
+pushd feeds/packages/utils
+rm -rf syncthing coremark fx mhz yq parted
+popd
+
+pushd feeds/packages/multimedia
+rm -rf yt-dlp tvheadend
+popd
+
+pushd feeds/packages/libs
+rm -rf libtorrent-rasterbar libdvbcsa libidn2 libpciaccess librouteros msgpack-c 
+popd
+
+pushd feeds/luci/contrib/package
+rm -rf csstidy
+popd
+
+pushd feeds/luci/collections
+rm -rf luci-lib-docker
+popd
+
+pushd feeds/luci/applications
+rm -rf luci-app-frpc luci-app-frps luci-app-smartdns luci-app-nft-qos luci-app-v2raya luci-app-alist luci-app-cloudflared luci-app-cloudflared luci-app-dockerman luci-app-filebrowser
+popd
+
+pushd feeds/luci/protocols
+rm -rf luci-proto-batman-adv
+popd
+
 # 37、ramips: mt7621 OC 1000 MHz
-rm -f ./target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
-wget -P ./target/linux/ramips/patches-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
+# rm -f ./target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
+# wget -P ./target/linux/ramips/patches-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch
 # 替换acc
 # rm -rf ./package/openwrt-package/lean/luci-app-flowoffload-master
 # pushd package/openwrt-package/lean
@@ -650,24 +678,18 @@ wget -P ./target/linux/ramips/patches-5.4/ https://raw.githubusercontent.com/pro
 # popd
 
 # 38、mac80211：为ath / subsys：在2g上允许vht添加补丁
-wget -P ./package/kernel/mac80211/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/Makefile
-wget -P ./package/kernel/mac80211/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath.mk
-wget -P ./package/kernel/mac80211/patches/subsys/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/subsys/999-mac80211-allow-vht-on-2g.patch
-wget -P ./package/kernel/mac80211/patches/ath10k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath10k/983-ath10k-allow-vht-on-2g.patch
-wget -P ./package/kernel/mac80211/patches/ath11k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath11k/983-ath11k-Enable-VHT-for-2G.patch
-wget -P ./package/kernel/mac80211/patches/ath11k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath11k/984-ath11k-workaround-for-memory-leak.patch
+# wget -P ./package/kernel/mac80211/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/Makefile
+# wget -P ./package/kernel/mac80211/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath.mk
+# wget -P ./package/kernel/mac80211/patches/subsys/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/subsys/999-mac80211-allow-vht-on-2g.patch
+# wget -P ./package/kernel/mac80211/patches/ath10k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath10k/983-ath10k-allow-vht-on-2g.patch
+# wget -P ./package/kernel/mac80211/patches/ath11k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath11k/983-ath11k-Enable-VHT-for-2G.patch
+# wget -P ./package/kernel/mac80211/patches/ath11k/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/mac80211/patches/ath11k/984-ath11k-workaround-for-memory-leak.patch
 
-git clone --depth 1 https://github.com/zxlhhyccc/acc-imq-bbr.git && cp -rf ./acc-imq-bbr/master/package/kernel/mac80211/patches/nss ./package/kernel/mac80211/patches/ && cp -rf ./acc-imq-bbr/master/package/kernel/mac80211/patches/files ./package/kernel/mac80211/ && rm -rf acc-imq-bbr
+rm -rf package/kernel/mac80211
+cp -rf ./acc-imq-bbr/master/package/kernel/mac80211 ./package/kernel/
 
 # 39、修正友善补丁(R2S/R4S)
-rm -rf package/boot/uboot-rockchip
-svn export https://github.com/immortalwrt/immortalwrt/trunk/package/boot/uboot-rockchip package/boot/uboot-rockchip
-
-rm -rf target/linux/rockchip
-svn export https://github.com/immortalwrt/immortalwrt/trunk/target/linux/rockchip target/linux/rockchip
-
-rm -rf package/boot/arm-trusted-firmware-rockchip
-svn export https://github.com/immortalwrt/immortalwrt/trunk/package/boot/arm-trusted-firmware-rockchip package/boot/arm-trusted-firmware-rockchip
+rm -rf package/boot/rkbin uboot-rockchip package/boot/arm-trusted-firmware-rockchip target/linux/rockchip && git clone --depth 1 https://github.com/immortalwrt/immortalwrt.git && cp -rf ./immortalwrt/package/boot/arm-trusted-firmware-rockchip ./package/boot/ && cp -rf ./immortalwrt/package/boot/uboot-rockchip ./package/boot/ && cp -rf ./immortalwrt/target/linux/rockchip ./target/linux/ && rm -rf immortalwrt
 
 # 40、busybox：为docker top命令添加ps -ef选项的补丁
 wget -P ./package/utils/busybox/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
@@ -679,15 +701,15 @@ wget -P ./package/utils/busybox/patches/ https://github.com/zxlhhyccc/acc-imq-bb
 # rm -f 100-Revert-device-add-support-for-configuring-device-link-spe.patch
 # popd
 # netifd：抑制 uci 错误日志
-wget -P ./package/network/config/netifd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/netifd/001-suppress-uci-error-log.patch
-pushd package/network/config/netifd
-patch -p1 < 001-suppress-uci-error-log.patch
-rm -f 001-suppress-uci-error-log.patch
-popd
+# wget -P ./package/network/config/netifd/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/netifd/001-suppress-uci-error-log.patch
+# pushd package/network/config/netifd
+# patch -p1 < 001-suppress-uci-error-log.patch
+# rm -f 001-suppress-uci-error-log.patch
+# popd
 
 # odhcp6c：支持dhcpv6热插拔
 wget -P ./package/network/ipv6/odhcp6c/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/ipv6/odhcp6c/001-support-dhcpv6-hotplug.patch
-pushd package/network/config/netifd
+pushd package/network/ipv6/odhcp6c
 patch -p1 < 001-support-dhcpv6-hotplug.patch
 rm -f 001-support-dhcpv6-hotplug.patch
 popd
