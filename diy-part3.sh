@@ -10,7 +10,7 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
-# 添加5.10/5.15内核的QCA支持
+# 添加内核的 NSS 支持
 rm -rf target/linux/qualcommax
 cp -rf ./acc-imq-bbr/master/qca-5.10-5.15/target/linux/qualcommax ./target/linux/
 
@@ -43,6 +43,15 @@ pushd package/kernel/cryptodev-linux
 patch -p1 < 001-add-hooks-for-QCA-NSS.patch
 rm -f 001-add-hooks-for-QCA-NSS.patch
 popd
+
+# qualcommax：为 IPQ 设置添加新菜单项
+# 选项包括：
+# 1) 启用或禁用构建 `skbuff_recycle`
+# 2）启用或禁用抢占
+# 3）选择IPQ内存配置文件
+wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/001-qualcommax-add-new-menu-item-for-IPQ-settings.patch
+patch -p1 < 001-qualcommax-add-new-menu-item-for-IPQ-settings.patch
+rm -f 001-qualcommax-add-new-menu-item-for-IPQ-settings.patch
 
 # 添加NSS
 rm -rf package/kernel/qca-nss-dp

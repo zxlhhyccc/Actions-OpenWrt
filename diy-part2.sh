@@ -105,7 +105,9 @@ rm -f 101-ralink-k2p.patch
 popd
 wget -P ./package/network/utils/iwinfo/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/utils/iwinfo/patches/0001-nl80211-add-support-for-QAM-256-in-2.4GHz-802.11n.patch
 
-wget -P ./package/kernel/ath10k-ct/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/ath10k-ct/patches/999-003-ath10k-add-nss-support.patch
+wget -P ./package/kernel/ath10k-ct/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/ath10k-ct/patches/999-001-fix-ath10k_update_vif_offload.patch
+
+wget -P ./package/kernel/ath10k-ct/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/kernel/ath10k-ct/patches/999-800-ath10k-Add-threaded-napi.patch
 
 # softethervpn添加150-disable-restriction.patch
 wget -P ./feeds/packages/net/softethervpn/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/softethervpn/patches/150-disable-restriction.patch
@@ -203,6 +205,8 @@ popd
 #popd
 
 wget -P ./package/network/services/hostapd/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/024-fix-IEEE-802.11-deauthenticated-due-to-local-deauth-.patch
+# hostapd：处理来自驱动程序的更新的 MU-EDCA 参数
+wget -P ./package/network/services/hostapd/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/780-hostapd-update-muedca-params.patch
 
 # nginx添加njs模块支持
 # wget -P ./feeds/packages/net/nginx/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/nginx/001-nginx-add-njs-module.patch
