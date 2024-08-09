@@ -401,12 +401,10 @@ patch -p1 < 001-ppp-add-shellsync-support.patch
 rm -f 001-ppp-add-shellsync-support.patch
 popd
 # MWAN3 通过 nping 修复跟踪、修复 mwan3_delete_iface_rules 中的 awk 表达式
-wget -P ./feeds/packages/net/mwan3/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/mwan3/23798-mwan3-fix-awk.patch
 wget -P ./feeds/packages/net/mwan3/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/mwan3/23758-Fix-tracking-by-nping.patch
 pushd feeds/packages/net/mwan3
-patch -p1 < 23798-mwan3-fix-awk.patch
 patch -p1 < 23758-Fix-tracking-by-nping.patch
-rm -f 23798-mwan3-fix-awk.patch 23758-Fix-tracking-by-nping.patch
+rm -f 23758-Fix-tracking-by-nping.patch
 popd
 
 # 9、luci-app-aria2开放路径修复
