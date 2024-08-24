@@ -133,11 +133,11 @@ popd
 # x86使用 BCM578xx绕过 HH3K 高达 2.5Gbps、kernle-5.15启用Straight-Line-Speculation（SLS）
 # x86：从 Cloudflare 和 CRYPTO_XTS_AES_SYNC 添加 net.ipv4.tcp_collapse_max_bytes 选项
 # x86(4.14-5.15)：改进英特尔第 11/12 代 GPU i915 和 GVT-g 功能
-wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/patches/001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
-pushd package/firmware/linux-firmware
-patch -p1 < 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
-rm -f 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
-popd
+# wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/patches/001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
+# pushd package/firmware/linux-firmware
+# patch -p1 < 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
+# rm -f 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
+# popd
 
 # 以下注释为相关功能优化情况
 # svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/target/linux/x86/files target/linux/x86/files
