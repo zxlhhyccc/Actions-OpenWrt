@@ -640,7 +640,7 @@ rm -rf syncthing coremark fx mhz yq parted
 popd
 
 pushd feeds/packages/multimedia
-rm -rf yt-dlp tvheadend
+rm -rf yt-dlp
 popd
 
 pushd feeds/packages/libs
