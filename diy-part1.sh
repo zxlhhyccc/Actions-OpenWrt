@@ -62,6 +62,13 @@ patch -p1 < 001-mac80211-add-vendor_vht.patch
 rm -f 001-mac80211-add-vendor_vht.patch
 popd
 
+# 修改上移下移翻译
+sed -i -e 's/value="<%:Up%>"/value="<%:Move up%>"/g' \
+	-e 's/title="<%:Move up%>"/title="<%:Up%>"/g' \
+	-e 's/value="<%:Down%>"/value="<%:Move down%>"/g' \
+	-e 's/title="<%:Move down%>"/title="<%:Down%>"/g' \
+	feeds/luci/modules/luci-compat/luasrc/view/cbi/tblsection.htm
+
 # musl：向后兼容 64 位定义
 # wget -P ./ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/toolchain/musl/12667-backward-compatibility-with-64-bit-definitions.patch
 # patch -p1 < 12667-backward-compatibility-with-64-bit-definitions.patch
