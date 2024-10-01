@@ -206,7 +206,7 @@ popd
 
 wget -P ./package/network/services/hostapd/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/024-fix-IEEE-802.11-deauthenticated-due-to-local-deauth-.patch
 # hostapd：处理来自驱动程序的更新的 MU-EDCA 参数
-wget -P ./package/network/services/hostapd/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/780-hostapd-update-muedca-params.patch
+wget -P ./package/network/services/hostapd/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/services/hostapd/900-hostapd-update-muedca-params.patch
 
 # nginx添加njs模块支持
 # wget -P ./feeds/packages/net/nginx/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/nginx/001-nginx-add-njs-module.patch

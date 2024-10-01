@@ -5,7 +5,7 @@ git clone -b luci-smartdns-dev --depth 1 https://github.com/xiaorouji/openwrt-pa
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash.git && cp -rf ./OpenClash/luci-app-openclash ./ && rm -rf OpenClash
 
 # 提取 luci-app-homeproxy
-rm -rf luci-app-homeproxy && git clone --depth 1 https://github.com/immortalwrt/luci.git && cp -rf ./luci/applications/luci-app-homeproxy ./ && rm -rf luci && sed -i 's#include ../../luci.mk#include $(TOPDIR)/feeds/luci/luci.mk#g' luci-app-homeproxy/Makefile
+rm -rf luci-app-homeproxy luci-app-3ginfo-lite luci-app-sms-tool-js && git clone --depth 1 https://github.com/immortalwrt/luci.git && cp -rf ./luci/applications/luci-app-homeproxy ./  && cp -rf ./luci/applications/luci-app-3ginfo-lite ./ && cp -rf ./luci/applications/luci-app-sms-tool-js ./ && rm -rf luci && sed -i 's#include ../../luci.mk#include $(TOPDIR)/feeds/luci/luci.mk#g' luci-app-homeproxy/Makefile && sed -i 's#include ../../luci.mk#include $(TOPDIR)/feeds/luci/luci.mk#g' luci-app-3ginfo-lite/Makefile && sed -i 's#include ../../luci.mk#include $(TOPDIR)/feeds/luci/luci.mk#g' luci-app-sms-tool-js/Makefile
 
 # 提取 rockchip
 rm -rf package/boot/rkbin package/boot/uboot-rockchip package/boot/arm-trusted-firmware-rockchip target/linux/rockchip && git clone --depth 1 https://github.com/immortalwrt/immortalwrt.git && cp -rf ./immortalwrt/package/boot/arm-trusted-firmware-rockchip ./package/boot/ && cp -rf ./immortalwrt/package/boot/uboot-rockchip ./package/boot/ && cp -rf ./immortalwrt/target/linux/rockchip ./target/linux/ && rm -rf immortalwrt
