@@ -43,5 +43,7 @@ wget -P ./target/linux/generic/hack-6.6/ https://github.com/zxlhhyccc/acc-imq-bb
 
 wget -P ./target/linux/generic/pending-6.6/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-6.6/613-netfilter_optional_tcp_window_check.patch
 
+wget -P ./target/linux/generic/pending-6.6/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/pending-6.6/901-usb-add-more-modem-support.patch
+
 rm -rf acc-imq-bbr
 
