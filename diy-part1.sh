@@ -56,10 +56,10 @@ rm -f 001-change-to-separate-menu.patch
 popd
 
 # 将mac80211 的 wifi 脚本移动到 wifi-scripts
-wget -P ./package/network/config/wifi-scripts/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/wifi-scripts/patches/001-mac80211-add-vendor_vht.patch
+wget -P ./package/network/config/wifi-scripts/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/wifi-scripts/patches/001-add-vendor_vht.patch
 pushd package/network/config/wifi-scripts
-patch -p1 < 001-mac80211-add-vendor_vht.patch
-rm -f 001-mac80211-add-vendor_vht.patch
+patch -p1 < 001-add-vendor_vht.patch
+rm -f 001-add-vendor_vht.patch
 popd
 
 # 修改上移下移翻译
