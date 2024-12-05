@@ -20,7 +20,7 @@ sed -i 's/256/1024/g' target/linux/x86/image/Makefile
 # squashfs：使mkfs具有多CPU加速和添加固件日期形式的编号
 # sed -i 's/processors 1/processors $(shell nproc)/g' include/image.mk
 # sed -i中特殊符号‘单引号的处理，sed中’'之间的’单引号特殊处理需要'"'"' (两个单引号中两个双引号再最里面是目标一个单引号)
-sed -i '35i BUILD_DATE_PREFIX := $(shell TZ=UTC-8 date +'"'"'%Y%m%d%H%M'"'"')' include/image.mk
+sed -i '41i BUILD_DATE_PREFIX := $(shell TZ=UTC-8 date +'"'"'%Y%m%d%H%M'"'"')' include/image.mk
 # 或所用以下命令添加（去掉前面的#）
 # sed -i '35i BUILD_DATE_PREFIX := $(shell TZ=UTC-8 date +'%Y%m%d%H%M')' include/image.mk
 # sed -i "s/%Y%m%d%H%M/\'%Y%m%d%H%M\'/g" include/image.mk

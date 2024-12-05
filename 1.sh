@@ -1,5 +1,5 @@
 # 提取 luci-app-passwall
-git clone -b luci-smartdns-dev --depth 1 https://github.com/xiaorouji/openwrt-passwall.git && cp -rf ./openwrt-passwall/luci-app-passwall ./ && rm -rf openwrt-passwall
+git clone -b main --depth 1 https://github.com/xiaorouji/openwrt-passwall.git && cp -rf ./openwrt-passwall/luci-app-passwall ./ && rm -rf openwrt-passwall
 
 # 提取 luci-app-openclash
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash.git && cp -rf ./OpenClash/luci-app-openclash ./ && rm -rf OpenClash
