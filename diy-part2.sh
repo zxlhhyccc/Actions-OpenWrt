@@ -90,6 +90,8 @@ patch -p1 < 0001-nftables-add-fullcone-expression-support.patch
 rm -f 0001-nftables-add-fullcone-expression-support.patch
 popd
 
+wget -P ./package/network/utils/nftables/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/utils/nftables/patches/001-drop-useless-file.patch
+
 # firewall4：在 ipv6 上禁用 fullcone nat
 wget -P ./package/network/config/firewall4/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/firewall4/patches/001-firewall4-add-support-for-fullcone-nat.patch
 pushd package/network/config/firewall4
