@@ -1,3 +1,10 @@
+# 生成 pot 文件命令
+./feeds/luci/build/i18n-scan.pl applications/luci-app-vlmcsd/ > applications/luci-app-vlmcsd/po/templates/vlmcsd.pot
+
+# 同步翻译字符串命令
+./feeds/luci/build/i18n-update.pl applications/luci-app-vlmcsd/po/
+
+
 # 提取 luci-app-passwall
 git clone -b main --depth 1 https://github.com/xiaorouji/openwrt-passwall.git && cp -rf ./openwrt-passwall/luci-app-passwall ./ && rm -rf openwrt-passwall
 

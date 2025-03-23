@@ -17,8 +17,8 @@ cp -rf ./acc-imq-bbr/master/qca-5.10-5.15/target/linux/qualcommax ./target/linux
 wget -P target/linux/ipq40xx/files/arch/arm/boot/dts/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca/target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-c526a.dts
 
 # boot-envtools添加ipq807x
-rm -rf package/boot/uboot-envtools/files/qualcommax_ipq807x
-wget -P package/boot/uboot-envtools/files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/boot/uboot-envtools/files/qualcommax_ipq807x
+rm -rf package/boot/uboot-tools/uboot-envtools/files/qualcommax_ipq807x
+wget -P package/boot/uboot-tools/uboot-envtools/files/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/qca-5.10-5.15/package/boot/uboot-tools/uboot-envtools/files/qualcommax_ipq807x
 
 # firmware添加ax6等文件
 cp -rf ./acc-imq-bbr/master/qca-5.10-5.15/package/firmware/ath11k-board ./package/firmware/
