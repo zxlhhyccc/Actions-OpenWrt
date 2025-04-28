@@ -23,15 +23,12 @@ patch -p1 < 001-fix-start-stop-service.patch
 rm -f 001-fix-start-stop-service.patch
 popd
 
-# Zerotier：修复错误
-# 1. 修复 config_path：创建并持久
-# 2. 修复 Secret：支持identity.secret 
-# 3. 修复 stop_instance：删除现有网络
-#wget -P ./feeds/packages/net/zerotier/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/zerotier/patches/0001-create-and-persist.patch
-#pushd feeds/packages/net/zerotier
-#patch -p1 < 0001-create-and-persist.patch
-#rm -f 0001-create-and-persist.patch
-#popd
+# Zerotier：添加 nat
+wget -P ./feeds/packages/net/zerotier/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/zerotier/patches/001-add-zerotier-nat.patch
+pushd feeds/packages/net/zerotier
+patch -p1 < 001-add-zerotier-nat.patch
+rm -f 001-add-zerotier-nat.patch
+popd
 
 # ddns 脚本：解决 ddns 启动问题
 wget -P ./feeds/packages/net/ddns-scripts/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/ddns-scripts/001-workaround-ddns-boot-issue.patch
