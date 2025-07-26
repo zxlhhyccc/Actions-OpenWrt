@@ -81,13 +81,7 @@ patch -p1 < 001-libnftnl-add-fullcone-expression-support.patch
 rm -f 001-libnftnl-add-fullcone-expression-support.patch
 popd
 
-wget -P ./package/network/utils/nftables/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/utils/nftables/patches/0001-nftables-add-fullcone-expression-support.patch
-pushd package/network/utils/nftables
-patch -p1 < 0001-nftables-add-fullcone-expression-support.patch
-rm -f 0001-nftables-add-fullcone-expression-support.patch
-popd
-
-wget -P ./package/network/utils/nftables/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/utils/nftables/patches/001-drop-useless-file.patch
+wget -P ./package/network/utils/nftables/patches/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/utils/nftables/patches/002-nftables-add-fullcone-expression-support.patch
 
 # firewall4：在 ipv6 上禁用 fullcone nat
 wget -P ./package/network/config/firewall4/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/network/config/firewall4/patches/001-firewall4-add-support-for-fullcone-nat.patch

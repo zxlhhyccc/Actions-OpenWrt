@@ -83,3 +83,6 @@ sed -i -e 's/value="<%:Up%>"/value="<%:Move up%>"/g' \
 # sed -i '180i set wireless.default_radio${devidx}.iw_qos_map_set=none' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 # sed -i '/set wireless.default_radio${devidx}.iw_qos_map_set=none/c\                        set wireless.default_radio${devidx}.iw_qos_map_set=none' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
+# autocore：避免覆盖 packet_steering 值
+rm -f target/linux/bcm4908/base-files/etc/uci-defaults/05_packet_steering target/linux/bcm53xx/base-files/etc/uci-defaults/05_packet_steering target/linux/ramips/mt7621/base-files/etc/uci-defaults/01_enable_packet_steering 
+
