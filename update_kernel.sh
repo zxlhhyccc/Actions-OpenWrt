@@ -155,9 +155,9 @@ if [ "$UPDATE" -eq 1 ]; then
 		CHECKSUM=$(./staging_dir/host/bin/mkhash sha256 dl/linux-$PATCHVER.tar.xz)
 	fi
 
-	if [ -f include/kernel-${KERNEL} ]; then
+	if [ -f target/linux/generic/kernel-${KERNEL} ]; then
 		# split version files
-		KERNEL_VERSION_FILE=include/kernel-${KERNEL}
+		KERNEL_VERSION_FILE=target/linux/generic/kernel-${KERNEL}
 	else
 		# unified version file
 		KERNEL_VERSION_FILE=include/kernel-version.mk
