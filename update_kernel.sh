@@ -1,5 +1,6 @@
 #!/bin/sh
 #
+# https://git.openwrt.org/?p=maintainer-tools.git;a=blob_plain;f=update_kernel.sh;h=a74f91d749e56767efede5dcd9bc2cd265171a47;hb=HEAD
 # update_kernel.sh: (c) 2017 Jonas Gorski <jonas.gorski@gmail.com>
 # Licensed under the terms of the GNU GPL License version 2
 
