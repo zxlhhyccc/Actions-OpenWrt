@@ -11,7 +11,7 @@
 #
 
 # odhcpd：符合 RFC9096并允许配置首选有效生命周期的上限。
-cp -rf ./acc-imq-bbr/master/package/network/services/odhcpd/patches ./package/network/services/odhcpd/
+# cp -rf ./acc-imq-bbr/master/package/network/services/odhcpd/patches ./package/network/services/odhcpd/
 
 # add "shellsync" package
 cp -rf ./acc-imq-bbr/master/package/network/services/shellsync ./package/network/services/
