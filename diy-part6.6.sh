@@ -33,7 +33,7 @@ wget -P ./target/linux/generic/hack-6.6/ https://github.com/zxlhhyccc/acc-imq-bb
 # 给kernel(6.6)添加 bcm fullconenat补丁
 wget -P ./target/linux/generic/hack-6.6/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-6.6/982-add-bcm-fullconenat-support.patch
 
-wget -P ./target/linux/generic/hack-6.6/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-6.6/983-bcm-fullconenat-mod-nft-masq
+wget -P ./target/linux/generic/hack-6.6/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-6.6/983-bcm-fullconenat-mod-nft-masq.patch
 
 wget -P ./target/linux/generic/hack-6.6/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/target/linux/generic/hack-6.6/992-add-ndo-do-ioctl.patch
 
