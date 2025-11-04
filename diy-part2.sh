@@ -132,6 +132,13 @@ popd
 # rm -f 001-x86-improve-Intel-gen-11-12th-GPU-i915-and-GVT-g-capability.patch
 # popd
 
+# add panthor firmware
+wget -P ./package/firmware/linux-firmware/ https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/package/firmware/linux-firmware/patches/001-add-panthor-firmware.patch‎
+pushd package/firmware/linux-firmware
+patch -p1 < 001-add-panthor-firmware.patch‎
+rm -f 001-add-panthor-firmware.patch‎
+popd
+
 # 以下注释为相关功能优化情况
 # svn export https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/target/linux/x86/files target/linux/x86/files
 
